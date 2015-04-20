@@ -35,6 +35,9 @@ html, body, #wrapper {
 	height: 100%;
 }
 body {
+	font-family: 'garamond', sans-serif;
+}
+body.homepage {
 	background: url('bg.jpg');
 	-webkit-background-size: cover;
 	-moz-background-size: cover;

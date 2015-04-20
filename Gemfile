@@ -11,6 +11,7 @@ gem 'pg'
 gem 'faker'
 gem 'fabrication'
 gem 'turbolinks'
+gem 'devise'
 
 group :development do
   gem 'thin'
