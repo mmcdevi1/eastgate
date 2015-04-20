@@ -43,6 +43,7 @@ body {
 	font-family: 'garamond', sans-serif;
 	color: #fff;
 	height: 100%;
+	font-size: 18px;
 }
 .center {
 	text-align: center;
@@ -60,6 +61,7 @@ header {
 	font-family:'AvenirLT-Medium';
 	ul li a {
 		color: #fff;
+		font-size: 14px;
 	}
 }
 .nav > li > a:hover, 
@@ -69,6 +71,10 @@ header {
 }
 a:hover {
 	color: #d8d8d8;
+}
+
+.navbar-brand {
+	height:60px;
 }
 
 
