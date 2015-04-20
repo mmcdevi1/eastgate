@@ -37,6 +37,14 @@ html, body, #wrapper {
 body {
 	font-family: 'garamond', sans-serif;
 }
+body.devise {
+	font-family: 'garamond', sans-serif;
+	background: url('bg.jpg');
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
 body.homepage {
 	background: url('bg.jpg');
 	-webkit-background-size: cover;
@@ -122,10 +130,27 @@ a:hover {
     height:100%;
     width:365px;
 }
-
-
-
-
+.form-control {
+  border:1px solid #cbd5dd;
+  box-shadow: none !important;
+  height: 45px;
+  border-radius: 2px;
+}
+.btn {
+	border-radius: 2px;
+	font-family: 'arial';
+}
+.panel-body {
+	padding:30px;
+}
+.btn-off-blue {
+	background: #578590;
+	color: #fff;
+}
+.btn-off-blue:hover {
+	background: #49717B;
+	color: #fff;
+}
 
 
 
