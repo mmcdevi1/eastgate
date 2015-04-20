@@ -15,3 +15,81 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@font-face{
+    font-family:'AvenirLT-Medium';
+    src:font-url('avenirlt-medium.eot');
+    src:font-url('avenirlt-medium.eot?#iefix') format("embedded-opentype"),
+        font-url('avenirlt-medium.woff') format("woff"),
+        font-url('avenirlt-medium.ttf') format("truetype")
+}
+@font-face{
+    font-family:'AvenirLT-Black';
+    src:font-url('avenirlt-black.eot');
+    src:font-url('avenirlt-black.eot?#iefix') format("embedded-opentype"),
+        font-url('avenirlt-black.woff') format("woff"),
+        font-url('avenirlt-black.ttf') format("truetype")
+}
+
+html, body, #wrapper {
+	height: 100%;
+}
+body {
+	background: url('bg.jpg');
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	font-family: 'garamond', sans-serif;
+	color: #fff;
+	height: 100%;
+}
+.center {
+	text-align: center;
+}
+.hero-wrapper {
+	position:absolute; 
+	bottom:100px; 
+	width:750px;
+
+	h1 {
+		font-size: 56px;
+	}
+}
+header {
+	font-family:'AvenirLT-Medium';
+	ul li a {
+		color: #fff;
+	}
+}
+.nav > li > a:hover, 
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: transparent;;
+}
+a:hover {
+	color: #d8d8d8;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
