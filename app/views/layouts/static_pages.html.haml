@@ -1,12 +1,11 @@
 !!!
 %html
-	%head
-		%meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-		%title Eastgate
-		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-		= javascript_include_tag 'application', 'data-turbolinks-track' => true
-		= csrf_meta_tags
+	= render 'layouts/head'
 	%body.homepage
-		= render 'shared/header'
-		.container
-			= yield
+		#wrapper
+			#page
+				#content_container
+					#content
+						.row
+							.col-sm-10.col-sm-offset-1
+								= yield

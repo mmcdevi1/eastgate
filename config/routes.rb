@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end  
 
   resources 'static_pages', only: [:index]
+  get '/test', to: 'static_pages#test'
   root to: 'static_pages#index'
 
 end
