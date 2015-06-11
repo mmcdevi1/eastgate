@@ -172,7 +172,14 @@ a:hover {
   color: #337ab7;
 }
 
-
+@media (max-width: 768px) {
+  .mb {
+    margin-bottom: 15px;
+  }
+  .mt {
+    margin-top: 15px;
+  }
+}
 
 
 
