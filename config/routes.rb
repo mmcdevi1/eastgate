@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-
-  # get '', to: 'hatches#index', constraints: {subdomain: 'hatch'}
-
-  constraints(subdomain: 'hatch') do
+  require 'subdomain'
+  constraints(Subdomain) do
     get '', to: 'hatches#index'
   end
 
