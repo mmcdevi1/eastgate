@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  get '', to: 'hatches#index', constraints: {subdomain: 'hatch'}
+  # get '', to: 'hatches#index', constraints: {subdomain: 'hatch'}
+
+  constraints(subdomain: 'hatch') do
+    get '', to: 'hatches#index'
+  end
 
   devise_for :users
   devise_scope :user do
