@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  require 'subdomain'
-  constraints(Subdomain) do
-    get '', to: 'hatches#index'
+
+  ##### Routes for Hatch ################W
+  scope :hatch do
+    get '/', to: 'hatches#index'
+
+    resources :properties
+
+    get '/assets', to: 'properties#index'
   end
 
   devise_for :users
@@ -13,6 +18,7 @@ Rails.application.routes.draw do
     get  '/logout', to: 'devise/sessions#destroy', as: :logout
   end
 
+  ##### Routes for Eastgate.io ##############
   resources 'static_pages', only: [:index]
   get '/test', to: 'static_pages#test'
   root to: 'static_pages#index'

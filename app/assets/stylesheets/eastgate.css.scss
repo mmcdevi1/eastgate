@@ -1,0 +1,137 @@
+body.homepage {
+  background: url('bg.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: arial, sans-serif;
+  color: #fff;
+  height: 100%;
+  font-size: 12px;
+}
+.center {
+  text-align: center;
+}
+.hero-wrapper {
+  position:absolute;
+  bottom:100px;
+  width:750px;
+
+  h1 {
+    font-size: 56px;
+  }
+}
+header {
+  ul li a {
+    color: #fff;
+    font-size: 14px;
+  }
+}
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: transparent;;
+}
+a:hover {
+  color: #d8d8d8;
+}
+
+.navbar-brand {
+  height:60px;
+}
+* {
+    outline: none !important;
+    margin: 0;
+    padding: 0;
+}
+#page {
+    display:table;
+    overflow:hidden;
+    margin:0px auto;
+}
+*:first-child+html #page {
+    position:relative;
+}/*ie7*/
+* html #page {
+    position:relative;
+}/*ie6*/
+
+#content_container{
+    display:table-cell;
+    vertical-align: middle;
+}
+*:first-child+html #content_container{
+    position:absolute;
+    top:50%;
+    }/*ie7*/
+* html #content_container{
+    position:absolute;
+    top:50%;
+    }/*ie6*/
+
+*:first-child+html #content{
+    position:relative;
+    top:-50%;
+    }/*ie7*/
+* html #content{
+    position:relative;
+    top:-50%;
+    }/*ie6*/
+
+#page{
+    height:100%;
+    /*width:365px;*/
+}
+.form-control {
+  border:1px solid #cbd5dd;
+  box-shadow: none !important;
+  height: 45px;
+  border-radius: 2px;
+}
+.btn {
+  border-radius: 2px;
+  font-family: 'arial';
+}
+.panel-body {
+  padding:30px;
+}
+.btn-off-blue {
+  background: #578590;
+  color: #fff;
+}
+.btn-off-blue:hover {
+  background: #49717B;
+  color: #fff;
+}
+.address {
+
+}
+footer {
+  padding: 20px 0 0 0;
+  border-top: 4px solid black;
+  p {
+    margin: 0;
+    color: #999;
+    font-size: 11px;
+  }
+}
+#placeholder {
+  color: red;
+  position:absolute;
+}
+
+a:hover {
+  color: #337ab7;
+}
+
+@media (max-width: 768px) {
+  .mb {
+    margin-bottom: 15px;
+  }
+  .mt {
+    margin-top: 15px;
+  }
+  body.homepage {
+    background: white;
+  }
+}

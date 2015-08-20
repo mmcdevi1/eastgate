@@ -1,0 +1,10 @@
+.heading
+  %h4 Assets
+  %p These are your properties under East Gate’s management
+.assets
+  .row
+    - 10.times do
+      .col-lg-3.col-md-4.col-sm-6
+        .property
+          = image_tag('newyorker.jpg', class: 'img-responsive img-thumbnail', style: 'width:100%;')
+          %p The New Yorker Hotel

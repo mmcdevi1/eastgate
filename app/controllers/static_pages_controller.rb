@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
 	layout :layout
-	
+
   def index
   end
 

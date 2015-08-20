@@ -1,0 +1,38 @@
+%header#header.app-header.navbar.b-b.box-shadow{:role => "menu"}
+  .collapse.pos-rlt.navbar-collapse.box-shadow.bg-white-only
+    %ul.nav.navbar-nav
+      = link_to '#', class: 'navbar-brand text-lt' do
+        = image_tag('logo-icon.png')
+      %li= link_to 'Dashboard', '#'
+      %li= link_to 'Assets', assets_path
+      %li= link_to 'Portfolio Summary', '#'
+    %ul.nav.navbar-nav.navbar-right
+      %li.dropdown
+        %a.dropdown-toggle.clear{"data-toggle" => "dropdown", :href => "#"}
+          %span.thumb-sm.avatar.pull-right.m-t-n-sm.m-b-n-sm.m-l-sm
+            = image_tag('a5.jpg')
+            %i.on.md.b-white.bottom
+          %span.hidden-sm.hidden-md
+          Michael Jenkins
+          %i.i.i-arrow-down5
+        / dropdown
+        %ul.dropdown-menu.animated.fadeInRight.w
+          %li.wrapper.b-b.m-b-sm.bg-light.m-t-n-xs
+            %div
+              %p 300mb of 500mb used
+            .progress.progress-xs.m-b-none.dker
+              .progress-bar.progress-bar-info{"data-original-title" => "50%", "data-toggle" => "tooltip", :style => "width: 50%"}
+          %li
+            %a{:href => ""}
+              %span.badge.bg-danger.pull-right 30%
+              %span Settings
+          %li
+            %a{"ui-sref" => "app.page.profile"} Profile
+          %li
+            %a{"ui-sref" => "app.docs"}
+              %span.label.bg-info.pull-right new
+              Help
+          %li.divider
+          %li
+            = link_to "Logout", logout_path
+        / / dropdown
