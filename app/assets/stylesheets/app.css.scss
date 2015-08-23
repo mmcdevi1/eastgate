@@ -1,20 +1,23 @@
-/*
-
-*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-@font-face{
-    font-family:'AvenirLT-Medium';
-    src:font-url('avenirlt-medium.eot');
-    src:font-url('avenirlt-medium.eot?#iefix') format("embedded-opentype"),
-        font-url('avenirlt-medium.woff') format("woff"),
-        font-url('avenirlt-medium.ttf') format("truetype")
+
+body {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.42857143;
+  color: #58666e;
+  background-color: #f5f5f5;
 }
-@font-face{
-    font-family:'AvenirLT-Black';
-    src:font-url('avenirlt-black.eot');
-    src:font-url('avenirlt-black.eot?#iefix') format("embedded-opentype"),
-        font-url('avenirlt-black.woff') format("woff"),
-        font-url('avenirlt-black.ttf') format("truetype")
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 700;
+  color: #333;
+}
+.panel {
+  border: 1px solid #d4d9df;
 }
 @font-face{
     font-family:'BrandonText';
@@ -48,26 +51,16 @@ body.homepage {
   background-color: #fff;
   font-weight: 400;
 }
-body {
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  -webkit-font-smoothing: antialiased;
-  line-height: 1.42857143;
-  color: #58666e;
-  background-color: #f5f5f5;
-}
+
 
 *:focus {
   outline: 0 !important;
 }
 
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
+.h1, .h2, .h3, .h4, .h5, .h6,
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
+  font-weight: 700;
 }
 
 a {
@@ -932,9 +925,9 @@ body {
 
 .navbar-brand {
   display: inline-block;
-  float: none;
+  float: left;
   height: auto;
-  padding: 10px 0 10px !important;
+  padding: 0px !important;
   font-size: 20px;
   font-weight: 700;
   line-height: 50px;
@@ -2783,7 +2776,9 @@ fieldset[disabled] .i-checks input + i:before {
   position: absolute;
   top: 50%;
 }
-
+.center {
+  text-align:center;
+}
 .item-overlay {
   position: absolute;
   top: 0;

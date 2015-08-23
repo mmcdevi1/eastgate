@@ -1,0 +1,33 @@
+.row
+  .col-lg-10.col-md-12
+    %h4 Approvals
+    = "Need Approval (#{@approvals.count})"
+    = "Approved (#{@approved.count})"
+    .approvals
+      %h5 Need Approvals
+      - @approvals.each do |approval|
+        .panel
+          .panel-body
+            .row
+              .col-sm-8
+                .priority{class: "#{priority_colors(approval)}"}
+                  %span Priority: 
+                  = Priority.find(approval.priority_id).title
+                = approval.title
+              .col-sm-4.approval-btn
+                .pull-right
+                  .btn.btn-info Approve
+    .approvals
+      %h5 Approved
+      - @approved.each do |approval|
+        .panel
+          .panel-body
+            .row
+              .col-sm-8
+                .priority{class: "#{priority_colors(approval)}"}
+                  %span Priority: 
+                  = Priority.find(approval.priority_id).title
+                = approval.title
+              .col-sm-4.approval-btn
+                .pull-right
+                  .btn.btn-info Approve

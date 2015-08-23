@@ -1,0 +1,8 @@
+.asset-page
+  %h4= @asset.name
+  %p= @asset.full_address
+  .row 
+    .col-lg-6
+      = image_tag('newyorker-main')
+      %h5 Property Overview
+      %p= @asset.summary

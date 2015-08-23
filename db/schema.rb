@@ -11,27 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823174604) do
+ActiveRecord::Schema.define(version: 20150823212532) do
 
   create_table "approvals", force: true do |t|
     t.string   "title"
-    t.integer  "priority"
-    t.integer  "property_id"
+    t.integer  "priority_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "asset_id"
+    t.boolean  "approved",    default: false
   end
 
-  create_table "properties", force: true do |t|
+  create_table "assets", force: true do |t|
     t.string   "name"
     t.string   "summary"
     t.string   "address"
     t.string   "city"
     t.string   "state"
     t.string   "zipcode"
-    t.string   "type"
-    t.string   "class"
     t.string   "year_built"
     t.integer  "size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "property_class"
+    t.string   "property_type"
+  end
+
+  create_table "priorities", force: true do |t|
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

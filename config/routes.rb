@@ -4,11 +4,9 @@ Rails.application.routes.draw do
   scope :hatch do
     get '/', to: 'hatches#index'
 
-    resources :properties
-
-    get '/assets', to: 'properties#index'
-
-    resource :approvals, only: [:index]
+    resources :assets do 
+      get '/approvals', to: 'approvals#index'
+    end
   end
 
   devise_for :users

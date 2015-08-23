@@ -4,7 +4,7 @@
     .property-wrap.clearfix
       = image_tag('property.png', class: 'img-responsive pull-left')
       %p
-        The New Yorker Hotel
+        = @asset.name
         %span
           HSA-UWC
     .navi-wrap
@@ -14,7 +14,7 @@
           %li.hidden-folded.m-b-sm.text-xs.nav-sm-title
             %span Menu
           %li
-            = link_to 'root_path', class: "auto", title: "Dashboard" do
+            = link_to @asset, class: "auto", title: "Dashboard" do
               %i.i.i-statistics
               %span Property Snapshot
           %li
@@ -30,7 +30,7 @@
               %i.i.i-mail2
               %span Investment Overview
           %li
-            = link_to 'root_path', class: "auto", title: "Dashboard" do
+            = link_to asset_approvals_path(@asset), class: "auto", title: "Dashboard" do
               %i.i.i-statistics
               %span Approvals
           %li
