@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :properties
 
     get '/assets', to: 'properties#index'
+
+    resource :approvals, only: [:index]
   end
 
   devise_for :users
