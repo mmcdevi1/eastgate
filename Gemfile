@@ -12,6 +12,7 @@ gem 'faker'
 gem 'fabrication'
 gem 'turbolinks'
 gem 'devise'
+gem 'paperclip'
 
 group :development do
   gem 'thin'

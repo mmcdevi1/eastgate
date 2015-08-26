@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823212532) do
+ActiveRecord::Schema.define(version: 20150826000358) do
 
   create_table "approvals", force: true do |t|
     t.string   "title"
@@ -37,10 +37,49 @@ ActiveRecord::Schema.define(version: 20150823212532) do
     t.string   "property_type"
   end
 
+  create_table "business_plans", force: true do |t|
+    t.integer  "asset_id"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "business_plan_doc_file_name"
+    t.string   "business_plan_doc_content_type"
+    t.integer  "business_plan_doc_file_size"
+    t.datetime "business_plan_doc_updated_at"
+  end
+
+  create_table "hot_points", force: true do |t|
+    t.string   "title"
+    t.integer  "asset_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", force: true do |t|
+    t.integer  "asset_id"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "property_image_file_name"
+    t.string   "property_image_content_type"
+    t.integer  "property_image_file_size"
+    t.datetime "property_image_updated_at"
+  end
+
   create_table "priorities", force: true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "timelines", force: true do |t|
+    t.integer  "asset_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "timeline_doc_file_name"
+    t.string   "timeline_doc_content_type"
+    t.integer  "timeline_doc_file_size"
+    t.datetime "timeline_doc_updated_at"
   end
 
   create_table "users", force: true do |t|
