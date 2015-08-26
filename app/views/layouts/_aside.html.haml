@@ -18,26 +18,26 @@
               %i.i.i-statistics
               %span Property Snapshot
           %li
-            %a.auto{:href => ""}
+            = link_to asset_timelines_path(@asset), class: "auto", title: "Timeline" do
               %i.i.i-mail2
               %span Timeline
           %li
-            = link_to 'root_path', class: "auto", title: "Dashboard" do
+            = link_to asset_business_plans_path(@asset), class: "auto", title: "Business Plans" do
               %i.i.i-statistics
               %span Business Plans
           %li
-            %a.auto{:href => ""}
+            = link_to asset_financials_path(@asset), class: "auto", title: "Financials" do
               %i.i.i-mail2
-              %span Investment Overview
+              %span Financials
           %li
-            = link_to asset_approvals_path(@asset), class: "auto", title: "Dashboard" do
+            = link_to asset_approvals_path(@asset), class: "auto", title: "Approvals" do
               %i.i.i-statistics
               %span Approvals
           %li
-            %a.auto{:href => ""}
+            = link_to asset_hot_points_path(@asset), class: "auto", title: "Hot Points" do
               %i.i.i-mail2
               %span Hot Points
           %li
-            %a.auto{:href => ""}
+            = link_to asset_images_path(@asset), class: "auto", title: "Images" do
               %i.i.i-mail2
               %span Images

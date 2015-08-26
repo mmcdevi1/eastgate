@@ -1,0 +1,2 @@
+module HotPointsHelper
+end

@@ -4,8 +4,14 @@ Rails.application.routes.draw do
   scope :hatch do
     get '/', to: 'hatches#index'
 
-    resources :assets do 
+    resources :assets do
+      get '/financials', to: 'assets#financials'
       get '/approvals', to: 'approvals#index'
+
+      resources :images
+      resources :hot_points
+      resources :business_plans
+      resources :timelines
     end
   end
 

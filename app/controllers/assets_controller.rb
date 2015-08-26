@@ -9,6 +9,9 @@ class AssetsController < HatchesController
   def show
   end
 
+  def financials
+  end
+
   private
   def asset_layout
     'asset' if params[:action] == 'index'
