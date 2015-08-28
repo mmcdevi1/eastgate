@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :business_plans
       resources :timelines
     end
+
   end
 
   devise_for :users

@@ -1,0 +1,22 @@
+.financials {
+  margin: 30px 0 0 0;
+  .panel {
+    box-shadow: none;
+  }
+  .bold {
+    font-weight: 700;
+  }
+  ul {
+    li {
+      color: #999;
+      span {
+        color: #333;
+      }
+    }
+  }
+  .big-financials {
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #999;
+  }
+}

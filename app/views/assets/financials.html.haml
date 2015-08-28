@@ -1,1 +1,35 @@
-Financials
+%h1 Financials
+.financials
+  .row.big-financials
+    - 4.times do
+      .col-sm-3
+        .panel.text-center
+          .panel-heading
+            Purchase Price
+          .panel-body
+            %h3= number_to_currency(23437500)
+  .row
+    - 3.times do
+      .col-sm-4
+        .panel
+          .panel-heading
+            Asset Financial Information
+          %ul.list-group.no-radius
+            %li.list-group-item
+              %span.pull-right= number_to_currency(23437500)
+              Purchase Price
+            %li.list-group-item
+              %span.pull-right= number_to_currency(33345678)
+              Cost Basis
+            %li.list-group-item
+              %span.pull-right= number_to_currency(23437500)
+              Carrying Value
+            %li.list-group-item
+              %span.pull-right= number_to_currency(33345678)
+              Leverage
+            %li.list-group-item
+              %span.pull-right 58%
+              Loan to Cost
+            %li.list-group-item
+              %span.pull-right September 2015
+              Debt Maturity

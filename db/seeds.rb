@@ -5,68 +5,95 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Client.create(name: 'Onyx Equities, LLC')
+Client.create(name: 'HSA-UWC')
 Asset.create(
-  name: 'The New Yorker Hotel', 
-  summary: "It is a long established fact that a reader will 
-  be distracted by the readable content of a page when looking 
-  at its layout. The point of using Lorem Ipsum is that it has 
-  a more-or-less normal distribution of letters, as opposed to 
-  using 'Content here, content here', making it look like readable 
-  English. Many desktop publishing packages and web page editors 
-  now use Lorem Ipsum as their default model text, and a search for 
-  'lorem ipsum' will uncover many web sites still in their infancy. 
-  Various versions have evolved over the years, sometimes by accident, 
+  name: '210 W 31st Street',
+  summary: "It is a long established fact that a reader will
+  be distracted by the readable content of a page when looking
+  at its layout. The point of using Lorem Ipsum is that it has
+  a more-or-less normal distribution of letters, as opposed to
+  using 'Content here, content here', making it look like readable
+  English. Many desktop publishing packages and web page editors
+  now use Lorem Ipsum as their default model text, and a search for
+  'lorem ipsum' will uncover many web sites still in their infancy.
+  Various versions have evolved over the years, sometimes by accident,
   sometimes on purpose (injected humour and the like).",
-  address: '123 Jump Street',
+  address: '210 W 31st Street',
   city: 'New York',
-  state: 'New York', 
+  state: 'New York',
   zipcode: '10001',
-  property_type: 'Hotel',
+  property_type: 'Retail',
   property_class: 'A',
-  year_built: '1937',
-  size: 100000
+  year_built: '1976',
+  size: 100000,
+  client_id: 1
   )
 Asset.create(
-  name: '4 W 43rd Street', 
-  summary: "It is a long established fact that a reader will 
-  be distracted by the readable content of a page when looking 
-  at its layout. The point of using Lorem Ipsum is that it has 
-  a more-or-less normal distribution of letters, as opposed to 
-  using 'Content here, content here', making it look like readable 
-  English. Many desktop publishing packages and web page editors 
-  now use Lorem Ipsum as their default model text, and a search for 
-  'lorem ipsum' will uncover many web sites still in their infancy. 
-  Various versions have evolved over the years, sometimes by accident, 
+  name: 'The New Yorker Hotel',
+  summary: "It is a long established fact that a reader will
+  be distracted by the readable content of a page when looking
+  at its layout. The point of using Lorem Ipsum is that it has
+  a more-or-less normal distribution of letters, as opposed to
+  using 'Content here, content here', making it look like readable
+  English. Many desktop publishing packages and web page editors
+  now use Lorem Ipsum as their default model text, and a search for
+  'lorem ipsum' will uncover many web sites still in their infancy.
+  Various versions have evolved over the years, sometimes by accident,
   sometimes on purpose (injected humour and the like).",
   address: '123 Jump Street',
   city: 'New York',
-  state: 'New York', 
+  state: 'New York',
   zipcode: '10001',
   property_type: 'Hotel',
   property_class: 'A',
   year_built: '1937',
-  size: 100000
+  size: 100000,
+  client_id: 2
   )
 Asset.create(
-  name: 'Belvedere Estates', 
-  summary: "It is a long established fact that a reader will 
-  be distracted by the readable content of a page when looking 
-  at its layout. The point of using Lorem Ipsum is that it has 
-  a more-or-less normal distribution of letters, as opposed to 
-  using 'Content here, content here', making it look like readable 
-  English. Many desktop publishing packages and web page editors 
-  now use Lorem Ipsum as their default model text, and a search for 
-  'lorem ipsum' will uncover many web sites still in their infancy. 
-  Various versions have evolved over the years, sometimes by accident, 
+  name: '4 W 43rd Street',
+  summary: "It is a long established fact that a reader will
+  be distracted by the readable content of a page when looking
+  at its layout. The point of using Lorem Ipsum is that it has
+  a more-or-less normal distribution of letters, as opposed to
+  using 'Content here, content here', making it look like readable
+  English. Many desktop publishing packages and web page editors
+  now use Lorem Ipsum as their default model text, and a search for
+  'lorem ipsum' will uncover many web sites still in their infancy.
+  Various versions have evolved over the years, sometimes by accident,
   sometimes on purpose (injected humour and the like).",
   address: '123 Jump Street',
   city: 'New York',
-  state: 'New York', 
+  state: 'New York',
   zipcode: '10001',
   property_type: 'Hotel',
   property_class: 'A',
   year_built: '1937',
-  size: 100000
+  size: 100000,
+  client_id: 2
+  )
+Asset.create(
+  name: 'Belvedere Estates',
+  summary: "It is a long established fact that a reader will
+  be distracted by the readable content of a page when looking
+  at its layout. The point of using Lorem Ipsum is that it has
+  a more-or-less normal distribution of letters, as opposed to
+  using 'Content here, content here', making it look like readable
+  English. Many desktop publishing packages and web page editors
+  now use Lorem Ipsum as their default model text, and a search for
+  'lorem ipsum' will uncover many web sites still in their infancy.
+  Various versions have evolved over the years, sometimes by accident,
+  sometimes on purpose (injected humour and the like).",
+  address: '123 Jump Street',
+  city: 'New York',
+  state: 'New York',
+  zipcode: '10001',
+  property_type: 'Hotel',
+  property_class: 'A',
+  year_built: '1937',
+  size: 100000,
+  client_id: 2
   )
 
 Priority.create(title: 'High')
