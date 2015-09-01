@@ -14,13 +14,16 @@
               = link_to 'info@eastgate.io', 'mailto: info@eastgate.io'
             %div{style: "border-top:1px dotted #999; border-bottom:1px dotted #999; padding: 15px 0"}
               %p Client Login
-              .form-group
-                %input{type: 'text', placeholder: "Email address"}
-              .form-group
-                %input{type: 'password', placeholder: "Password"}
-              .actions
-                %button.btn.btn-off-blue#log_in_btn Log in
-              #placeholder
+              - if user_signed_in?
+                you are signed in
+              = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+                .form-group
+                  = f.email_field :email, class: "", placeholder: "Email address"
+                .form-group
+                  = f.password_field :password, class: "", placeholder: "Password"
+                .actions
+                  = f.submit 'Log In', class: 'btn btn-off-blue', id: 'log_in_btn'
+                #placeholder
             .row{style: "padding: 15px 0"}
               .col-sm-6
                 .address

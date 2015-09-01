@@ -1,9 +1,14 @@
 class AssetsController < HatchesController
   before_action :set_asset, except: :index
+  before_action :correct_client, only: :show
   layout :asset_layout
 
   def index
-    @assets = Asset.all
+    if current_user.client_id == nil
+      @assets = Asset.all
+    else
+      @assets = current_user.client.assets.all
+    end
   end
 
   def show
@@ -17,8 +22,4 @@ class AssetsController < HatchesController
     'asset' if params[:action] == 'index'
   end
 
-  # def correct_client
-  #   @asset = Asset.find(params[:id])
-  #   redirect_to root_path if @asset
-  # end
 end

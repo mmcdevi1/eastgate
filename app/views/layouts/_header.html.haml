@@ -6,6 +6,7 @@
       %li= link_to 'Dashboard', '#'
       %li= link_to 'Assets', assets_path
       %li= link_to 'Portfolio Summary', '#'
+      %li= link_to 'Log out', logout_path
     %ul.nav.navbar-nav.navbar-right
       %li.dropdown
         %a.dropdown-toggle.clear{"data-toggle" => "dropdown", :href => "#"}
@@ -13,7 +14,7 @@
             = image_tag('a5.jpg')
             %i.on.md.b-white.bottom
           %span.hidden-sm.hidden-md
-          Michael Jenkins
+          = current_user.full_name
           %i.i.i-arrow-down5
         / dropdown
         %ul.dropdown-menu.animated.fadeInRight.w

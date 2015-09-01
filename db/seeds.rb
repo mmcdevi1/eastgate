@@ -7,6 +7,43 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Client.create(name: 'Onyx Equities, LLC')
 Client.create(name: 'HSA-UWC')
+User.create(
+  email: 'jsaraceno@onyxequities.com',
+  password: 'onyxequities',
+  username: 'jsaraceno',
+  first_name: 'John',
+  last_name: 'Saraceno',
+  client_id: 1
+  )
+User.create(
+  email: 'mwjenk@aol.com',
+  password: 'hsauwc11',
+  username: 'mjenkins',
+  first_name: 'Michael',
+  last_name: 'Jenkins',
+  client_id: 2
+  )
+User.create(
+  email: 'mmcdevitt@eastgate.io',
+  password: 'morgantown',
+  username: 'mmcdevi1',
+  first_name: 'Michael',
+  last_name: 'McDevitt'
+  )
+User.create(
+  email: 'ouja@eastgate.io',
+  password: 'morgantown',
+  username: 'ouja',
+  first_name: 'Ouja',
+  last_name: 'LaValley'
+  )
+User.create(
+  email: 'jlavalley@eastgate.io',
+  password: 'morgantown',
+  username: 'jlavalley',
+  first_name: 'John',
+  last_name: 'LaValley'
+  )
 Asset.create(
   name: '210 W 31st Street',
   summary: "It is a long established fact that a reader will
