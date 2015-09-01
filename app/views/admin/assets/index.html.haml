@@ -1,0 +1,16 @@
+%h4 Client Assets
+%table.table.panel
+  %thead
+    %tr
+      %th Name
+      %th Client
+      %th Actions
+  %tbody
+    - @assets.each do |asset|
+      %tr
+        %td= asset.name
+        %td= asset.client.name
+        %td
+          = link_to "Show", ""
+          = link_to "Edit", ""
+          = link_to "Delete", ""

@@ -22,11 +22,12 @@ class HatchesController < ApplicationController
   end
 
   def correct_client
-    if params[:controller] == 'assets'
-      @asset = Asset.find(params[:id])
-    else
-      @asset = Asset.find(params[:asset_id])
+    @assets = params[:controller] == 'assets' ? Asset.find(params[:id]) : Asset.find(params[:asset_id])
+    if @asset.client_id != current_user.client_id
+      if !current_user.admin?
+        redirect_to assets_path
+      else
+      end
     end
-    redirect_to assets_path if @asset.client_id != current_user.client_id
   end
 end

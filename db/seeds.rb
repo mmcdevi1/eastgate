@@ -13,7 +13,8 @@ User.create(
   username: 'jsaraceno',
   first_name: 'John',
   last_name: 'Saraceno',
-  client_id: 1
+  client_id: 1,
+  admin: false
   )
 User.create(
   email: 'mwjenk@aol.com',
@@ -21,28 +22,32 @@ User.create(
   username: 'mjenkins',
   first_name: 'Michael',
   last_name: 'Jenkins',
-  client_id: 2
+  client_id: 2,
+  admin: false
   )
 User.create(
   email: 'mmcdevitt@eastgate.io',
   password: 'morgantown',
   username: 'mmcdevi1',
   first_name: 'Michael',
-  last_name: 'McDevitt'
+  last_name: 'McDevitt',
+  admin:true
   )
 User.create(
   email: 'ouja@eastgate.io',
   password: 'morgantown',
   username: 'ouja',
   first_name: 'Ouja',
-  last_name: 'LaValley'
+  last_name: 'LaValley',
+  admin:true
   )
 User.create(
   email: 'jlavalley@eastgate.io',
   password: 'morgantown',
   username: 'jlavalley',
   first_name: 'John',
-  last_name: 'LaValley'
+  last_name: 'LaValley',
+  admin:true
   )
 Asset.create(
   name: '210 W 31st Street',

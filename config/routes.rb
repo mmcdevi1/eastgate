@@ -13,7 +13,12 @@ Rails.application.routes.draw do
       resources :business_plans
       resources :timelines
     end
+  end
 
+  namespace :admin do
+    get '/', to: 'assets#index'
+    resources :assets
+    resources :clients
   end
 
   devise_for :users

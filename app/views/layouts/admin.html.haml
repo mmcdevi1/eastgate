@@ -3,9 +3,9 @@
   = render 'shared/head'
   %body.hatch
     .app.app-header-fixed
-      = render 'layouts/hatch/header'
+      = render 'layouts/admin/header'
       = render 'shared/flash'
-      = render 'layouts/hatch/aside'
+      = render 'layouts/admin/aside'
       #content.app-content{:role => "main"}
         .app-content-body
           .hbox.hbox-auto-xs.hbox-auto-sm{"ng-init" => "\n            app.settings.asideFolded = false; \n            app.settings.asideDock = false;\n          "}

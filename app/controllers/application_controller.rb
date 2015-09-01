@@ -5,10 +5,10 @@ class ApplicationController < ActionController::Base
 
   # User is redirected to users dashboard after sign in
   def after_sign_in_path_for(resource)
-    if current_user
-      assets_path
+    if current_user.admin?
+      admin_path
     else
-      root_path
+      assets_path
     end
   end
 end
