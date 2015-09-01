@@ -4,9 +4,6 @@ class StaticPagesController < ApplicationController
   def index
   end
 
-  def test
-  end
-
   private
   def layout
   	"static_pages"

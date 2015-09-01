@@ -1,3 +1,9 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+html, body, #wrapper {
+    height: 100%;
+}
 body.homepage {
   background: url('bg.jpg');
   -webkit-background-size: cover;
