@@ -4,7 +4,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
 
 body {
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   line-height: 1.42857143;
@@ -719,7 +718,14 @@ pre {
   opacity: 0.8;
   filter: alpha(opacity=80);
 }
-
+.modal-content {
+  -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.06) !important;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.06) !important;
+  border-radius: 3px;
+}
+.modal-footer {
+  border-top:none;
+}
 .modal-over {
   position: fixed;
   top: 0;

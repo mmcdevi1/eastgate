@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :assets do
       get '/financials', to: 'assets#financials'
       get '/approvals', to: 'approvals#index'
-
+      resources :approvals, only: [:show, :update]
       resources :images
       resources :hot_points
       resources :business_plans

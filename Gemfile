@@ -13,7 +13,7 @@ gem 'fabrication'
 gem 'turbolinks'
 gem 'devise'
 gem 'paperclip'
-# change
+
 group :development do
   gem 'thin'
   gem "better_errors"

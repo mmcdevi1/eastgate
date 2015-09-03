@@ -1,1 +1,1 @@
-= @approvals.empty? ? render(:partial => 'no_approvals') : render(:partial => 'approval')
+= (@asset.approvals.count > 0) ? render(:partial => 'approval') : render(:partial => 'no_approvals')
