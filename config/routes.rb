@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     get '/', to: 'assets#index'
     resources :assets
     resources :clients
+    resources :timelines
   end
 
   devise_for :users

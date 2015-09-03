@@ -40,8 +40,8 @@ describe ApprovalsController do
     end
   end
 
-  describe 'POST update' do
-    let(:approval) { Fabricate(:approval, asset_id: asset.id, priority_id: priority.id) }
+  describe 'PUT update' do
+    let(:approval) { Fabricate(:approval, asset_id: asset.id, priority_id: priority.id, approved: false) }
 
     context 'authenticated users' do
       before do
@@ -50,21 +50,25 @@ describe ApprovalsController do
 
       context 'with valid inputs' do
         before do
-          post :update, approvals: [{ id: approval.id, approved: true }]
+          post :update, {
+            asset_id: asset.id,
+            id: approval.id,
+            approval: Fabricate.attributes_for(:approval, approved: true)
+          }
         end
 
         it 'updates the approval to true' do
+          approval.reload
           expect(approval.approved).to eq(true)
+        end
+
+        it 'should redirect to the approvals page' do
+          expect(response).to redirect_to asset_approvals_path
         end
       end
     end
   end
 end
-
-
-
-
-
 
 
 

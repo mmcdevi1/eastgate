@@ -10,7 +10,7 @@ class ApprovalsController < HatchesController
   def update
     if @approval.update(approvals_params)
       flash[:success] = 'Approved successfull!'
-      redirect_to :back
+      redirect_to asset_approvals_path
     else
       render 'index'
     end

@@ -1,0 +1,4 @@
+= form_for [:admin, @timeline] do |f|
+  = f.file_field :timeline_doc, as: :file
+  = f.text_field :asset_id
+  = f.submit
