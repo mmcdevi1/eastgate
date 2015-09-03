@@ -4,3 +4,13 @@
   = javascript_include_tag "application", "data-turbolinks-track" => true
   = csrf_meta_tags
   %meta{:content => "#{user_signed_in? ? current_user.id : ""}", :name => "user-id"}/
+  - if Rails.env.production?
+    / For leasify.co
+    %script{:src => "//use.typekit.net/ckw2lgb.js", :type => "text/javascript"}
+    :javascript
+      try{Typekit.load();}catch(e){}
+  - elsif Rails.env.development?
+    / for lvh.me, remove when pushing to git and heroku
+    %script{:src => "//use.typekit.net/bgg6ayr.js", :type => "text/javascript"}
+    :javascript
+      try{Typekit.load();}catch(e){}

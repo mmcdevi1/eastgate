@@ -1,4 +1,28 @@
-%h4 Clients
-- @clients.each do |client|
-  %div
-    = client.name
+%section
+  %h4 Clients
+.table-wrap
+  .table-wrap-header
+    .clearfix
+      .pull-right
+        = link_to 'Add New Client', new_admin_client_path, class: 'btn btn-info'
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Main Contact
+        %th Email
+        %th Actions
+    %tbody
+      - @clients.each do |client|
+        %tr
+          %td= client.name
+          %td
+            - if client.users.first != nil
+              = client.users.first.full_name
+          %td
+            - if client.users.first != nil
+              = client.users.first.email
+          %td
+            = link_to "Show", ""
+            = link_to "Edit", ""
+            = link_to "Delete", [:admin, client], method: :delete

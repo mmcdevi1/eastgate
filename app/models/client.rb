@@ -1,4 +1,4 @@
 class Client < ActiveRecord::Base
-  has_many :assets
-  has_many :users
+  has_many :assets, :dependent => :destroy
+  has_many :users, :dependent => :destroy
 end

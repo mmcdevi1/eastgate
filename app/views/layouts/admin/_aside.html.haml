@@ -1,5 +1,5 @@
 / aside
-%aside#aside.app-aside.hidden-xs.bg-white.b-r{:style => "position:fixed; height:100%;"}
+%aside#aside.app-aside.hidden-xs.bg-dark.lter{:style => "position:fixed; height:100%;"}
   .aside-wrap
     .navi-wrap
       / nav
@@ -14,8 +14,12 @@
           %li
             = link_to admin_clients_path, class: "auto", title: "Clients" do
               %i.i.i-mail2
-              %span Manage Clients
+              %span Clients
           %li
             = link_to admin_assets_path, class: "auto", title: "Assets" do
               %i.i.i-mail2
-              %span Manage Assets
+              %span Assets
+          %li
+            = link_to admin_assets_path, class: "auto", title: "Contacts" do
+              %i.i.i-mail2
+              %span All Contacts

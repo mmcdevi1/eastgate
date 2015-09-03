@@ -1,16 +1,22 @@
-%h4 Client Assets
-%table.table.panel
-  %thead
-    %tr
-      %th Name
-      %th Client
-      %th Actions
-  %tbody
-    - @assets.each do |asset|
+%section
+  %h4 Client Assets
+.table-wrap
+  .table-wrap-header
+    .clearfix
+      .pull-right
+        %button.btn.btn-info Add New Asset
+  %table.table
+    %thead
       %tr
-        %td= asset.name
-        %td= asset.client.name
-        %td
-          = link_to "Show", ""
-          = link_to "Edit", ""
-          = link_to "Delete", ""
+        %th Name
+        %th Client
+        %th Actions
+    %tbody
+      - @assets.each do |asset|
+        %tr
+          %td= asset.name
+          %td= asset.client.name
+          %td
+            = link_to "Show", ""
+            = link_to "Edit", ""
+            = link_to "Delete", ""

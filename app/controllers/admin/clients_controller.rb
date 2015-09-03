@@ -1,4 +1,5 @@
 class Admin::ClientsController < AdminsController
+  before_action :set_client, only: [:show, :edit, :update, :destroy]
 
   def index
     @clients = Client.all
@@ -18,8 +19,18 @@ class Admin::ClientsController < AdminsController
     end
   end
 
+  def destroy
+    @client.destroy
+    flash[:success] = 'Client has been deleted.'
+    redirect_to :back
+  end
+
   private
   def client_params
     params.require(:client).permit(:name, :address, :phone_number, :city, :state, :zipcode)
+  end
+
+  def set_client
+    @client = Client.find(params[:id])
   end
 end
