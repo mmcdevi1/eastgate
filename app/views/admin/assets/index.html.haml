@@ -4,7 +4,7 @@
   .table-wrap-header
     .clearfix
       .pull-right
-        %button.btn.btn-info Add New Asset
+        = link_to 'Add New Asset', new_admin_asset_path, class: 'btn btn-info'
   %table.table
     %thead
       %tr
@@ -15,8 +15,11 @@
       - @assets.each do |asset|
         %tr
           %td= asset.name
-          %td= asset.client.name
           %td
-            = link_to "Show", ""
-            = link_to "Edit", ""
-            = link_to "Delete", ""
+            - unless asset.client.nil?
+              = asset.client.name
+          %td
+            = link_to "Hatch", asset_path(asset)
+            = link_to "Show", admin_asset_path(asset)
+            = link_to "Edit", edit_admin_asset_path(asset)
+            = link_to "Delete", admin_asset_path(asset), method: :delete

@@ -1,11 +1,53 @@
 .asset-page
-  %h4= @asset.name
-  %p= @asset.full_address
   .row
     .col-lg-6
-      = image_tag('newyorker-main', class: 'img-responsive')
-      .panel
+      .panel.panel-gray
         .panel-heading
           %h5 Property Overview
         .panel-body
           %p= @asset.summary
+    .col-lg-6
+      .panel.panel-gray
+        .panel-heading
+          %h6 Basic Information
+        .row
+          .col-sm-6
+            %ul.list-group.no-radius
+              %li.list-group-item
+                %span.pull-right= number_to_currency(23437500)
+                Purchase Price
+              %li.list-group-item
+                %span.pull-right= number_to_currency(33345678)
+                Cost Basis
+              %li.list-group-item
+                %span.pull-right= number_to_currency(23437500)
+                Carrying Value
+              %li.list-group-item
+                %span.pull-right= number_to_currency(33345678)
+                Leverage
+              %li.list-group-item
+                %span.pull-right 58%
+                Loan to Cost
+              %li.list-group-item
+                %span.pull-right September 2015
+                Debt Maturity
+          .col-sm-6
+            %ul.list-group.no-radius
+              %li.list-group-item
+                %span.pull-right= @asset.name
+                Building Name
+              %li.list-group-item
+                %span.pull-right 75%
+                Percent Leased
+              %li.list-group-item
+                %span.pull-right= @asset.year_built
+                Year Built
+              %li.list-group-item
+                %span.pull-right= "#{number_with_delimiter(@asset.size, :delimiter => ',')} SF"
+                Size
+              %li.list-group-item
+                %span.pull-right= @asset.property_type
+                Property Type
+              %li.list-group-item
+                %span.pull-right= @asset.property_class
+                Building Class

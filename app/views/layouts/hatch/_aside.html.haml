@@ -2,7 +2,7 @@
 %aside#aside.app-aside.hidden-xs.bg-white.b-r{:style => "position:fixed; height:100%;"}
   .aside-wrap
     .property-wrap.clearfix
-      = image_tag('property.png', class: 'img-responsive pull-left')
+      = image_tag(@asset.asset_image.url(:small), class: "img-responsive pull-left")
       %p
         = @asset.name
         %span
@@ -19,25 +19,27 @@
               %span Property Snapshot
           %li
             = link_to asset_timelines_path(@asset), class: "auto", title: "Timeline" do
-              %i.i.i-mail2
+              %i.i.i-calendar
               %span Timeline
           %li
             = link_to asset_business_plans_path(@asset), class: "auto", title: "Business Plans" do
-              %i.i.i-statistics
+              %i.i.i-docs
               %span Business Plans
           %li
             = link_to asset_financials_path(@asset), class: "auto", title: "Financials" do
-              %i.i.i-mail2
+              %i.i.i-chart
               %span Financials
           %li
             = link_to asset_approvals_path(@asset), class: "auto", title: "Approvals" do
-              %i.i.i-statistics
+              - if @asset.approvals.not_approved.count > 0
+                %b.label.bg-info.pull-right= @asset.approvals.not_approved.count
+              %i.i.i-like
               %span Approvals
           %li
             = link_to asset_hot_points_path(@asset), class: "auto", title: "Hot Points" do
-              %i.i.i-mail2
+              %i.i.i-stats
               %span Hot Points
           %li
             = link_to asset_images_path(@asset), class: "auto", title: "Images" do
-              %i.i.i-mail2
+              %i.i.i-images
               %span Images

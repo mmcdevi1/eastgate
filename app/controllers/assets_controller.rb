@@ -1,6 +1,7 @@
 class AssetsController < HatchesController
   before_action :set_asset, except: :index
   before_action :correct_client, only: :show
+
   layout :asset_layout
 
   def index
@@ -12,9 +13,11 @@ class AssetsController < HatchesController
   end
 
   def show
+    add_breadcrumb 'Property Snapshot', ''
   end
 
   def financials
+    add_breadcrumb 'Financials', ''
   end
 
   private

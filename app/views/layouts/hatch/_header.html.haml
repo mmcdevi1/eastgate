@@ -1,5 +1,5 @@
-%header#header.app-header.navbar.b-b.box-shadow{:role => "menu"}
-  .collapse.pos-rlt.navbar-collapse.box-shadow.bg-white-only
+%header#header.app-header.navbar.b-b{:role => "menu"}
+  .collapse.pos-rlt.navbar-collapse.bg-white-only
     %ul.nav.navbar-nav
       = link_to '#', class: 'navbar-brand text-lt' do
         = image_tag('logo-icon.png')
@@ -20,11 +20,6 @@
           %i.i.i-arrow-down5
         / dropdown
         %ul.dropdown-menu.animated.fadeInRight.w
-          %li.wrapper.b-b.m-b-sm.bg-light.m-t-n-xs
-            %div
-              %p 300mb of 500mb used
-            .progress.progress-xs.m-b-none.dker
-              .progress-bar.progress-bar-info{"data-original-title" => "50%", "data-toggle" => "tooltip", :style => "width: 50%"}
           %li
             %a{:href => ""}
               %span.badge.bg-danger.pull-right 30%

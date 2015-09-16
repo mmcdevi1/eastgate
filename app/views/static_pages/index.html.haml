@@ -15,15 +15,16 @@
             %div{style: "border-top:1px dotted #999; border-bottom:1px dotted #999; padding: 15px 0"}
               %p Client Login
               - if user_signed_in?
-                you are signed in
-              = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-                .form-group
-                  = f.email_field :email, class: "", placeholder: "Email address"
-                .form-group
-                  = f.password_field :password, class: "", placeholder: "Password"
-                .actions
-                  = f.submit 'Log In', class: 'btn btn-off-blue'
-                #placeholder
+                You are signed in...
+                = link_to 'Click here for Hatch', assets_path
+              - else
+                = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+                  .form-group
+                    = f.email_field :email, class: "", placeholder: "Email address"
+                  .form-group
+                    = f.password_field :password, class: "", placeholder: "Password"
+                  .actions
+                    = f.submit 'Log In', class: 'btn btn-off-blue'
             .row{style: "padding: 15px 0"}
               .col-sm-6
                 .address

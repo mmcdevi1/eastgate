@@ -5,6 +5,7 @@ class ApprovalsController < HatchesController
   def index
     @approvals = @asset.approvals.not_approved
     @approved = @asset.approvals.approved
+    add_breadcrumb 'Approvals', ''
   end
 
   def update

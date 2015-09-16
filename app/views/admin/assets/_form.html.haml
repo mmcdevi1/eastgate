@@ -1,0 +1,8 @@
+= form_for [:admin, @asset] do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :asset_image, 'Image'
+    = f.file_field :asset_image, as: :file
+  = f.submit 'Save', class: 'btn btn-info'

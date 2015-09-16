@@ -2,7 +2,11 @@ class HatchesController < ApplicationController
   before_action :set_asset
   before_action :authenticate_user!
 
-  layout :layout
+  add_breadcrumb "Hatch", :root_path
+  add_breadcrumb 'Assets', :assets_path
+  add_breadcrumb :breadcrumb, :breadcrumb_path
+
+  layout :hatch_layout
 
   def index
   end
@@ -17,7 +21,7 @@ class HatchesController < ApplicationController
     end
   end
 
-  def layout
+  def hatch_layout
     'hatch'
   end
 
@@ -30,4 +34,17 @@ class HatchesController < ApplicationController
       end
     end
   end
+
+  protected
+
+  def breadcrumb
+    @asset.name.capitalize
+  end
+
+  def breadcrumb_path
+    (params[:action] == 'show') ? '' : asset_path(@asset)
+  end
+
+  helper_method :breadcrumb
+  helper_method :breadcrumb_path
 end

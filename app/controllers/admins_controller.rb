@@ -1,4 +1,5 @@
 class AdminsController < ApplicationController
+  # before_action :authenticate_user!
   before_action :authenticate_admin
   layout :admin_layout
 
@@ -11,7 +12,7 @@ class AdminsController < ApplicationController
   def authenticate_admin
     unless current_user.admin?
       flash[:danger] = 'You do not have access to this area!'
-      redirect_to root_path
+      redirect_to assets_path
     end
   end
 end

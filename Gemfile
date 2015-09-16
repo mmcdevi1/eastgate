@@ -13,6 +13,7 @@ gem 'fabrication'
 gem 'turbolinks'
 gem 'devise'
 gem 'paperclip'
+gem "breadcrumbs_on_rails"
 
 group :development do
   gem 'thin'

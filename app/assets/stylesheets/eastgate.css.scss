@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+*, body, button, input, textarea, select {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
 html, body, #wrapper {
     height: 100%;
 }
