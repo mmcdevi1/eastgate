@@ -1,0 +1,35 @@
+.row
+  .col-sm-8
+    = form_for [:admin, @client], html: {class: 'form-horizontal'} do |f|
+      .form-group
+        = f.label :name, class: 'col-lg-2 control-label'
+        .col-lg-8
+          = f.text_field :name, class: 'form-control'
+      .form-group
+        = f.label :address, class: 'col-lg-2 control-label'
+        .col-lg-8
+          = f.text_field :address, class: 'form-control'
+      .form-group
+        = f.label :city, class: 'col-lg-2 control-label'
+        .col-lg-8
+          = f.text_field :city, class: 'form-control'
+      .form-group
+        = f.label :state, 'Property Class', class: 'col-lg-2 control-label'
+        .col-lg-8
+          .btn-group.m-r
+            .dropdown
+              %button#parent_page_btn.btn.btn-more-padding.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :style => "padding:7px 16px;"}
+                %span.dropdown-label{"data-placeholder" => "Please select"}= states_for_form(@client)
+                %span.caret{:style => "margin-left:30px;"}
+              %ul.dropdown-menu.dropdown-select.max-height-400
+                = render 'states', f: f
+      .form-group
+        = f.label :zipcode, class: 'col-lg-2 control-label'
+        .col-lg-8
+          = f.text_field :zipcode, class: 'form-control'
+      .form-group
+        = f.label :phone_number, class: 'col-lg-2 control-label'
+        .col-lg-8
+          = f.text_field :phone_number, class: 'form-control'
+      .action
+        = f.submit 'Save', class: 'btn btn-info btn-lg btn-fixed'

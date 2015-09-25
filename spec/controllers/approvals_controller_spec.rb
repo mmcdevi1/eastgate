@@ -2,8 +2,11 @@ require 'rails_helper'
 
 describe ApprovalsController do
   let(:client)   { Fabricate(:client) }
+  let(:client_2) { Fabricate(:client) }
   let(:user)     { Fabricate(:user, client_id: client.id) }
+  let(:user_2)   { Fabricate(:user, client_id: client_2.id) }
   let(:asset)    { Fabricate(:asset, client_id: client.id) }
+  let(:asset_2)  { Fabricate(:asset, client_id: client_2.id) }
   let(:priority) { Fabricate(:priority) }
 
   describe 'GET index' do
@@ -36,6 +39,17 @@ describe ApprovalsController do
       it 'should redirect the user to the root path' do
         get :index, asset_id: asset.id
         expect(response).to redirect_to root_path
+      end
+    end
+
+    context 'for incorrect signed in users' do
+      before do
+        sign_in user
+      end
+
+      it 'should redirect a user not associated with the asset' do
+        get :index, asset_id: asset_2.id
+        expect(response).to redirect_to assets_path
       end
     end
   end

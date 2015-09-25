@@ -35,13 +35,14 @@ body.devise {
 *:focus {
   outline: 0 !important;
 }
-
+textarea.form-control {
+  height:300px;
+}
 .h1, .h2, .h3, .h4, .h5, .h6,
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: 700;
 }
-
 a {
   color: #363f44;
   text-decoration: none;
@@ -62,7 +63,10 @@ small,
 .small {
   font-size: 13px;
 }
-
+.max-height-400 {
+  max-height: 400px;
+  overflow-y:scroll;
+}
 .badge,
 .label {
   font-weight: bold;
@@ -5260,9 +5264,24 @@ a.text-#000000:hover {
     font-weight: 700;
   }
 }
-
-
-
+.dropdown-select>li>a input {
+  position: absolute;
+  left: -9999em;
+}
+.form-horizontal .control-label {
+  text-align: left;
+  text-transform:uppercase;
+  font-weight: 700;
+  font-size:11px;
+}
+.btn {
+  font-weight: 700;
+}
+.btn-fixed {
+  position:fixed;
+  right:30px;
+  bottom:30px;
+}
 
 
 

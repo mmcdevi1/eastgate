@@ -1,0 +1,27 @@
+%section
+  %h4 Approvals
+.table-wrap
+  .table-wrap-header
+    .clearfix
+      .pull-right
+        = link_to 'Add New Approval', new_admin_approval_path, class: 'btn btn-info'
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Status
+        %th Client
+        %th Asset
+        %th Actions
+    %tbody
+      - @approvals.each do |approval|
+        %tr
+          %td= truncate approval.title, length: 35
+          %td= approval.approval_status
+          %td= approval.asset.client.name
+          %td= approval.asset.name
+          %td
+            = link_to "Hatch", asset_approvals_path(approval.asset.id)
+            = link_to "Show", admin_approval_path(approval)
+            = link_to "Edit", edit_admin_approval_path(approval)
+            = link_to "Delete", admin_approval_path(approval), method: :delete

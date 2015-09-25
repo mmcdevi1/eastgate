@@ -1,8 +1,54 @@
-= form_for [:admin, @asset] do |f|
+= form_for [:admin, @asset], html: {class: 'form-horizontal'} do |f|
   .form-group
-    = f.label :name
-    = f.text_field :name, class: 'form-control'
+    = f.label :name, class: 'col-lg-2 control-label'
+    .col-lg-8
+      = f.text_field :name, class: 'form-control'
   .form-group
-    = f.label :asset_image, 'Image'
-    = f.file_field :asset_image, as: :file
-  = f.submit 'Save', class: 'btn btn-info'
+    = f.label :summary, class: 'col-lg-2 control-label'
+    .col-lg-8
+      = f.text_area :summary, class: 'form-control'
+  .form-group
+    = f.label :property_class, 'Property Class', class: 'col-lg-2 control-label'
+    .col-lg-8
+      .btn-group.m-r
+        .dropdown
+          %button#parent_page_btn.btn.btn-more-padding.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :style => "padding:7px 16px;"}
+            %span.dropdown-label{"data-placeholder" => "Please select"}= property_class_for_form(@asset)
+            %span.caret{:style => "margin-left:30px;"}
+          %ul.dropdown-menu.dropdown-select
+            - PropertyClass.all.each do |property_class|
+              %li
+                %a{:href => "#"}
+                  = property_class.title
+                  = f.radio_button :property_class, property_class.id
+  .form-group
+    = f.label :property_type, 'Property Type', class: 'col-lg-2 control-label'
+    .col-lg-8
+      .btn-group.m-r
+        .dropdown
+          %button#parent_page_btn.btn.btn-more-padding.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :style => "padding:7px 16px;"}
+            %span.dropdown-label{"data-placeholder" => "Please select"}= property_type_for_form(@asset)
+            %span.caret{:style => "margin-left:30px;"}
+          %ul.dropdown-menu.dropdown-select
+            - PropertyType.all.each do |property_type|
+              %li
+                %a{:href => "#"}
+                  = property_type.title
+                  = f.radio_button :property_type, property_type.id
+  .form-group
+    = f.label :asset_image, 'Image', class: 'col-lg-2 control-label'
+    .col-lg-8
+      = f.file_field :asset_image, as: :file
+  .form-group
+    = f.label :percent_leased, class: 'col-lg-2 control-label'
+    .col-lg-2
+      = f.text_field :percent_leased, class: 'form-control'
+  .form-group
+    = f.label :year_built, class: 'col-lg-2 control-label'
+    .col-lg-2
+      = f.text_field :year_built, class: 'form-control'
+  .form-group
+    = f.label :size, class: 'col-lg-2 control-label'
+    .col-lg-2
+      = f.text_field :size, class: 'form-control'
+  = f.submit 'Save', class: 'btn btn-info btn-fixed btn-lg'

@@ -66,7 +66,7 @@ Asset.create(
   state: 'New York',
   zipcode: '10001',
   property_type: 'Retail',
-  property_class: 'A',
+  property_class: 1,
   year_built: '1976',
   size: 100000,
   client_id: 1
@@ -88,7 +88,7 @@ Asset.create(
   state: 'New York',
   zipcode: '10001',
   property_type: 'Hotel',
-  property_class: 'A',
+  property_class: 1,
   year_built: '1937',
   size: 100000,
   client_id: 2
@@ -110,7 +110,7 @@ Asset.create(
   state: 'New York',
   zipcode: '10001',
   property_type: 'Hotel',
-  property_class: 'A',
+  property_class: 1,
   year_built: '1937',
   size: 100000,
   client_id: 2
@@ -132,7 +132,7 @@ Asset.create(
   state: 'New York',
   zipcode: '10001',
   property_type: 'Hotel',
-  property_class: 'A',
+  property_class: 1,
   year_built: '1937',
   size: 100000,
   client_id: 2
@@ -149,6 +149,19 @@ Approval.create(title: 'Leasehold agreement needs your approval', priority_id: 1
 Approval.create(title: 'NDA needs your approval', priority_id: 2, asset_id: 1, approved: true)
 Approval.create(title: 'Construction needs your approval', priority_id: 3, asset_id: 1, approved: true)
 
+PropertyType.create(title: 'Retail')
+PropertyType.create(title: 'Office')
+PropertyType.create(title: 'Industrial')
+PropertyType.create(title: 'Medical')
+PropertyType.create(title: 'Hotel')
+PropertyType.create(title: 'Mixed Use')
+
+PropertyClass.create(title: 'A')
+PropertyClass.create(title: 'B')
+PropertyClass.create(title: 'C')
+PropertyClass.create(title: 'D')
+PropertyClass.create(title: 'E')
+PropertyClass.create(title: 'F')
 
 
 

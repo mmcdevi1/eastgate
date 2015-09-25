@@ -18,7 +18,7 @@ class Admin::AssetsController < AdminsController
 
   def update
     if @asset.update(asset_params)
-      redirect_to admin_assets_path
+      redirect_to edit_admin_asset_path(@asset)
       flash[:success] = 'Asset Updated.'
     else
       render 'edit'
@@ -28,7 +28,7 @@ class Admin::AssetsController < AdminsController
   def create
     @asset = Asset.new(asset_params)
     if @asset.save
-      redirect_to admin_assets_path
+      redirect_to edit_admin_asset_path(@asset)
       flash[:success] = 'New Asset Created.'
     else
       render 'new'
@@ -60,7 +60,8 @@ class Admin::AssetsController < AdminsController
       :property_class,
       :property_type,
       :client_id,
-      :asset_image
+      :asset_image,
+      :percent_leased
       )
   end
 

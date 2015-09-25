@@ -1,0 +1,50 @@
+= form_for [:admin, @approval], html: {class: 'form-horizontal'} do |f|
+  .form-group
+    = f.label :title, class: 'col-lg-2 control-label'
+    .col-lg-8
+      = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :priority_id, 'Priority Level', class: 'col-lg-2 control-label'
+    .col-lg-8
+      .btn-group.m-r
+        .dropdown
+          %button#parent_page_btn.btn.btn-more-padding.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :style => "padding:7px 16px;"}
+            %span.dropdown-label{"data-placeholder" => "Please select"}= priority_title_for_form(@approval)
+            %span.caret{:style => "margin-left:30px;"}
+          %ul.dropdown-menu.dropdown-select
+            - Priority.all.each do |priority|
+              %li
+                %a{:href => "#"}
+                  = priority.title
+                  = f.radio_button :priority_id, priority.id
+  .form-group
+    = f.label :asset_id, 'Asset', class: 'col-lg-2 control-label'
+    .col-lg-8
+      .btn-group.m-r
+        .dropdown
+          %button#parent_page_btn.btn.btn-more-padding.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :style => "padding:7px 16px;"}
+            %span.dropdown-label{"data-placeholder" => "Please select"}= asset_name_for_form(@approval)
+            %span.caret{:style => "margin-left:30px;"}
+          %ul.dropdown-menu.dropdown-select
+            - Asset.all.each do |asset|
+              %li
+                %a{:href => "#"}
+                  = asset.name
+                  = f.radio_button :asset_id, asset.id
+  - if params[:action] == 'edit'
+    .form-group
+      = f.label :approved, 'Status', class: 'col-lg-2 control-label'
+      .col-lg-8
+        .btn-group{"data-toggle" => "buttons"}
+          %label{class: 'btn btn-lg btn-default'}
+            = f.radio_button :approved, true
+            Approved
+          %label{class: 'btn btn-lg btn-default'}
+            = f.radio_button :approved, false
+            Disapprove
+  .form-group
+    = f.submit 'Save', class: 'btn btn-info btn-lg btn-fixed'
+:javascript
+  $(document).ready(function() {
+    $('input[type=radio]:checked').parent().addClass('active')
+  });

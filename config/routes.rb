@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :assets
     resources :clients
     resources :timelines
+    resources :approvals
   end
 
   devise_for :users

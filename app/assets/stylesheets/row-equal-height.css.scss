@@ -1,0 +1,13 @@
+.row-equal-height {
+  display: table;
+  > * {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+    > .panel-gray {
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

@@ -23,6 +23,6 @@
             - if client.users.first != nil
               = client.users.first.email
           %td
-            = link_to "Show", ""
-            = link_to "Edit", ""
+            = link_to "Show", admin_client_path(client)
+            = link_to "Edit", edit_admin_client_path(client)
             = link_to "Delete", [:admin, client], method: :delete

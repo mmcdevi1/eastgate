@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150903162602) do
+ActiveRecord::Schema.define(version: 20150924231901) do
 
   create_table "approvals", force: true do |t|
     t.string   "title"
@@ -33,13 +33,14 @@ ActiveRecord::Schema.define(version: 20150903162602) do
     t.integer  "size"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "property_class"
-    t.string   "property_type"
+    t.integer  "property_class",           limit: 255
+    t.integer  "property_type",            limit: 255
     t.integer  "client_id"
     t.string   "asset_image_file_name"
     t.string   "asset_image_content_type"
     t.integer  "asset_image_file_size"
     t.datetime "asset_image_updated_at"
+    t.integer  "percent_leased"
   end
 
   create_table "business_plans", force: true do |t|
@@ -83,6 +84,18 @@ ActiveRecord::Schema.define(version: 20150903162602) do
   end
 
   create_table "priorities", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "property_classes", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "property_types", force: true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"

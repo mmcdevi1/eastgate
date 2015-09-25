@@ -13,7 +13,7 @@
                 .col-sm-8
                   .priority{class: "#{priority_colors(approval)}"}
                     %span Priority:
-                    = Priority.find(approval.priority_id).title
+                    = Priority.title(approval)
                   = approval.title
                 .col-sm-4.approval-btn
                   .pull-right
@@ -48,7 +48,7 @@
               .col-sm-8
                 .priority{class: "#{priority_colors(approval)}"}
                   %span Priority:
-                  = Priority.find(approval.priority_id).title
+                  = Priority.title(approval)
                 = approval.title
               .col-sm-4.approval-btn
                 .pull-right

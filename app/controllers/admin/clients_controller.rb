@@ -5,6 +5,12 @@ class Admin::ClientsController < AdminsController
     @clients = Client.all
   end
 
+  def show
+  end
+
+  def edit
+  end
+
   def new
     @client = Client.new
   end
@@ -16,6 +22,15 @@ class Admin::ClientsController < AdminsController
       redirect_to admin_clients_path
     else
       render 'new'
+    end
+  end
+
+  def update
+    if @client.update(client_params)
+      flash[:success] = 'Client updated.'
+      redirect_to edit_admin_client_path(@client)
+    else
+      render 'edit'
     end
   end
 
