@@ -1,4 +1,8 @@
 class Asset < ActiveRecord::Base
+  include ApplicationHelper
+  include ActionView::Helpers::NumberHelper
+  include ActionView::Helpers::TextHelper
+
   has_many :approvals, :dependent => :destroy
   has_many :business_plans, :dependent => :destroy
   has_many :timelines, :dependent => :destroy
@@ -14,6 +18,26 @@ class Asset < ActiveRecord::Base
   validates_attachment_content_type :asset_image, :content_type => /\Aimage/
 
   def full_address
-    self.address + ', ' + self.state + ', ' + self.city + ', ' + self.zipcode
+    self.address + ', ' + self.city + ', ' + self.state + ', ' + self.zipcode
+  end
+
+  def address_with_break
+    simple_format(self.address + "\n" + self.city + ', ' + self.state + ', ' + self.zipcode)
+  end
+
+  def format_markdown
+    markdown(self.summary)
+  end
+
+  def building_type
+    PropertyType.title(self)
+  end
+
+  def building_class
+    PropertyClass.title(self)
+  end
+
+  def size_to_delimeter
+    number_with_delimiter self.size, delimeter: ','
   end
 end

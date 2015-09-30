@@ -1,0 +1,38 @@
+.property-header.b-b
+  .wrapper-lg
+    .breadcrumbs.clearfix
+      = render_breadcrumbs :tag => 'div class="breadcrumb-item"'
+    .row
+      .col-lg-4
+        = image_tag(@asset.asset_image.url(:thumb), class: "img-responsive")
+        .m-b
+          %span.label.bg-info Something
+        .property-info
+          %h4= @asset.name
+          %p= @asset.address_with_break
+      .col-lg-8
+        .pull-right
+          .property-stats
+            .property-stat-title
+              Total SF
+            .property-stat-result
+              = @asset.size_to_delimeter
+            .property-stat-unit
+              SF
+          .property-stats
+            .property-stat-title
+              Building Class
+            .property-stat-result
+              = @asset.building_class
+          .property-stats
+            .property-stat-title
+              Percent Leased
+            .property-stat-result
+              = @asset.percent_leased
+            .property-stat-unit
+              = "%"
+          .property-stats
+            .property-stat-title
+              Property Type
+            .property-stat-result
+              = @asset.building_type.upcase

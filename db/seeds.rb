@@ -65,7 +65,7 @@ Asset.create(
   city: 'New York',
   state: 'New York',
   zipcode: '10001',
-  property_type: 'Retail',
+  property_type: 1,
   property_class: 1,
   year_built: '1976',
   size: 100000,
@@ -87,7 +87,7 @@ Asset.create(
   city: 'New York',
   state: 'New York',
   zipcode: '10001',
-  property_type: 'Hotel',
+  property_type: 1,
   property_class: 1,
   year_built: '1937',
   size: 100000,
@@ -109,14 +109,14 @@ Asset.create(
   city: 'New York',
   state: 'New York',
   zipcode: '10001',
-  property_type: 'Hotel',
+  property_type: 1,
   property_class: 1,
   year_built: '1937',
   size: 100000,
   client_id: 2
   )
 Asset.create(
-  name: 'Belvedere Estates',
+  name: 'Philadelphia Campus Properties',
   summary: "It is a long established fact that a reader will
   be distracted by the readable content of a page when looking
   at its layout. The point of using Lorem Ipsum is that it has
@@ -128,10 +128,10 @@ Asset.create(
   Various versions have evolved over the years, sometimes by accident,
   sometimes on purpose (injected humour and the like).",
   address: '123 Jump Street',
-  city: 'New York',
-  state: 'New York',
+  city: 'Philadelphia',
+  state: 'Pennsylvania',
   zipcode: '10001',
-  property_type: 'Hotel',
+  property_type: 1,
   property_class: 1,
   year_built: '1937',
   size: 100000,
@@ -155,6 +155,7 @@ PropertyType.create(title: 'Industrial')
 PropertyType.create(title: 'Medical')
 PropertyType.create(title: 'Hotel')
 PropertyType.create(title: 'Mixed Use')
+PropertyType.create(title: 'Residential')
 
 PropertyClass.create(title: 'A')
 PropertyClass.create(title: 'B')

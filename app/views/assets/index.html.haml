@@ -7,5 +7,5 @@
       = link_to asset do
         .col-lg-3.col-md-4.col-sm-6
           .property
-            = image_tag('newyorker.jpg', class: 'img-responsive img-thumbnail', style: 'width:100%;')
+            = image_tag(asset.asset_image.url(:medium), class: 'img-responsive img-thumbnail', style: 'width:100%;')
             %p.property-name= asset.name

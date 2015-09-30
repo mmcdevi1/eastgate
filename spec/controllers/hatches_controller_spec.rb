@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe HatchesController, type: :controller do
+describe HatchesController do
 
-  describe "GET #inde" do
+  describe "GET #index" do
     it "returns http success" do
-      get :inde
+      get :index
       expect(response).to have_http_status(:success)
     end
   end

@@ -3,12 +3,6 @@
     .col-lg-6
       .panel.panel-gray
         .panel-heading
-          %h5 Property Overview
-        .panel-body
-          %p= markdown @asset.summary
-    .col-lg-6
-      .panel.panel-gray
-        .panel-heading
           %h6 Basic Information
         .row
           .col-sm-6
@@ -31,23 +25,3 @@
               %li.list-group-item
                 %span.pull-right September 2015
                 Debt Maturity
-          .col-sm-6
-            %ul.list-group.no-radius
-              %li.list-group-item
-                %span.pull-right= @asset.name
-                Building Name
-              %li.list-group-item
-                %span.pull-right= "#{@asset.percent_leased}%"
-                Percent Leased
-              %li.list-group-item
-                %span.pull-right= @asset.year_built
-                Year Built
-              %li.list-group-item
-                %span.pull-right= "#{number_with_delimiter(@asset.size, :delimiter => ',')} SF"
-                Size
-              %li.list-group-item
-                %span.pull-right= PropertyType.title(@asset)
-                Property Type
-              %li.list-group-item
-                %span.pull-right= PropertyClass.title(@asset)
-                Building Class
