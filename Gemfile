@@ -16,6 +16,7 @@ gem 'paperclip'
 gem 'breadcrumbs_on_rails'
 gem 'redcarpet'
 gem 'friendly_id'
+gem 'draper'
 
 group :development do
   gem 'thin'

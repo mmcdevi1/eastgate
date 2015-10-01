@@ -55,7 +55,7 @@ class Asset < ActiveRecord::Base
   end
 
   def first_approval_item
-    self.approvals.not_approved.first.title
+    self.approvals.approved.first.title
   end
 
   def any_approvals?
