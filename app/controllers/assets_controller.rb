@@ -21,6 +21,7 @@ class AssetsController < HatchesController
   end
 
   private
+
   def asset_layout
     'asset' if params[:action] == 'index'
   end

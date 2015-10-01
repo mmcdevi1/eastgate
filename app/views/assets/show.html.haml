@@ -1,27 +1,50 @@
 .asset-page
-  .row
+  .row.text-center
+    .col-lg-3
+      .panel.padder-v.item
+        .h1.text-info.font-thin.h1= @asset.need_approvals_count
+        %span.text-muted.text-xs.uppercase.bold Items for Approval
+        .top.text-right.w-full
+          %i.fa.fa-caret-down.text-warning.m-r-sm
+    .col-lg-3
+      .panel.padder-v.item
+        .h1.text-success.font-thin.h1= @asset.approved_count
+        %span.text-muted.text-xs.uppercase.bold Items Approved
+        .top.text-right.w-full
+          %i.fa.fa-caret-down.text-warning.m-r-sm
     .col-lg-6
-      .panel.panel-gray
-        .panel-heading
-          %h6 Basic Information
-        .row
-          .col-sm-6
-            %ul.list-group.no-radius
-              %li.list-group-item
-                %span.pull-right= number_to_currency(23437500)
-                Purchase Price
-              %li.list-group-item
-                %span.pull-right= number_to_currency(33345678)
-                Cost Basis
-              %li.list-group-item
-                %span.pull-right= number_to_currency(23437500)
-                Carrying Value
-              %li.list-group-item
-                %span.pull-right= number_to_currency(33345678)
-                Leverage
-              %li.list-group-item
-                %span.pull-right 58%
-                Loan to Cost
-              %li.list-group-item
-                %span.pull-right September 2015
-                Debt Maturity
+      .r.bg-light.dker.item.hbox.b
+        .col.dk.padder-v.r-r
+          .text-info-dk.font-thin.h1
+            %span $2,890,670
+          %span.text-muted.text-xs.uppercase.bold Expenses to date, 60% of the budget
+  - if @asset.any_approvals?
+    .row
+      .col-lg-12
+        .panel
+          .panel-body
+            .row
+              .col-lg-6
+                %span.bold Item for Approval:
+                = @asset.last_approval_item
+              .col-lg-6
+                .pull-right
+                  = link_to 'View Approvals', asset_approvals_path(@asset)
+  - if @asset.any_approvals_approved?
+    .row
+      .col-lg-12
+        .table-wrap-lg
+          .table-wrap-header
+            Most Recent Approvals
+          %table.table.table-striped
+            %thead
+              %tr
+                %th Approved Item
+                %th Approved By
+                %th Approved On
+            %tbody
+              - @asset.approvals.approved.all.each do |approval|
+                %tr
+                  %td.title= approval.shorten_title
+                  %td.approved-by Michael Jenkins
+                  %td.date= approval.date_approved
