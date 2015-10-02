@@ -1,5 +1,5 @@
 class HatchesController < ApplicationController
-  before_action :set_asset
+  before_action :set_asset, except: :index
   before_action :authenticate_user!
 
   add_breadcrumb "Hatch", :root_path
@@ -9,6 +9,7 @@ class HatchesController < ApplicationController
   layout :hatch_layout
 
   def index
+    redirect_to assets_path
   end
 
   private
