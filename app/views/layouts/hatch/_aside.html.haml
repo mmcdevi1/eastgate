@@ -30,6 +30,10 @@
               %i.i.i-chart
               %span Financials
           %li
+            = link_to "asset_budgets_path(@asset)", class: "auto", title: "Budget Tracker" do
+              %i.i.i-graph
+              %span Budget Tracker
+          %li
             = link_to asset_approvals_path(@asset), class: "auto", title: "Approvals" do
               - if @asset.approvals.not_approved.count > 0
                 %b.label.bg-info.pull-right= @asset.approvals.not_approved.count

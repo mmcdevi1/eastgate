@@ -9,7 +9,7 @@
     %ul.nav.navbar-nav.navbar-right
       - if current_user.admin?
         %li
-          = link_to 'Go back to Admin Dashboard', admin_path
+          = link_to 'Go back to Admin Dashboard', admin_path, 'data-no-turbolink' => true
       %li.dropdown
         %a.dropdown-toggle.clear{"data-toggle" => "dropdown", :href => "#"}
           %span.thumb-sm.avatar.pull-right.m-t-n-sm.m-b-n-sm.m-l-sm
