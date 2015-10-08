@@ -2,10 +2,10 @@
   %h4 Assets
   %p These are your properties under East Gate’s management
 .assets
-  .row
-    - @assets.each do |asset|
-      = link_to asset do
-        .col-lg-3.col-md-4.col-sm-6
+  - @assets.each do |asset|
+    = link_to asset do
+      .row
+        .col-lg-12
           .property
-            = image_tag(asset.asset_image.url(:medium), class: 'img-responsive img-thumbnail', style: 'width:100%;')
+            = image_tag(asset.asset_image.url(:thumb), class: 'img-responsive img-thumbnail')
             %p.property-name= asset.name

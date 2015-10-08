@@ -3,9 +3,10 @@ class Asset < ActiveRecord::Base
   include ActionView::Helpers::NumberHelper
   include ActionView::Helpers::TextHelper
 
-  has_many :approvals, :dependent => :destroy
+  has_many :approvals,      :dependent => :destroy
   has_many :business_plans, :dependent => :destroy
-  has_many :timelines, :dependent => :destroy
+  has_many :timelines,      :dependent => :destroy
+  has_one  :budget,         :dependent => :destroy
 
   belongs_to :client
 
@@ -64,6 +65,10 @@ class Asset < ActiveRecord::Base
 
   def any_approvals_approved?
     self.approvals.approved.any?
+  end
+
+  def budget_amount
+    number_to_currency self.budget.amount
   end
 end
 

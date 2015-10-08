@@ -16,7 +16,7 @@
       .r.bg-light.dker.item.hbox.b
         .col.dk.padder-v.r-r
           .text-info-dk.font-thin.h1
-            %span $2,890,670
+            %span= @asset.budget_amount
           %span.text-muted.text-xs.uppercase.bold Expenses to date, 60% of the budget
   - if @asset.any_approvals?
     .row
@@ -25,7 +25,7 @@
           .panel-body
             .row
               .col-lg-6
-                %span.bold Item for Approval:
+                %span.bold Latest Item for Approval:
                 = @asset.last_approval_item
               .col-lg-6
                 .pull-right
