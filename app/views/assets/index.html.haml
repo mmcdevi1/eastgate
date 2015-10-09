@@ -1,11 +1,18 @@
-.heading
-  %h4 Assets
-  %p These are your properties under East Gate’s management
+.property-header
+  .property-stats
+    .property-stat-title
+      Assets
+    .property-stat-result
+      = @client.assets.count
 .assets
   - @assets.each do |asset|
-    = link_to asset do
-      .row
-        .col-lg-12
-          .property
-            = image_tag(asset.asset_image.url(:thumb), class: 'img-responsive img-thumbnail')
-            %p.property-name= asset.name
+    .row
+      .col-lg-12
+        .assets-portfolio.clearfix
+          = image_tag(asset.asset_image.url(:thumb), class: 'img-responsive')
+          .asset-info
+            .asset-name
+              = link_to asset do
+                %h4= asset.name
+            .asset-address
+              = asset.address_with_break

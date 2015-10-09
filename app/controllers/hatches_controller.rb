@@ -1,6 +1,8 @@
 class HatchesController < ApplicationController
-  before_action :set_asset, except: :index
   before_action :authenticate_user!
+
+  before_action :set_asset, except: :index
+  before_action :set_asset, except: :index
 
   add_breadcrumb "Hatch", :root_path
   add_breadcrumb 'Assets', :assets_path
@@ -34,6 +36,10 @@ class HatchesController < ApplicationController
       else
       end
     end
+  end
+
+  def set_client
+    @client = current_user.client
   end
 
   protected

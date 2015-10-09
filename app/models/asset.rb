@@ -14,8 +14,8 @@ class Asset < ActiveRecord::Base
     xlarge: "1200x800#",
     large: "1200x800#",
     medium: "300x300#",
-    small: "50x50#",
-    thumb: "140x140#"
+    thumb: "120x120#",
+    small: "50x50#"
   }
   validates_attachment_content_type :asset_image, :content_type => /\Aimage/
 
