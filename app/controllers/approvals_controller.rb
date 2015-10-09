@@ -5,7 +5,6 @@ class ApprovalsController < HatchesController
   def index
     @approvals = @asset.approvals.not_approved
     @approved = @asset.approvals.approved
-    add_breadcrumb 'Approvals', ''
   end
 
   def update
@@ -17,6 +16,11 @@ class ApprovalsController < HatchesController
     end
   end
 
+  def approved
+    @approvals = @asset.approvals.not_approved
+    @approved = @asset.approvals.approved
+  end
+
   private
 
   def set_approvals
@@ -24,6 +28,11 @@ class ApprovalsController < HatchesController
   end
 
   def approvals_params
-    params.require(:approval).permit(:title, :priority_id, :asset_id, :approved)
+    params.require(:approval).permit(
+      :title,
+      :priority_id,
+      :asset_id,
+      :approved
+      )
   end
 end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :assets do
       get '/financials', to: 'assets#financials'
       get '/approvals', to: 'approvals#index'
+      get '/approvals/approved', to: 'approvals#approved'
       resources :approvals, only: [:show, :update]
       resources :images
       resources :hot_points

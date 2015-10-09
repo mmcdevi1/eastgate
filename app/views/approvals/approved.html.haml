@@ -1,0 +1,11 @@
+.row
+  .col-lg-12
+    %h4 Approved Tasks
+    .approvals
+      - @approved.each do |approval|
+        .row
+          .col-sm-12
+            .priority{class: "#{priority_colors(approval)}", style: "display:inline-block"}
+              = Priority.title(approval)
+            = approval.title
+            .pull-right
