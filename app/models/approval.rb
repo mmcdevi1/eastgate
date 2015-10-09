@@ -1,5 +1,6 @@
 class Approval < ActiveRecord::Base
   include ActionView::Helpers::TextHelper
+  include ActionView::Helpers::DateHelper
 
   belongs_to :asset
   has_many :priorities
@@ -17,5 +18,13 @@ class Approval < ActiveRecord::Base
 
   def date_approved
     self.updated_at.strftime("%B %-d, %Y")
+  end
+
+  def time_in_words
+    time_ago_in_words self.created_at
+  end
+
+  def priority
+    Priority.title(self)[0]
   end
 end

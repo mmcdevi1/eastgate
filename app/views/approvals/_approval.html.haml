@@ -16,11 +16,11 @@
             .col-sm-12
               .approval-item
                 .priority{class: "#{priority_colors(approval)}", style: "display:inline-block;"}
-                  = Priority.title(approval)[0]
+                  = approval.priority
                 .approval-item-title= approval.title
                 .approval-item-created-at.text-muted.m-l
                   Submitted for approval
-                  %span.bold= time_ago_in_words approval.created_at
+                  %span.bold= approval.time_in_words
                   ago
                 .pull-right
                   .comment-link
@@ -29,8 +29,6 @@
                     %i.i.i-checkmark2
                 = form_for [@asset, approval] do |f|
                   = f.hidden_field :approved, value: true
-                  / Button trigger modal
-                  / Modal
                   #approval_modal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
                     .modal-dialog{:role => "document"}
                       .modal-content
