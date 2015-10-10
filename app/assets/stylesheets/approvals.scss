@@ -35,9 +35,20 @@
   }
   .approval-item {
     padding:6px 10px;
+    .approval-item-title {
+      color: #333;
+    }
+    .approval-left {
+      float: left;
+      width:90%;
+    }
+    .approval-right {
+      float: right;
+    }
     .priority,
     .approval-item-title,
-    .approval-item-created-at {
+    .approval-item-created-at,
+    .approval-checkbox {
       display: inline-block;
     }
     .approve-link,
@@ -57,3 +68,46 @@
     }
   }
 }
+.approval-item-aside {
+  .approval-item-aside-header {
+    margin-bottom:30px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,11 +2,6 @@ class HatchesController < ApplicationController
   before_action :authenticate_user!
 
   before_action :set_asset, except: :index
-  before_action :set_asset, except: :index
-
-  add_breadcrumb "Hatch", :root_path
-  add_breadcrumb 'Assets', :assets_path
-  add_breadcrumb :breadcrumb, :breadcrumb_path
 
   layout :hatch_layout
 
@@ -17,7 +12,7 @@ class HatchesController < ApplicationController
   private
 
   def set_asset
-    if params[:action] == 'show'
+    if params[:action] == 'show' && params[:controller] == 'assets'
       @asset = Asset.find(params[:id])
     else
       @asset = Asset.find(params[:asset_id])

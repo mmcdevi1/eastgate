@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151008223602) do
+ActiveRecord::Schema.define(version: 20151009235638) do
 
   create_table "approvals", force: true do |t|
     t.string   "title"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20151008223602) do
     t.datetime "updated_at"
     t.integer  "asset_id"
     t.boolean  "approved",    default: false
+    t.text     "description"
+    t.integer  "user_id"
   end
 
   create_table "assets", force: true do |t|

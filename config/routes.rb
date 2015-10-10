@@ -2,17 +2,14 @@ Rails.application.routes.draw do
 
   ##### Routes for Hatch ################W
   scope :hatch do
-    get '/', to: 'hatches#index'
-
     resources :assets do
       get '/financials', to: 'assets#financials'
-      get '/approvals', to: 'approvals#index'
       get '/approvals/approved', to: 'approvals#approved'
-      resources :approvals, only: [:show, :update]
-      resources :images
-      resources :hot_points
-      resources :business_plans
-      resources :timelines
+      resources :approvals, only: [:index, :show, :update]
+      resources :images, only: [:index, :show]
+      resources :hot_points, only: [:index, :show]
+      resources :business_plans, only: [:index, :show]
+      resources :timelines, only: [:index, :show]
     end
   end
 

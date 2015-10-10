@@ -1,49 +1,40 @@
-.row
-  .col-lg-12
-    %div
-      .pull-left
-        %h4 Approvals
-      .pull-right
-        .btn-group
-          %button.btn.btn-default{:type => "button"}
-            %i.i.i-list2
-          %button.btn.btn-default{:type => "button"}
-            %i.i.i-grid
-    .approvals
-      - if @approvals.any?
-        - @approvals.each do |approval|
-          .row
-            .col-sm-12
-              .approval-item
-                .priority{class: "#{priority_colors(approval)}", style: "display:inline-block;"}
-                  = approval.priority
-                .approval-item-title= approval.title
-                .approval-item-created-at.text-muted.m-l
-                  Submitted for approval
-                  %span.bold= approval.time_in_words
-                  ago
-                .pull-right
-                  .comment-link
-                    %i.i.i-chat3
-                  .approve-link{"data-target" => "#approval_modal", "data-toggle" => "modal", :type => "button"}
-                    %i.i.i-checkmark2
-                = form_for [@asset, approval] do |f|
-                  = f.hidden_field :approved, value: true
-                  #approval_modal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-                    .modal-dialog{:role => "document"}
-                      .modal-content
-                        .modal-header
-                          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-                            %span{"aria-hidden" => "true"} &times;
-                          %h4#myModalLabel.modal-title Are you sure you want to approve this?
-                        .modal-body
-                          Once this item has been approved, the project will move forward.
-                        .modal-footer
-                          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-                          = f.submit 'Yes', class: 'btn btn-info'
-      - else
-        .jumbotron.center
-          %h5{style: 'margin:0'} Everything has been approved!
-    = link_to asset_approvals_approved_path do
-      Approved Tasks
-      %i.i.i-arrow-right5
+.col
+  .wrapper-lg
+    .row
+      .col-lg-12
+        %div
+          .pull-left
+            %h4 Approvals
+          .pull-right
+            .btn-group
+              %button.btn.btn-default{:type => "button"}
+                %i.i.i-list2
+              %button.btn.btn-default{:type => "button"}
+                %i.i.i-grid
+        .approvals
+          - if @approvals.any?
+            - @approvals.each do |approval|
+              .row
+                .col-sm-12
+                  .approval-item.clearfix{"data-approvalid" => "approval_#{approval.id}"}
+                    .approval-left
+                      = link_to [@asset, approval] do
+                        .approval-checkbox
+                          %input{:type => "checkbox"}
+                        .approval-item-title{id: "approval_#{approval.id}"}= approval.title
+                        .approval-item-created-at.text-muted.m-l
+                          Submitted for approval
+                          %span.bold= approval.time_in_words
+                          ago
+                    .approval-right
+                      .comment-link
+                        %i.i.i-chat3
+                      .approve-link{"data-target" => "#approval_modal", "data-toggle" => "modal", :type => "button"}
+                        %i.i.i-checkmark2
+                    = render 'form', approval: approval
+          - else
+            .jumbotron.center
+              %h5{style: 'margin:0'} Everything has been approved!
+        = link_to asset_approvals_approved_path do
+          Approved Tasks
+          %i.i.i-arrow-right5
