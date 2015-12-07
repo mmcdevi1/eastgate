@@ -14,6 +14,7 @@ class CareerApplicationsController < ApplicationController
     if @new_application.save
       redirect_to root_path
       flash[:success] = 'Your application has been submitted.'
+      notify_on_new_application(@new_application)
     else
       render :new
       flash[:danger] = 'All fields required.'
