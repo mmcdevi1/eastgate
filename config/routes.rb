@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :clients
     resources :timelines
     resources :approvals
+    resources :career_applications, only: [:index, :show, :destroy]
   end
 
   devise_for :users
@@ -33,6 +34,11 @@ Rails.application.routes.draw do
   ##### Routes for Eastgate.io ##############
   resources 'static_pages', only: [:index]
   get '/test', to: 'static_pages#test'
+  get '/about', to: 'static_pages#about'
+
+  resources :career_applications, only: [:index, :create]
+  get '/careers/apply', to: 'career_applications#new'
+
   root to: 'static_pages#index'
 
 end

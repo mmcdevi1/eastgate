@@ -5,7 +5,7 @@
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-html, body, #wrapper {
+html, body, #wrapper, .full-height {
     height: 100%;
 }
 body.homepage {
@@ -58,6 +58,8 @@ a:hover {
     display:table;
     overflow:hidden;
     margin:0px auto;
+    height:100%;
+    width:980px;
 }
 *:first-child+html #page {
     position:relative;
@@ -87,11 +89,6 @@ a:hover {
     position:relative;
     top:-50%;
     }/*ie6*/
-
-#page{
-    height:100%;
-    /*width:365px;*/
-}
 .form-control {
   border:1px solid #cbd5dd;
   box-shadow: none !important;
@@ -133,7 +130,15 @@ footer {
 a:hover {
   color: #337ab7;
 }
-
+.application-form {
+  padding: 20px 0;
+  h3 {
+  margin: 0 0 20px 0;
+  }
+  textarea {
+    height: 300px;
+  }
+}
 @media (max-width: 768px) {
   .mb {
     margin-bottom: 15px;
@@ -144,4 +149,17 @@ a:hover {
   body.homepage {
     background: white;
   }
+  #page {
+    display: block
+  }
 }
+
+@media (max-width: 980px) {
+  #page {
+    width: 100%;
+  }
+}
+
+
+
+

@@ -1,0 +1,23 @@
+.application-form
+  %h3 Please submit your application for review
+  = form_for @new_application do |f|
+    .form-group
+      = f.label :first_name
+      = f.text_field :first_name, class: 'form-control'
+    .form-group
+      = f.label :last_name
+      = f.text_field :last_name, class: 'form-control'
+    .form-group
+      = f.label :email
+      = f.text_field :email, class: 'form-control'
+    .form-group
+      = f.label :phone
+      = f.text_field :phone, class: 'form-control'
+    .form-group
+      = f.label :cover_letter
+      = f.text_area :cover_letter, class: 'form-control'
+    .form-group
+      = f.label :resume, 'Upload Your Resume'
+      = f.file_field :resume, as: :file
+    .submit
+      = f.submit "Submit", class: "btn btn-info"

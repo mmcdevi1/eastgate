@@ -17,6 +17,8 @@ gem 'breadcrumbs_on_rails'
 gem 'redcarpet'
 gem 'friendly_id'
 gem 'draper'
+gem 'aws-sdk', '< 2.0'
+gem 'aws-s3'
 
 group :development do
   gem 'thin'

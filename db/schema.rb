@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151009235638) do
+ActiveRecord::Schema.define(version: 20151207194231) do
 
   create_table "approvals", force: true do |t|
     t.string   "title"
@@ -61,6 +61,20 @@ ActiveRecord::Schema.define(version: 20151009235638) do
     t.string   "business_plan_doc_content_type"
     t.integer  "business_plan_doc_file_size"
     t.datetime "business_plan_doc_updated_at"
+  end
+
+  create_table "career_applications", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "phone"
+    t.text     "cover_letter"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
   end
 
   create_table "clients", force: true do |t|

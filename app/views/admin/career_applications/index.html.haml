@@ -1,0 +1,18 @@
+%section
+  %h4 Applications
+.table-wrap
+  .table-wrap-header
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Email
+        %th Phone
+        %th Resume
+    %tbody
+      - @applications.each do |application|
+        %tr
+          %td= application.full_name
+          %td= application.email
+          %td= application.phone
+          %td= link_to application.resume_file_name, application.resume.url

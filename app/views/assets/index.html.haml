@@ -3,7 +3,7 @@
     .property-stat-title
       Assets
     .property-stat-result
-      = @client.assets.count
+      = @client.assets.count if @client
 .assets
   - @assets.each do |asset|
     .row

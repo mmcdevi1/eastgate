@@ -1,37 +1,30 @@
-.row{style: "color:black"}
-  .col-sm-10.col-sm-offset-1
-    .panel
-      .panel-body
-        %header{style: "border-bottom:4px solid black; padding-bottom: 20px;"}
-          = image_tag('logo.png')
-        .row{style: "padding: 20px 0 0 0"}
-          .col-sm-6
-            = image_tag('img_1.png', class: "img-responsive mb")
-          .col-sm-6
-            %p
-              This website is intended solely for the employees of East Gate and its clients.
-              All other inquiries should be directed to
-              = link_to 'info@eastgate.io', 'mailto: info@eastgate.io'
-            %div{style: "border-top:1px dotted #999; border-bottom:1px dotted #999; padding: 15px 0"}
-              %p Client Login
-              - if user_signed_in?
-                You are signed in...
-                = link_to 'Click here for Hatch', assets_path
-              - else
-                = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-                  .form-group
-                    = f.email_field :email, class: "", placeholder: "Email address"
-                  .form-group
-                    = f.password_field :password, class: "", placeholder: "Password"
-                  .actions
-                    = f.submit 'Log In', class: 'btn btn-off-blue'
-            .row{style: "padding: 15px 0"}
-              .col-sm-6
-                .address
-                  590 Madison Avenue, 22nd Floor
-                  %br
-                  New York, NY 10022
-              .col-sm-6
-                %img{src: "https://maps.googleapis.com/maps/api/staticmap?center=590+madison+avenue,NY&zoom=14&size=200x100&markers=590+madison+avenue,NY&sensor=false", class: "img-responsive mt"}
-        %footer
-          %p Copyright © 2015 East Gate Real Estate Advisors. All rights reserved.
+.row{style: "padding: 20px 0 0 0"}
+  .col-sm-6
+    = image_tag('img_1.png', class: "img-responsive mb")
+  .col-sm-6
+    %p
+      This website is intended solely for the employees of East Gate and its clients.
+      All other inquiries should be directed to
+      = link_to 'info@eastgate.io', 'mailto: info@eastgate.io'
+    %div{style: "border-top:1px dotted #999; border-bottom:1px dotted #999; padding: 15px 0"}
+      %p Client Login
+      - if user_signed_in?
+        You are signed in...
+        = link_to 'Click here for Hatch', assets_path
+      - else
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .form-group
+            = f.email_field :email, class: "", placeholder: "Email address"
+          .form-group
+            = f.password_field :password, class: "", placeholder: "Password"
+          .actions
+            = f.submit 'Log In', class: 'btn btn-off-blue'
+    .row{style: "padding: 15px 0"}
+      .col-sm-6
+        .address
+          590 Madison Avenue, 22nd Floor
+          %br
+          New York, NY 10022
+      .col-sm-6
+        %img{src: "https://maps.googleapis.com/maps/api/staticmap?center=590+madison+avenue,NY&zoom=14&size=200x100&markers=590+madison+avenue,NY&sensor=false", class: "img-responsive mt"}
+
