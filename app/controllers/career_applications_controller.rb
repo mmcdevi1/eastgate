@@ -13,8 +13,10 @@ class CareerApplicationsController < ApplicationController
     @new_application = CareerApplication.new(career_application_params)
     if @new_application.save
       redirect_to root_path
+      flash[:success] = 'Your application has been submitted.'
     else
-      render :index
+      render :new
+      flash[:danger] = 'All fields required.'
     end
   end
 
