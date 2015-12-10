@@ -139,6 +139,12 @@ a:hover {
     height: 300px;
   }
 }
+.alert {
+  position:absolute;
+  text-align:center;
+  width:100%;
+  border-radius:0px;
+}
 @media (max-width: 768px) {
   .mb {
     margin-bottom: 15px;

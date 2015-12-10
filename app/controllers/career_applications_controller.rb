@@ -1,4 +1,6 @@
 class CareerApplicationsController < ApplicationController
+  before_action :authenticate_user!
+
   layout :layout
 
   def index
@@ -35,7 +37,7 @@ class CareerApplicationsController < ApplicationController
   end
 
   def layout
-    'static_pages'
+    'career_applications'
   end
 
 end
