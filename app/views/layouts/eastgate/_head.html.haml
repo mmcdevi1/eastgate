@@ -4,3 +4,4 @@
   = javascript_include_tag "application", "data-turbolinks-track" => true
   = csrf_meta_tags
   %meta{:content => "#{user_signed_in? ? current_user.id : ""}", :name => "user-id"}/
+  = favicon_link_tag 'favicon.png'
