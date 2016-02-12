@@ -16,8 +16,8 @@
       .r.bg-light.dker.item.hbox.b
         .col.dk.padder-v.r-r
           .text-info-dk.font-thin.h1
-            - unless @asset.budget.blank?
-              %span= @asset.budget_amount
+            / - unless @asset.budget.blank?
+            /   %span= @asset.budget_amount
           %span.text-muted.text-xs.uppercase.bold Expenses to date, 60% of the budget
   - if @asset.any_approvals?
     .row

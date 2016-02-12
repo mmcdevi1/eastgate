@@ -19,6 +19,7 @@ gem 'friendly_id'
 gem 'draper'
 gem 'aws-sdk', '< 2.0'
 gem 'aws-s3'
+gem 'draper'
 
 group :development do
   gem 'thin'
