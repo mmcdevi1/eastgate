@@ -16,11 +16,11 @@
             %span.dropdown-label{"data-placeholder" => "Please select"}= property_class_for_form(@asset)
             %span.caret{:style => "margin-left:30px;"}
           %ul.dropdown-menu.dropdown-select
-            - PropertyClass.all.each do |property_class|
-              %li
-                %a{:href => "#"}
-                  = property_class.title
-                  = f.radio_button :property_class, property_class.id
+            / - PropertyClass.all.each do |property_class|
+            /   %li
+            /     %a{:href => "#"}
+            /       = property_class.title
+            /       = f.radio_button :property_class, property_class.id
   .form-group
     = f.label :property_type, 'Property Type', class: 'col-lg-2 control-label'
     .col-lg-8
@@ -30,11 +30,11 @@
             %span.dropdown-label{"data-placeholder" => "Please select"}= property_type_for_form(@asset)
             %span.caret{:style => "margin-left:30px;"}
           %ul.dropdown-menu.dropdown-select
-            - PropertyType.all.each do |property_type|
-              %li
-                %a{:href => "#"}
-                  = property_type.title
-                  = f.radio_button :property_type, property_type.id
+            / - PropertyType.all.each do |property_type|
+            /   %li
+            /     %a{:href => "#"}
+            /       = property_type.title
+            /       = f.radio_button :property_type, property_type.id
   .form-group
     = f.label :asset_image, 'Image', class: 'col-lg-2 control-label'
     .col-lg-8
