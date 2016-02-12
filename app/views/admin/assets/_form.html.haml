@@ -16,15 +16,11 @@
             %span.dropdown-label{"data-placeholder" => "Please select"}= property_class_for_form(@asset)
             %span.caret{:style => "margin-left:30px;"}
           %ul.dropdown-menu.dropdown-select
-            - User.all.each do |property_class|
+            - PropertyClass.all.each do |property_class|
               %li
                 %a{:href => "#"}
-                  = property_class
-            / - PropertyClass.all.each do |property_class|
-            /   %li
-            /     %a{:href => "#"}
-            /       = property_class.title
-            /       = f.radio_button :property_class, property_class.id
+                  = property_class.title
+                  = f.radio_button :property_class, property_class.id
   .form-group
     = f.label :property_type, 'Property Type', class: 'col-lg-2 control-label'
     .col-lg-8
