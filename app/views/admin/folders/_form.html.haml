@@ -1,0 +1,10 @@
+= form_for [:admin, @asset, @folder] do |f|
+  = f.label :name
+  = f.text_field :name
+  = f.hidden_field :parent_id
+  = f.submit
+- if params[:folder_id]
+  = params
+  = @folder.asset_id
+- else
+  NOPE

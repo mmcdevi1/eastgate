@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151207194231) do
+ActiveRecord::Schema.define(version: 20160215200338) do
 
   create_table "approvals", force: true do |t|
     t.string   "title"
@@ -98,6 +98,20 @@ ActiveRecord::Schema.define(version: 20151207194231) do
   create_table "debits", force: true do |t|
     t.integer  "budget_id"
     t.decimal  "amount",     precision: 12, scale: 3
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "documents", force: true do |t|
+    t.integer  "folder_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "folders", force: true do |t|
+    t.integer  "asset_id"
+    t.string   "name"
+    t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

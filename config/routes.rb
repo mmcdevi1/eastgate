@@ -15,7 +15,15 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/', to: 'assets#index'
-    resources :assets
+    get '/file-manager', to: 'assets#file_manager', as: :file_manager
+
+    resources :assets do 
+      get '/folders/:folder_id/new', to: 'folders#new', as: :new_sub_folder
+      resources :folders do 
+        resources :documents
+      end
+    end
+
     resources :clients
     resources :timelines
     resources :approvals

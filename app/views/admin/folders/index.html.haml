@@ -1,0 +1,20 @@
+.table-responsive
+  %table.table.table-striped.b-t.b-light
+    %thead
+      %tr
+        %th Name
+        %th Size
+        %th Modified
+        %th{:style => "width:30px;"}
+    %tbody
+      - @folders.each do |folder|
+        %tr
+          %td
+            = link_to admin_asset_folder_path(@asset, folder) do 
+              %i.i.i-folder2
+              = folder.name
+          %td
+            %span.text-ellipsis -
+          %td
+            %span.text-ellipsis -
+      

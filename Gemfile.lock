@@ -27,6 +27,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts_as_tree (2.4.0)
+      activerecord (>= 3.0.0)
     arel (5.0.1.20140414130214)
     autoprefixer-rails (5.1.11)
       execjs
@@ -233,6 +235,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_tree
   aws-s3
   aws-sdk (< 2.0)
   better_errors

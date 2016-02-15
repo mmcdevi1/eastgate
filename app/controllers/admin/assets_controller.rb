@@ -42,6 +42,10 @@ module Admin
       flash[:success] = 'Asset Deleted.'
     end
 
+    def file_manager
+      @assets = Asset.all
+    end
+
     private
 
     def set_asset

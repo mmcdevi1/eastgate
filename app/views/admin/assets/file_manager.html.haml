@@ -1,0 +1,22 @@
+%section
+  %h4 File Manager
+.table-wrap
+  .table-wrap-header
+    .clearfix
+      .pull-right
+        = link_to 'Add New Asset', new_admin_asset_path, class: 'btn btn-info'
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Client
+        %th Actions
+    %tbody
+      - @assets.each do |asset|
+        %tr
+          %td= asset.name
+          %td
+            - unless asset.client.nil?
+              = asset.client.name
+          %td
+            = link_to "Open File Mananger", admin_asset_folders_path(asset)
