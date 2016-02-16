@@ -17,6 +17,12 @@ class Asset < ActiveRecord::Base
     medium: "300x300#",
     thumb: "120x120#",
     small: "50x50#"
+  },
+  :storage => :s3,
+  :bucket => 'eastgate-file-hosting',
+  :s3_credentials => {
+    :access_key_id => ENV['S3_ACCESS_KEY'],
+    :secret_access_key => ENV['S3_SECRET_KEY']
   }
   validates_attachment_content_type :asset_image, :content_type => /\Aimage/
 
