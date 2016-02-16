@@ -18,7 +18,14 @@ class Document < ActiveRecord::Base
 
   validates_attachment_presence :uploaded_file
   validates_attachment_content_type :uploaded_file,
-    :content_type => [ 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ]
+    :content_type => [
+      'application/zip',
+      'application/pdf',
+      'application/msword','application/vnd.ms-office','application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      'application/msexcel','application/vnd.ms-excel','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      'application/mspowerpoint','application/vnd.ms-powerpoint','application/vnd.openxmlformats-officedocument.presentationml.presentation',
+      'image/jpg','image/jpeg','image/pjpeg','image/png','image/x-png','image/gif'
+    ]
 
   def file_name
     uploaded_file_file_name
@@ -43,6 +50,6 @@ class Document < ActiveRecord::Base
 
   # Decorators
   def minimize_length
-    truncate( self.file_name, length: 35 )
+    truncate( self.file_name, length: 30 )
   end
 end

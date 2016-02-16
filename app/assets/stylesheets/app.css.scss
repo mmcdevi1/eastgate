@@ -5290,8 +5290,31 @@ a.text-#000000:hover {
   }
 }
 
-
-
+.i-file-pdf,
+.i-file-powerpoint,
+.i-file-word,
+.i-file-excel,
+.i-folder2,
+.i-file-zip {
+  font-size:23px;
+  position: absolute;
+  top:7px;
+}
+.i-file-pdf {
+  color:#FF8E8E;
+}
+.i-file-powerpoint {
+  color:#FFBD62;
+}
+.i-file-excel {
+  color:#78CC81;
+}
+.i-file-word {
+  color:#6CB5EA;
+}
+.i.i.i-folder2 {
+  color:#23B7E5;
+}
 
 
 

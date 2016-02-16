@@ -43,7 +43,7 @@
           %tr
             %td
               = link_to document.uploaded_file.url do
-                %i.i.i-file-pdf
+                %i{ :class => "i i-file-#{icon_for_document(document)}" }
                 %span
                   = document.minimize_length
             %td
