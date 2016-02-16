@@ -6,7 +6,7 @@ class Document < ActiveRecord::Base
 
   if Rails.env.development? || Rails.env.test?
     has_attached_file :uploaded_file
-  else
+  elsif Rails.env.production?
     has_attached_file :uploaded_file,
     :storage => :s3,
     :bucket => 'eastgate-file-hosting',
