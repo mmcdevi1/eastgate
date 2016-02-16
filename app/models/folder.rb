@@ -1,6 +1,8 @@
 class Folder < ActiveRecord::Base
-  acts_as_tree
-  
+  extend ActsAsTree::TreeView
+
+  acts_as_tree order: 'name'
+
   has_many :documents, :dependent => :destroy
 
   belongs_to :asset

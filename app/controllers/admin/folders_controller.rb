@@ -8,6 +8,7 @@ module Admin
     end
 
     def show
+      @tree_view = Folder.tree_view(:name)
       @current_folder = Folder.find(params[:id])
       if @current_folder
         @folders = @current_folder.children

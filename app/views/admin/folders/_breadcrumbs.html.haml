@@ -1,0 +1,12 @@
+.breadcrumbs
+  = link_to 'File Manager', ''
+  >
+  - if @current_folder
+    = link_to @asset.name, admin_asset_folders_path
+    >
+    - @current_folder.ancestors.reverse.each do |folder|
+      = link_to folder.name, ''
+      >
+    = @current_folder.name
+  - else
+    Root
