@@ -1,7 +1,8 @@
 module Admin
   class DocumentsController < AdminsController
-    before_action :set_asset, only: [:new, :create]
-    before_action :set_folder, only: [:new, :create]
+    before_action :set_document, only: [:show, :edit, :update, :destroy]
+    before_action :set_asset, only: [:new, :create, :edit, :update]
+    before_action :set_folder, only: [:new, :create, :edit, :update]
 
     def index
     end
@@ -19,7 +20,7 @@ module Admin
     def create
       @document = @folder.documents.new(document_params)
       if @document.save
-        redirect_to admin_asset_folders_path
+        redirect_to admin_asset_folder_path(@asset, @folder)
         flash[:success] = 'File uploaded.'
       else
         render 'new'
@@ -27,9 +28,18 @@ module Admin
     end
 
     def update
+      if @document.update(document_params)
+        redirect_to admin_asset_folders_path
+        flash[:success] = 'Rename Successful.'
+      else
+        render 'edit'
+      end
     end
 
     def destroy
+      @document.destroy
+      flash[:success] = 'File deleted.'
+      redirect_to :back
     end
 
     def get
@@ -55,7 +65,7 @@ module Admin
     end
 
     def document_params
-      params.require(:document).permit(:folder_id, :uploaded_file)
+      params.require(:document).permit(:folder_id, :uploaded_file, :uploaded_file_file_name)
     end
   end
 end

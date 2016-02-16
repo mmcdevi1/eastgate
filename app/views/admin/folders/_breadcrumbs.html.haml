@@ -5,7 +5,7 @@
     = link_to @asset.name, admin_asset_folders_path
     >
     - @current_folder.ancestors.reverse.each do |folder|
-      = link_to folder.name, ''
+      = link_to folder.name, admin_asset_folder_path(@asset, folder)
       >
     = @current_folder.name
   - else

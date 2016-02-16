@@ -30,7 +30,7 @@ module Admin
     def create
       @folder = @asset.folders.new(folder_params)
       if @folder.save
-        redirect_to admin_asset_folders_path
+        redirect_to admin_asset_folder_path(@asset, @folder.ancestors.first)
         flash[:success] = "Folder created."
       else
         render :new
@@ -38,9 +38,18 @@ module Admin
     end
 
     def update
+      if @folder.update(folder_params)
+        redirect_to admin_asset_folders_path
+        flash[:success] = 'Folder updated.'
+      else
+        render 'edit'
+      end
     end
 
     def destroy
+      @folder.destroy
+      flash[:success] = 'Folder deleted.'
+      redirect_to :back
     end
 
     private
@@ -50,7 +59,7 @@ module Admin
     end
 
     def set_folders
-      @folders = Folder.find(params[:id])
+      @folder = Folder.find(params[:id])
     end
 
     def folder_params
