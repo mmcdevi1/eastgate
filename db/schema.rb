@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215200338) do
+ActiveRecord::Schema.define(version: 20160216142252) do
 
   create_table "approvals", force: true do |t|
     t.string   "title"
@@ -106,6 +106,10 @@ ActiveRecord::Schema.define(version: 20160215200338) do
     t.integer  "folder_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uploaded_file_file_name"
+    t.string   "uploaded_file_content_type"
+    t.integer  "uploaded_file_file_size"
+    t.datetime "uploaded_file_updated_at"
   end
 
   create_table "folders", force: true do |t|

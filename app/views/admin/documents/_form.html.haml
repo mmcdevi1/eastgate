@@ -1,0 +1,6 @@
+= form_for [:admin, @asset, @folder, @document] do |f|
+  .form-group
+    = f.label :uploaded_file, "Upload File"
+    = f.file_field :uploaded_file, as: :file
+  .form-group
+    = f.submit

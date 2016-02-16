@@ -12,6 +12,7 @@ module Admin
       @current_folder = Folder.find(params[:id])
       if @current_folder
         @folders = @current_folder.children
+        @documents = @current_folder.documents
       end
     end
 
