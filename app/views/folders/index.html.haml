@@ -1,0 +1,22 @@
+= render 'shared/breadcrumbs'
+.panel
+  .table-responsive
+    %table.table.table-striped.b-light
+      %thead
+        %tr
+          %th Name
+          %th Size
+          %th Modified
+          %th{:style => "width:30px;"}
+      %tbody.folders
+        - @folders.each do |folder|
+          %tr
+            %td
+              = link_to asset_folder_path(@asset, folder) do
+                %i.i.i-folder2
+                %span
+                  = folder.name
+            %td
+              %span.text-ellipsis -
+            %td
+              %span.text-ellipsis -

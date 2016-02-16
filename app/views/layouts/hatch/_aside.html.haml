@@ -11,39 +11,43 @@
       / nav
       %nav.navi.clearfix{:style => "padding:20px", "ui-nav" => ""}
         %ul.nav
-          %li.hidden-folded.m-b-sm.text-xs.nav-sm-title
-            %span Menu
+          / %li.hidden-folded.m-b-sm.text-xs.nav-sm-title
+          /   %span Menu
+          / %li
+          /   = link_to @asset, class: "auto", title: "Dashboard" do
+          /     %i.i.i-statistics
+          /     %span Property Snapshot
+          / %li
+          /   = link_to asset_timelines_path(@asset), class: "auto", title: "Timeline" do
+          /     %i.i.i-calendar
+          /     %span Timeline
+          / %li
+          /   = link_to asset_business_plans_path(@asset), class: "auto", title: "Business Plans" do
+          /     %i.i.i-docs
+          /     %span Business Plans
+          / %li
+          /   = link_to asset_financials_path(@asset), class: "auto", title: "Financials" do
+          /     %i.i.i-chart
+          /     %span Financials
+          / %li
+          /   = link_to "asset_budgets_path(@asset)", class: "auto", title: "Budget Tracker" do
+          /     %i.i.i-graph
+          /     %span Budget Tracker
+          / %li
+          /   = link_to asset_approvals_path(@asset), class: "auto", title: "Approvals" do
+          /     - if @asset.approvals.not_approved.count > 0
+          /       %b.label.bg-info.pull-right= @asset.approvals.not_approved.count
+          /     %i.i.i-like
+          /     %span Approvals
+          / %li
+          /   = link_to asset_hot_points_path(@asset), class: "auto", title: "Hot Points" do
+          /     %i.i.i-stats
+          /     %span Hot Points
+          / %li
+          /   = link_to asset_images_path(@asset), class: "auto", title: "Images" do
+          /     %i.i.i-images
+          /     %span Images
           %li
-            = link_to @asset, class: "auto", title: "Dashboard" do
-              %i.i.i-statistics
-              %span Property Snapshot
-          %li
-            = link_to asset_timelines_path(@asset), class: "auto", title: "Timeline" do
-              %i.i.i-calendar
-              %span Timeline
-          %li
-            = link_to asset_business_plans_path(@asset), class: "auto", title: "Business Plans" do
-              %i.i.i-docs
-              %span Business Plans
-          %li
-            = link_to asset_financials_path(@asset), class: "auto", title: "Financials" do
-              %i.i.i-chart
-              %span Financials
-          %li
-            = link_to "asset_budgets_path(@asset)", class: "auto", title: "Budget Tracker" do
-              %i.i.i-graph
-              %span Budget Tracker
-          %li
-            = link_to asset_approvals_path(@asset), class: "auto", title: "Approvals" do
-              - if @asset.approvals.not_approved.count > 0
-                %b.label.bg-info.pull-right= @asset.approvals.not_approved.count
-              %i.i.i-like
-              %span Approvals
-          %li
-            = link_to asset_hot_points_path(@asset), class: "auto", title: "Hot Points" do
-              %i.i.i-stats
-              %span Hot Points
-          %li
-            = link_to asset_images_path(@asset), class: "auto", title: "Images" do
+            = link_to asset_folders_path(@asset), class: "auto", title: "File Manager" do
               %i.i.i-images
-              %span Images
+              %span File Manager

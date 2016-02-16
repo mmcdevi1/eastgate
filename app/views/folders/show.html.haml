@@ -1,0 +1,64 @@
+= render 'shared/breadcrumbs'
+.panel
+  .table-responsive
+    %table.table.table-striped.b-light
+      %thead
+        %tr
+          %th Name
+          %th Size
+          %th Modified
+      %tbody.folders
+        - @folders.each do |folder|
+          %tr
+            %td
+              = link_to asset_folder_path(@asset, folder) do
+                %i.i.i-folder2
+                %span
+                  = folder.name
+            %td
+              %span.text-ellipsis -
+            %td
+              %span.text-ellipsis -
+        - @documents.each do |document|
+          %tr
+            %td
+              = link_to document.uploaded_file.url do
+                %i{ :class => "i i-file-#{icon_for_document(document)}" }
+                %span
+                  = document.minimize_length
+            %td
+              %span.text-ellipsis= document.file_size
+            %td
+              %span.text-ellipsis= document.time_updated_at
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

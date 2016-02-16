@@ -40,21 +40,3 @@
 .breadcrumbs {
   font-weight: 700;
 }
-.folders {
-  tr  {
-
-    td {
-      position: relative;
-      a {
-        span {
-          color: #333;
-          font-weight: 400;
-          margin-left: 40px;
-          &:hover {
-            text-decoration:underline;
-          }
-        }
-      }
-    }
-  }
-}

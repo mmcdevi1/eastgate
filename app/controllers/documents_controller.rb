@@ -1,2 +1,2 @@
-class DocumentsController < ApplicationController
+class DocumentsController < HatchesController
 end

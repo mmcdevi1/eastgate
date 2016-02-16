@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       resources :hot_points, only: [:index, :show]
       resources :business_plans, only: [:index, :show]
       resources :timelines, only: [:index, :show]
+      resources :folders, only: [:index, :show]
+      resources :documents, only: [:index, :show]
     end
   end
 
