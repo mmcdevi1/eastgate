@@ -28,6 +28,7 @@ class HatchesController < ApplicationController
     if @asset.client_id != current_user.client_id
       if !current_user.admin?
         redirect_to assets_path
+        flash[:danger] = "You don't have permission to access this information!"
       else
       end
     end

@@ -1,35 +1,49 @@
 = render 'shared/breadcrumbs'
-.panel
-  .table-responsive
-    %table.table.table-striped.b-light
-      %thead
-        %tr
-          %th Name
-          %th Size
-          %th Modified
-      %tbody.folders
-        - @folders.each do |folder|
+/ - @asset.folders.walk_tree do |folder, level|
+/   %div
+/     = link_to "#{'-'*level}#{folder.name}", asset_folder_path(@asset, folder)
+/     - folder.documents.each do |file|
+/       %div
+/         = file.file_name
+- if @current_folder.totally_empty?
+  .bold This folder is empty! Your East Gate Professional is working on filling the content.
+- else
+  .panel
+    .table-responsive
+      %table.table.table-striped.b-light
+        %thead
           %tr
-            %td
-              = link_to asset_folder_path(@asset, folder) do
-                %i.i.i-folder2
-                %span
-                  = folder.name
-            %td
-              %span.text-ellipsis -
-            %td
-              %span.text-ellipsis -
-        - @documents.each do |document|
-          %tr
-            %td
-              = link_to document.uploaded_file.url do
-                %i{ :class => "i i-file-#{icon_for_document(document)}" }
-                %span
-                  = document.minimize_length
-            %td
-              %span.text-ellipsis= document.file_size
-            %td
-              %span.text-ellipsis= document.time_updated_at
+            %th Name
+            %th Size
+            %th Modified
+            %th Actions
+        %tbody.folders
+          - @folders.each do |folder|
+            %tr
+              %td
+                = link_to asset_folder_path(@asset, folder) do
+                  %i.i.i-folder2
+                  %span
+                    = folder.name
+              %td
+                %span.text-ellipsis -
+              %td
+                %span.text-ellipsis -
+              %td
+          - @documents.each do |document|
+            %tr
+              %td
+                = link_to asset_download_path(@asset, document) do
+                  %i{ :class => "i i-file-#{icon_for_document(document)}" }
+                  %span
+                    = document.minimize_length
+              %td
+                %span.text-ellipsis= document.file_size
+              %td
+                %span.text-ellipsis= document.time_updated_at
+              %td
+                = link_to 'Download', asset_download_path(@asset, document)
+
 
 
 

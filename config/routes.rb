@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :assets do
       get '/financials', to: 'assets#financials'
       get '/approvals/approved', to: 'approvals#approved'
+      get '/documents/get/:id', to: 'documents#get', as: :download
       resources :approvals, only: [:index, :show, :update]
       resources :images, only: [:index, :show]
       resources :hot_points, only: [:index, :show]

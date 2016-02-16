@@ -2,70 +2,73 @@
   = link_to 'New Folder', admin_asset_new_sub_folder_path(@asset, @current_folder), class: 'btn btn-info'
   = link_to 'Upload File', new_admin_asset_folder_document_path(@asset, @current_folder), class: 'btn btn-primary'
 = render 'breadcrumbs'
-.panel
-  .table-responsive
-    %table.table.table-striped.b-light
-      %thead
-        %tr
-          %th Name
-          %th Size
-          %th Modified
-          %th Actions
-      %tbody.folders
-        - @folders.each do |folder|
+- if @current_folder.totally_empty?
+  This folder is empty!
+- else
+  .panel
+    .table-responsive
+      %table.table.table-striped.b-light
+        %thead
           %tr
-            %td
-              = link_to admin_asset_folder_path(@asset, folder) do
-                %i.i.i-folder2
-                %span
-                  = folder.name
-            %td
-              %span.text-ellipsis -
-            %td
-              %span.text-ellipsis -
-            %td
-              %a{"data-target" => "#folder_#{folder.id}", "data-toggle" => "modal", :href => ""}
-                %i.i.i-file-remove{"data-toggle" => "tooltip", :title => "Delete Folder"}
-              .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "folder_#{folder.id}", :role => "dialog", :tabindex => "-1"}
-                .modal-dialog
-                  .modal-content
-                    .modal-header
-                      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-                      %h4#myModalLabel.modal-title Are you sure?
-                    .modal-body
-                      Once the folder is deleted, it's gone forever!
-                    .modal-footer
-                      %button.btn.btn-link{"data-dismiss" => "modal", :type => "button"} Close
-                      = link_to "Delete", admin_asset_folder_path(@asset, folder), method: :delete, class: "btn btn-danger"
-              = link_to edit_admin_asset_folder_path(@asset, folder) do
-                %i.i.i-pencil2{"data-toggle" => "tooltip", :title => "Rename Folder"}
-        - @documents.each do |document|
-          %tr
-            %td
-              = link_to document.uploaded_file.url do
-                %i{ :class => "i i-file-#{icon_for_document(document)}" }
-                %span
-                  = document.minimize_length
-            %td
-              %span.text-ellipsis= document.file_size
-            %td
-              %span.text-ellipsis= document.time_updated_at
-            %td
-              %a{"data-target" => "#document_#{document.id}", "data-toggle" => "modal", :href => ""}
-                %i.i.i-file-remove{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Delete File"}
-              .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "document_#{document.id}", :role => "dialog", :tabindex => "-1"}
-                .modal-dialog
-                  .modal-content
-                    .modal-header
-                      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-                      %h4#myModalLabel.modal-title Are you sure?
-                    .modal-body
-                      Once the document is deleted, it's gone forever!
-                    .modal-footer
-                      %button.btn.btn-link{"data-dismiss" => "modal", :type => "button"} Close
-                      = link_to "Delete", admin_asset_folder_document_path(@asset, @current_folder, document), method: :delete, class: "btn btn-danger"
-              = link_to edit_admin_asset_folder_document_path(@asset, @current_folder, document) do
-                %i.i.i-pencil2{"data-toggle" => "tooltip", :title => "Rename File"}
+            %th Name
+            %th Size
+            %th Modified
+            %th Actions
+        %tbody.folders
+          - @folders.each do |folder|
+            %tr
+              %td
+                = link_to admin_asset_folder_path(@asset, folder) do
+                  %i.i.i-folder2
+                  %span
+                    = folder.name
+              %td
+                %span.text-ellipsis -
+              %td
+                %span.text-ellipsis -
+              %td
+                %a{"data-target" => "#folder_#{folder.id}", "data-toggle" => "modal", :href => ""}
+                  %i.i.i-file-remove{"data-toggle" => "tooltip", :title => "Delete Folder"}
+                .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "folder_#{folder.id}", :role => "dialog", :tabindex => "-1"}
+                  .modal-dialog
+                    .modal-content
+                      .modal-header
+                        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+                        %h4#myModalLabel.modal-title Are you sure?
+                      .modal-body
+                        Once the folder is deleted, it's gone forever!
+                      .modal-footer
+                        %button.btn.btn-link{"data-dismiss" => "modal", :type => "button"} Close
+                        = link_to "Delete", admin_asset_folder_path(@asset, folder), method: :delete, class: "btn btn-danger"
+                = link_to edit_admin_asset_folder_path(@asset, folder) do
+                  %i.i.i-pencil2{"data-toggle" => "tooltip", :title => "Rename Folder"}
+          - @documents.each do |document|
+            %tr
+              %td
+                = link_to document.uploaded_file.url do
+                  %i{ :class => "i i-file-#{icon_for_document(document)}" }
+                  %span
+                    = document.minimize_length
+              %td
+                %span.text-ellipsis= document.file_size
+              %td
+                %span.text-ellipsis= document.time_updated_at
+              %td
+                %a{"data-target" => "#document_#{document.id}", "data-toggle" => "modal", :href => ""}
+                  %i.i.i-file-remove{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Delete File"}
+                .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "document_#{document.id}", :role => "dialog", :tabindex => "-1"}
+                  .modal-dialog
+                    .modal-content
+                      .modal-header
+                        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+                        %h4#myModalLabel.modal-title Are you sure?
+                      .modal-body
+                        Once the document is deleted, it's gone forever!
+                      .modal-footer
+                        %button.btn.btn-link{"data-dismiss" => "modal", :type => "button"} Close
+                        = link_to "Delete", admin_asset_folder_document_path(@asset, @current_folder, document), method: :delete, class: "btn btn-danger"
+                = link_to edit_admin_asset_folder_document_path(@asset, @current_folder, document) do
+                  %i.i.i-pencil2{"data-toggle" => "tooltip", :title => "Rename File"}
 
 
 

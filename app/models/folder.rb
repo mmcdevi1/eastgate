@@ -1,5 +1,7 @@
 class Folder < ActiveRecord::Base
   extend ActsAsTree::TreeView
+  extend ActsAsTree::TreeWalker
+
   include Rails.application.routes.url_helpers
 
   acts_as_tree order: 'name'
@@ -26,5 +28,9 @@ class Folder < ActiveRecord::Base
 
   def folder_size
     self.documents.map { |document| document.uploaded_file_file_size }.inject(:+)
+  end
+
+  def totally_empty?
+    self.children.empty? && self.documents.empty?
   end
 end
