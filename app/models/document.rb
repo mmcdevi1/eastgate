@@ -1,5 +1,6 @@
 class Document < ActiveRecord::Base
   include ActionView::Helpers::NumberHelper
+  include ActionView::Helpers::TextHelper
 
   belongs_to :folder
 
@@ -29,5 +30,19 @@ class Document < ActiveRecord::Base
 
   def time_updated_at
     uploaded_file_updated_at
+  end
+
+  def basename
+    File.basename( file_name, extname )
+  end
+
+  def extname
+    # file_name.split('.').last
+    File.extname( file_name )
+  end
+
+  # Decorators
+  def minimize_length
+    truncate( self.file_name, length: 35 )
   end
 end

@@ -30,7 +30,7 @@ module Admin
     def create
       @folder = @asset.folders.new(folder_params)
       if @folder.save
-        redirect_to admin_asset_folder_path(@asset, @folder.ancestors.first)
+        redirect_to @folder.redirect(@asset)
         flash[:success] = "Folder created."
       else
         render :new

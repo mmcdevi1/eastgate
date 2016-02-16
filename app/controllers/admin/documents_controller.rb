@@ -29,6 +29,7 @@ module Admin
 
     def update
       if @document.update(document_params)
+        @document.update_attribute(params[:uploaded_file_file_name], 'asdf')
         redirect_to admin_asset_folders_path
         flash[:success] = 'Rename Successful.'
       else
