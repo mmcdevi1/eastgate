@@ -12,11 +12,19 @@ class Folder < ActiveRecord::Base
     ancestors.empty?
   end
 
+  def is_empty?
+    !is_root?
+  end
+
   def redirect(asset)
     if self.is_root?
       admin_asset_folders_path(asset)
     else
       admin_asset_folder_path(asset, self.ancestors.first)
     end
+  end
+
+  def folder_size
+    self.documents.map { |document| document.uploaded_file_file_size }.inject(:+)
   end
 end
