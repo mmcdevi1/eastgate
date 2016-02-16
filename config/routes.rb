@@ -17,9 +17,11 @@ Rails.application.routes.draw do
     get '/', to: 'assets#index'
     get '/file-manager', to: 'assets#file_manager', as: :file_manager
 
-    resources :assets do 
+    resources :assets do
       get '/folders/:folder_id/new', to: 'folders#new', as: :new_sub_folder
-      resources :folders do 
+      get '/documents/get/:id', to: 'documents#get', as: :download
+      resources :folders do
+
         resources :documents
       end
     end

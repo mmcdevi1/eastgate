@@ -1,6 +1,6 @@
 %section
   = link_to 'New Folder', admin_asset_new_sub_folder_path(@asset, @current_folder), class: 'btn btn-info'
-  = link_to 'Upload File', admin_asset_new_sub_folder_path(@asset, @current_folder), class: 'btn btn-primary'
+  = link_to 'Upload File', new_admin_asset_folder_document_path(@asset, @current_folder), class: 'btn btn-primary'
 = render 'breadcrumbs'
 .panel
   .table-responsive
@@ -26,11 +26,11 @@
         - @documents.each do |document|
           %tr
             %td
-              = link_to admin_asset_folder_path(@asset, document) do
-                %i.i.i-file
+              = link_to admin_asset_download_path(@asset, document) do
+                %i.i.i-file-pdf
                 %span
                   = document.file_name
             %td
               %span.text-ellipsis= document.file_size
             %td
-              %span.text-ellipsis= document.uploaded_file_updated_at
+              %span.text-ellipsis= document.time_updated_at

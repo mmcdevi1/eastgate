@@ -32,6 +32,13 @@ module Admin
     def destroy
     end
 
+    def get
+      document = Document.find_by_id(params[:id])
+      if document
+        send_file( document.uploaded_file.path, :type => document.uploaded_file_content_type )
+      end
+    end
+
     private
 
     def set_folder
