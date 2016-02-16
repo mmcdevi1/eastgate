@@ -35,7 +35,8 @@ module Admin
     def get
       document = Document.find_by_id(params[:id])
       if document
-        send_file( document.uploaded_file.path, :type => document.uploaded_file_content_type )
+        data = open( URI.parse( URI.encode( document.uploaded_file.url ) ) )
+        send_data data, :filename => document.uploaded_file_file_name
       end
     end
 

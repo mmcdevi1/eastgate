@@ -3,13 +3,17 @@ class Document < ActiveRecord::Base
 
   belongs_to :folder
 
-  has_attached_file :uploaded_file,
-  :storage => :s3,
-  :bucket => 'eastgate-file-hosting',
-  :s3_credentials => {
-    :access_key_id => ENV['S3_ACCESS_KEY'],
-    :secret_access_key => ENV['S3_SECRET_KEY']
-  }
+  if Rails.env.development? || Rails.env.test?
+    has_attached_file :uploaded_file
+  else
+    has_attached_file :uploaded_file,
+    :storage => :s3,
+    :bucket => 'eastgate-file-hosting',
+    :s3_credentials => {
+      :access_key_id => ENV['S3_ACCESS_KEY'],
+      :secret_access_key => ENV['S3_SECRET_KEY']
+    }
+  end
 
   validates_attachment_presence :uploaded_file
   validates_attachment_content_type :uploaded_file,
