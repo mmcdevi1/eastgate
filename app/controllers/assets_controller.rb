@@ -6,10 +6,12 @@ class AssetsController < HatchesController
   layout :asset_layout
 
   def index
-    if current_user.client_id == nil
+    if current_user.admin?
       @assets = Asset.all
+    elsif current_user.broker?
+      @assets = current_user.assets
     else
-      @assets = current_user.client.assets.all
+      @assets = current_user.client.assets
     end
   end
 

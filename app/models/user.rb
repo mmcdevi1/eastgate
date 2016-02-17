@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :assets, through: :brokers
+  has_many :brokers
+
   belongs_to :client
 
   # validates_format_of :username, with: /^[a-z0-9_]+$/, message: "must be lowercase alphanumerics only"
@@ -15,5 +18,17 @@ class User < ActiveRecord::Base
 
   def full_name
     "#{self.first_name} #{self.last_name}"
+  end
+
+  def broker?
+    self.client_id.nil?
+  end
+
+  def admin?
+    self.admin
+  end
+
+  def not_admin?
+    !self.admin?
   end
 end

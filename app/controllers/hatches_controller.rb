@@ -25,11 +25,10 @@ class HatchesController < ApplicationController
 
   def correct_client
     @asset = (params[:controller] == 'assets') ? Asset.find(params[:id]) : Asset.find(params[:asset_id])
-    if @asset.client_id != current_user.client_id
-      if !current_user.admin?
+    if @asset.client_id != current_user.client_id && @asset.no_brokers?(current_user)
+      if current_user.not_admin?
         redirect_to assets_path
         flash[:danger] = "You don't have permission to access this information!"
-      else
       end
     end
   end

@@ -7,7 +7,11 @@ class Asset < ActiveRecord::Base
   has_many :business_plans, :dependent => :destroy
   has_many :timelines,      :dependent => :destroy
   has_many :folders,        :dependent => :destroy
-  has_one  :budget,         :dependent => :destroy
+
+  has_many :users, through: :brokers
+  has_many :brokers
+
+  has_one  :budget, :dependent => :destroy
 
   belongs_to :client
 
@@ -86,6 +90,14 @@ class Asset < ActiveRecord::Base
 
   def budget_amount
     number_to_currency self.budget.amount
+  end
+
+  def has_broker?(current_user)
+    !self.brokers.where(user_id: current_user.id).empty?
+  end
+
+  def no_brokers?(current_user)
+    !self.has_broker?(current_user)
   end
 end
 

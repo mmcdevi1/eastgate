@@ -1,4 +1,5 @@
 Fabricator(:asset) do
+  id nil
   name 'Belvedere'
   summary 'awesome place'
   address '50 e sunnyside lane'
@@ -9,4 +10,5 @@ Fabricator(:asset) do
   size 12345
   property_class 'A'
   property_type 'Retail'
+  client_id nil
 end
