@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216142252) do
+ActiveRecord::Schema.define(version: 20160217141951) do
 
   create_table "approvals", force: true do |t|
     t.string   "title"
@@ -43,6 +43,13 @@ ActiveRecord::Schema.define(version: 20160216142252) do
     t.integer  "asset_image_file_size"
     t.datetime "asset_image_updated_at"
     t.integer  "percent_leased"
+  end
+
+  create_table "brokers", force: true do |t|
+    t.integer  "asset_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "budgets", force: true do |t|

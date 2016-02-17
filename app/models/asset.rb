@@ -11,19 +11,29 @@ class Asset < ActiveRecord::Base
 
   belongs_to :client
 
-  has_attached_file :asset_image, :default_url => "/newyorker-main.jpg", styles: {
-    xlarge: "1200x800#",
-    large: "1200x800#",
-    medium: "300x300#",
-    thumb: "120x120#",
-    small: "50x50#"
-  },
-  :storage => :s3,
-  :bucket => 'eastgate-file-hosting',
-  :s3_credentials => {
-    :access_key_id => ENV['S3_ACCESS_KEY'],
-    :secret_access_key => ENV['S3_SECRET_KEY']
-  }
+  if Rails.env.development? || Rails.env.test?
+    has_attached_file :asset_image, :default_url => "/newyorker-main.jpg", styles: {
+      xlarge: "1200x800#",
+      large: "1200x800#",
+      medium: "300x300#",
+      thumb: "120x120#",
+      small: "50x50#"
+    }
+  elsif Rails.env.production?
+    has_attached_file :asset_image, :default_url => "/newyorker-main.jpg", styles: {
+      xlarge: "1200x800#",
+      large: "1200x800#",
+      medium: "300x300#",
+      thumb: "120x120#",
+      small: "50x50#"
+    },
+    :storage => :s3,
+    :bucket => 'eastgate-file-hosting',
+    :s3_credentials => {
+      :access_key_id => ENV['S3_ACCESS_KEY'],
+      :secret_access_key => ENV['S3_SECRET_KEY']
+    }
+  end
   validates_attachment_content_type :asset_image, :content_type => /\Aimage/
 
   def full_address
