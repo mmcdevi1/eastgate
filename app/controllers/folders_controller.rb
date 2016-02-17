@@ -1,6 +1,8 @@
 class FoldersController < HatchesController
   before_action :correct_client
 
+  layout :layout
+
   def index
     @folders = @asset.folders.roots
   end
@@ -15,5 +17,7 @@ class FoldersController < HatchesController
 
   private
 
-
+  def layout
+    'folders'
+  end
 end

@@ -6,4 +6,5 @@ Fabricator(:user) do
   last_name { Faker::Name.name }
   admin false
   client_id nil
+  broker false
 end

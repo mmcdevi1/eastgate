@@ -3,7 +3,7 @@ require 'rails_helper'
 describe AssetsController do
   let(:client_1)     { Fabricate(:client, id: 1) }
   let(:client_2)     { Fabricate(:client, id: 2) }
-  let(:broker_user)  { Fabricate(:user) }
+  let(:broker_user)  { Fabricate(:user, broker: true) }
   let(:admin)        { Fabricate(:user, admin: true) }
   let(:john)         { Fabricate(:user, client_id: 1) }
   let(:asset_1)      { Fabricate(:asset, id: 1, client_id: 1) }

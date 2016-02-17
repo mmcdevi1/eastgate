@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def broker?
-    self.client_id.nil?
+    self.broker
   end
 
   def admin?

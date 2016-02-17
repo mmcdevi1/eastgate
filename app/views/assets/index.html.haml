@@ -3,7 +3,10 @@
     .property-stat-title
       Assets
     .property-stat-result
-      = @client.assets.count if @client
+      - if current_user.broker?
+        = current_user.assets.count
+      - elsif @client
+        = @client.assets.count
 .assets
   - @assets.each do |asset|
     .row

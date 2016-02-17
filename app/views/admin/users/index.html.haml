@@ -1,0 +1,42 @@
+%section
+  %h4 People
+.table-wrap
+  .table-wrap-header
+    .clearfix
+      .pull-right
+        = link_to 'Add New User', admin_create_user_path, class: 'btn btn-info'
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Main Contact
+        %th Email
+        %th Actions
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td
+            = user.full_name
+          %td
+            - if user.client
+              = user.client.name
+            - else
+              East Gate
+          %td
+            = user.email
+          %td
+            = link_to "Show", admin_user_path(user)
+            / = link_to "Edit", edit_admin_user_path(user)
+            %a{"data-target" => "#user_#{user.id}", "data-toggle" => "modal", :href => ""}
+              %i.i.i-file-remove{"data-toggle" => "tooltip", :title => "Delete User"}
+            .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "user_#{user.id}", :role => "dialog", :tabindex => "-1"}
+              .modal-dialog
+                .modal-content
+                  .modal-header
+                    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+                    %h4#myModalLabel.modal-title Are you sure?
+                  .modal-body
+                    Once this user is deleted, they are gone forever!
+                  .modal-footer
+                    %button.btn.btn-link{"data-dismiss" => "modal", :type => "button"} Close
+                    = link_to "Delete", [:admin, user], method: :delete, class: "btn btn-danger"

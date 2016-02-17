@@ -1,0 +1,62 @@
+= form_for @user, url: admin_create_user_post_path, html: { class: 'form-horizontal' } do |f|
+  = devise_error_messages!
+  .form-group
+    = f.label :admin, class: 'col-lg-2 control-label'
+    .col-lg-8
+      #category_group.btn-group{"data-toggle" => "buttons"}
+        %label{class: 'btn btn-lg btn-default'}
+          = f.radio_button :admin, true
+          = "Yes"
+        %label{class: 'btn btn-lg btn-default'}
+          = f.radio_button :admin, false
+          = "No"
+  .form-group
+    = f.label :broker, class: 'col-lg-2 control-label'
+    .col-lg-8
+      #category_group.btn-group{"data-toggle" => "buttons"}
+        %label{class: 'btn btn-lg btn-default'}
+          = f.radio_button :broker, true
+          = "Yes"
+        %label{class: 'btn btn-lg btn-default'}
+          = f.radio_button :broker, false
+          = "No"
+  .form-group
+    = f.label :email, class: 'col-lg-2 control-label'
+    .col-lg-8
+      = f.email_field :email, class: 'form-control'
+  .form-group
+    = f.label :first_name, class: 'col-lg-2 control-label'
+    .col-lg-8
+      = f.text_field :first_name, class: 'form-control'
+  .form-group
+    = f.label :last_name, class: 'col-lg-2 control-label'
+    .col-lg-8
+      = f.text_field :last_name, class: 'form-control'
+  .form-group
+    = f.label :username, class: 'col-lg-2 control-label'
+    .col-lg-8
+      = f.text_field :username, class: 'form-control'
+  .form-group
+    = f.label :password, class: 'col-lg-2 control-label'
+    .col-lg-8
+      = f.password_field :password, class: 'form-control'
+  .form-group
+    = f.label :password_confirmation, class: 'col-lg-2 control-label'
+    .col-lg-8
+      = f.password_field :password_confirmation, class: 'form-control'
+  .form-group
+    = f.label :client_id, 'Company', class: 'col-lg-2 control-label'
+    .col-lg-8
+      .btn-group.m-r
+        .dropdown
+          %button#parent_page_btn.btn.btn-more-padding.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :style => "padding:7px 16px;"}
+            %span.dropdown-label{"data-placeholder" => "Please select"}= company_name_for_form(@user)
+            %span.caret{:style => "margin-left:30px;"}
+          %ul.dropdown-menu.dropdown-select.max-height-400
+            - Client.all.each do |client|
+              %li
+                %a{:href => "#"}
+                  = f.radio_button :client_id, client.id
+                  = client.name
+  .actions
+    = f.submit 'Save', class: 'btn btn-info btn-fixed btn-lg'

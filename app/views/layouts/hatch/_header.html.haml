@@ -3,33 +3,23 @@
     %ul.nav.navbar-nav
       = link_to '#', class: 'navbar-brand text-lt' do
         = image_tag('logo-icon.png')
-      %li= link_to 'Dashboard', '#'
-      %li= link_to 'Assets', assets_path
-      %li= link_to 'Portfolio Summary', '#'
+      - unless params[:controller] == 'folders'
+        %li= link_to 'Dashboard', '#'
+        %li= link_to 'Assets', assets_path
+        %li= link_to 'Portfolio Summary', '#'
     %ul.nav.navbar-nav.navbar-right
       - if current_user.admin?
         %li
           = link_to 'Go back to Admin Dashboard', admin_path, 'data-no-turbolink' => true
       %li.dropdown
         %a.dropdown-toggle.clear{"data-toggle" => "dropdown", :href => "#"}
-          %span.thumb-sm.avatar.pull-right.m-t-n-sm.m-b-n-sm.m-l-sm
-            = image_tag('a5.jpg')
-            %i.on.md.b-white.bottom
           %span.hidden-sm.hidden-md
           = current_user.full_name
           %i.i.i-arrow-down5
         / dropdown
         %ul.dropdown-menu.animated.fadeInRight.w
           %li
-            %a{:href => ""}
-              %span.badge.bg-danger.pull-right 30%
-              %span Settings
-          %li
             %a{"ui-sref" => "app.page.profile"} Profile
-          %li
-            %a{"ui-sref" => "app.docs"}
-              %span.label.bg-info.pull-right new
-              Help
           %li.divider
           %li
             = link_to "Logout", logout_path

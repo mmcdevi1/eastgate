@@ -24,7 +24,6 @@ Rails.application.routes.draw do
       get '/folders/:folder_id/new', to: 'folders#new', as: :new_sub_folder
       get '/documents/get/:id', to: 'documents#get', as: :download
       resources :folders do
-
         resources :documents
       end
     end
@@ -33,13 +32,19 @@ Rails.application.routes.draw do
     resources :timelines
     resources :approvals
     resources :career_applications, only: [:index, :show, :destroy]
+
+    get '/users/new', to: 'users#new', as: :create_user
+    post '/users/new' => 'users#create', as: :create_user_post
+    get '/users', to: 'users#index'
+    get '/users/:id', to: 'users#show', as: :user
+
+    resources :users, only: [:destroy, :edit]
   end
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => 'registrations' }
+  resources :users, except: :create
   devise_scope :user do
-    get  '/register', to: 'devise/registrations#new', as: :register
     get  '/profile/edit', to: 'devise/registrations#edit', as: :edit
-
     get  '/login', to: 'devise/sessions#new', as: :login
     get  '/logout', to: 'devise/sessions#destroy', as: :logout
   end
