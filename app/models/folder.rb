@@ -1,3 +1,5 @@
+require 'zip'
+
 class Folder < ActiveRecord::Base
   extend ActsAsTree::TreeView
   extend ActsAsTree::TreeWalker
@@ -33,4 +35,14 @@ class Folder < ActiveRecord::Base
   def totally_empty?
     self.children.empty? && self.documents.empty?
   end
+
+  # def zip
+  #   Zip::OutputStream.open('exampleout.zip') do |zos|
+  #     zos.put_next_entry('the first little entry.rb')
+  #     zos.puts 'Hello hello hello hello hello hello hello hello hello'
+
+  #     zos.put_next_entry('the second little entry')
+  #     zos.puts 'Hello again'
+  #   end
+  # end
 end

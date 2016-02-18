@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       get '/financials', to: 'assets#financials'
       get '/approvals/approved', to: 'approvals#approved'
       get '/documents/get/:id', to: 'documents#get', as: :download
+      get 'folders/download', to: 'documents#download', as: :download_full
+
       resources :approvals, only: [:index, :show, :update]
       resources :images, only: [:index, :show]
       resources :hot_points, only: [:index, :show]
@@ -33,8 +35,8 @@ Rails.application.routes.draw do
     resources :approvals
     resources :career_applications, only: [:index, :show, :destroy]
 
-    get '/users/new', to: 'users#new', as: :create_user
     post '/users/new' => 'users#create', as: :create_user_post
+    get '/users/new', to: 'users#new', as: :create_user
     get '/users', to: 'users#index'
     get '/users/:id', to: 'users#show', as: :user
 

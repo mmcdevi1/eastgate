@@ -1,10 +1,10 @@
 = render 'shared/breadcrumbs'
-/ - @asset.folders.walk_tree do |folder, level|
-/   %div
-/     = link_to "#{'-'*level}#{folder.name}", asset_folder_path(@asset, folder)
-/     - folder.documents.each do |file|
-/       %div
-/         = file.file_name
+- @asset.folders.walk_tree do |folder, level|
+  %div
+    = link_to "#{'-'*level}#{folder.name}", asset_folder_path(@asset, folder)
+    - folder.documents.each do |file|
+      %div
+        = file.file_name
 - if @current_folder.totally_empty?
   .bold This folder is empty! Your East Gate Professional is working on filling the content.
 - else
