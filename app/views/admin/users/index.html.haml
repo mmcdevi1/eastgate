@@ -11,6 +11,8 @@
         %th Name
         %th Main Contact
         %th Email
+        %th Sign in Count
+        %th Last Signed in
         %th Actions
     %tbody
       - @users.each do |user|
@@ -25,10 +27,14 @@
           %td
             = user.email
           %td
-            = link_to "Show", admin_user_path(user)
+            = user.sign_in_count
+          %td
+            = user.last_sign_in_at
+          %td
+            = link_to "View", admin_user_path(user)
             / = link_to "Edit", edit_admin_user_path(user)
             %a{"data-target" => "#user_#{user.id}", "data-toggle" => "modal", :href => ""}
-              %i.i.i-file-remove{"data-toggle" => "tooltip", :title => "Delete User"}
+              Delete
             .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "user_#{user.id}", :role => "dialog", :tabindex => "-1"}
               .modal-dialog
                 .modal-content

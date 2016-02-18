@@ -1,5 +1,6 @@
 = render 'shared/breadcrumbs'
-= link_to 'Download zip', asset_download_full_path(@asset)
+%section
+  = link_to 'Download zip', asset_download_full_path(@asset), class: "btn btn-default"
 .panel
   .table-responsive
     %table.table.table-striped.b-light

@@ -2,7 +2,7 @@ module DocumentsHelper
 
   def icon_for_document(document)
     case
-    when document.extname == '.pdf'
+    when document.extname == '.pdf' || document.extname == '.PDF'
       'pdf'
     when document.extname == '.docx' || document.extname == '.doc'
       'word'

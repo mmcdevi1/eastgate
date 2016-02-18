@@ -1,5 +1,6 @@
 class HatchesController < ApplicationController
   before_action :authenticate_user!
+  before_action :redirect_broker
 
   before_action :set_asset, except: :index
 
@@ -29,6 +30,14 @@ class HatchesController < ApplicationController
       if current_user.not_admin?
         redirect_to assets_path
         flash[:danger] = "You don't have permission to access this information!"
+      end
+    end
+  end
+
+  def redirect_broker
+    if current_user.broker?
+      unless params[:controller] == "folders" || params[:controller] == 'documents'
+        redirect_to asset_folders_path(current_user.assets.first)
       end
     end
   end
