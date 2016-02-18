@@ -20,7 +20,8 @@ gem 'draper'
 gem 'aws-sdk', '< 2.0'
 gem 'aws-s3'
 gem 'acts_as_tree'
-gem 'rubyzip'
+gem 'zipruby'
+
 
 group :development do
   gem 'thin'

@@ -1,5 +1,3 @@
-require 'zip'
-
 class Folder < ActiveRecord::Base
   extend ActsAsTree::TreeView
   extend ActsAsTree::TreeWalker

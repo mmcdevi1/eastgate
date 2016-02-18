@@ -1,4 +1,4 @@
-require 'zip'
+require 'zipruby'
 
 class DocumentsController < HatchesController
   before_action :correct_client
@@ -20,13 +20,26 @@ class DocumentsController < HatchesController
   def download
     folders = @asset.folders
     file_name  = "#{@asset.name}.zip"
-    temp_file  = Tempfile.new("#{file_name}-#{current_user.id}")
+    temp_file  = Tempfile.new("#{@asset.name}-#{current_user.id}")
 
-    Zip::OutputStream.open(temp_file.path) do |zos|
+    Zip::Archive.open(temp_file.path, Zip::CREATE) do |ar|
+
       folders.walk_tree do |folder, level|
-        # zos.mkdir folder.name
-        folder.documents.each do |document|
-          zos.put_next_entry(document.file_name)
+        if folder.is_root?
+          ar.add_dir( "#{folder.name}" )
+          folder.documents.each do |document|
+            ar.add_file("#{folder.name}/#{document.file_name}", document.uploaded_file.path)
+          end
+        else
+          result = ''
+          level.times do |i|
+            result += "#{folder.ancestors.reverse[i].name}/"
+          end
+          ar.add_dir( "#{result}#{folder.name}" )
+
+          folder.documents.each do |document|
+            ar.add_file("#{result}#{folder.name}/#{document.file_name}", document.uploaded_file.path)
+          end
         end
       end
     end
@@ -38,5 +51,29 @@ class DocumentsController < HatchesController
   end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
