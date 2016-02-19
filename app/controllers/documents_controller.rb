@@ -12,8 +12,8 @@ class DocumentsController < HatchesController
       end
     else
       if document
-        data = open( URI.parse( URI.encode( document.uploaded_file.url ) ) )
-        send_data data, :filename => document.uploaded_file_file_name
+        data = open( document.uploaded_file.url ).path
+        send_file data, :filename => document.uploaded_file_file_name
       end
     end
   end
@@ -26,13 +26,13 @@ class DocumentsController < HatchesController
     Zip::Archive.open(temp_file.path, Zip::CREATE) do |ar|
 
       folders.walk_tree do |folder, level|
-        unless folder.is_root?
-        #   ar.add_dir( "#{folder.name}" )
-        #   folder.documents.each do |document|
-        #     data = Rails.env.development? ? document.uploaded_file.path : open(document.uploaded_file.url).path
-        #     ar.add_file("#{folder.name}/#{document.file_name}", data)
-        #   end
-        # else
+        if folder.is_root?
+          ar.add_dir( "#{folder.name}" )
+          folder.documents.each do |document|
+            data = Rails.env.development? ? document.uploaded_file.path : open(document.uploaded_file.url).path
+            ar.add_file("#{folder.name}/#{document.file_name}", data)
+          end
+        else
           result = ''
           level.times do |i|
             result += "#{folder.ancestors.reverse[i].name}/"
