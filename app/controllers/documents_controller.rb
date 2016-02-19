@@ -11,8 +11,7 @@ class DocumentsController < HatchesController
       end
     else
       if document
-        # data = open( URI.parse( URI.encode( document.uploaded_file.url ) ) )
-        data = document.uploaded_file.url
+        data = open( URI.parse( URI.encode( document.uploaded_file.url ) ) )
         send_data data, :filename => document.uploaded_file_file_name
       end
     end
