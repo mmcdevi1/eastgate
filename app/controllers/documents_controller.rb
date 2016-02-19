@@ -52,7 +52,7 @@ class DocumentsController < HatchesController
                                 :filename => file_name
     else
       data = open( URI.parse( URI.encode( temp_file.path ) ) )
-      send_data data, :type => 'application/zip',
+      send_data temp_file.path, :type => 'application/zip',
                       :disposition => 'attachment',
                       :filename => file_name
     end
