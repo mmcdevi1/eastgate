@@ -28,7 +28,7 @@ class DocumentsController < HatchesController
         if folder.is_root?
           ar.add_dir( "#{folder.name}" )
           folder.documents.each do |document|
-            data = Rails.env.development? ? document.uploaded_file.path : 'http://s3.amazonaws.com/eastgate-file-hosting/documents/uploaded_files/000/000/002/original/2015-11-16_The_New_Yorker_Presentation_Book.pdf?1455803653'
+            data = Rails.env.development? ? document.uploaded_file.path : document.file_name
             ar.add_file("#{folder.name}/#{document.file_name}", data)
           end
         else
@@ -39,7 +39,7 @@ class DocumentsController < HatchesController
           ar.add_dir( "#{result}#{folder.name}" )
 
           folder.documents.each do |document|
-            data = Rails.env.development? ? document.uploaded_file.path : 'http://s3.amazonaws.com/eastgate-file-hosting/documents/uploaded_files/000/000/002/original/2015-11-16_The_New_Yorker_Presentation_Book.pdf?1455803653'
+            data = Rails.env.development? ? document.uploaded_file.path : document.file_name
             ar.add_file("#{result}#{folder.name}/#{document.file_name}", data)
           end
         end
