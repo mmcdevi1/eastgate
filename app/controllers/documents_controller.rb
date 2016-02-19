@@ -49,7 +49,8 @@ class DocumentsController < HatchesController
                                 :disposition => 'attachment',
                                 :filename => file_name
     else
-      send_data temp_file.path, :filename => document.uploaded_file_file_name
+      data = open( URI.parse( URI.encode( document.uploaded_file.url ) ) )
+      send_data data, :filename => document.uploaded_file_file_name
     end
 
     temp_file.close
