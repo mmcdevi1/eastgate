@@ -28,7 +28,8 @@ class DocumentsController < HatchesController
         if folder.is_root?
           ar.add_dir( "#{folder.name}" )
           folder.documents.each do |document|
-            ar.add_file("#{folder.name}/#{document.file_name}", document.uploaded_file.path)
+            data = Rails.env.development? ? document.uploaded_file.path : open( URI.parse( URI.encode( document.uploaded_file.url ) ) )
+            ar.add_file("#{folder.name}/#{document.file_name}", data)
           end
         else
           result = ''
@@ -38,7 +39,8 @@ class DocumentsController < HatchesController
           ar.add_dir( "#{result}#{folder.name}" )
 
           folder.documents.each do |document|
-            ar.add_file("#{result}#{folder.name}/#{document.file_name}", document.uploaded_file.path)
+            data = Rails.env.development? ? document.uploaded_file.path : open( URI.parse( URI.encode( document.uploaded_file.url ) ) )
+            ar.add_file("#{result}#{folder.name}/#{document.file_name}", data)
           end
         end
       end
@@ -49,8 +51,7 @@ class DocumentsController < HatchesController
                                 :disposition => 'attachment',
                                 :filename => file_name
     else
-      data = open( URI.parse( URI.encode( document.uploaded_file.url ) ) )
-      send_data data, :filename => document.uploaded_file_file_name
+      send_data data, :filename => file_name
     end
 
     temp_file.close
