@@ -28,7 +28,7 @@ class DocumentsController < HatchesController
         if folder.is_root?
           ar.add_dir( "#{folder.name}" )
           folder.documents.each do |document|
-            data = Rails.env.development? ? document.uploaded_file.path : open(document.uploaded_file.url).read
+            data = Rails.env.development? ? document.uploaded_file.path : document.uploaded_file.url.split("?").first
             ar.add_file("#{folder.name}/#{document.file_name}", data)
           end
         else
