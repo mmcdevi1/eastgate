@@ -51,7 +51,7 @@ class DocumentsController < HatchesController
                                 :disposition => 'attachment',
                                 :filename => file_name
     else
-      send_data data, :filename => file_name
+      send_data temp_file.path, :filename => file_name
     end
 
     temp_file.close
