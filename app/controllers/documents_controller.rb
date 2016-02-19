@@ -46,13 +46,13 @@ class DocumentsController < HatchesController
       end
     end
 
-    if Rails.env.development?
+    # if Rails.env.development?
       send_file temp_file.path, :type => 'application/zip',
                                 :disposition => 'attachment',
                                 :filename => file_name
-    else
-      send_data temp_file.path, :filename => file_name
-    end
+    # else
+    #   send_data temp_file.path, :filename => file_name
+    # end
 
     temp_file.close
   end
