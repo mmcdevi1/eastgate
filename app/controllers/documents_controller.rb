@@ -24,26 +24,21 @@ class DocumentsController < HatchesController
     temp_file  = Tempfile.new("#{@asset.name}-#{current_user.id}")
 
     Zip::Archive.open(temp_file.path, Zip::CREATE) do |ar|
-
       folders.walk_tree do |folder, level|
-        # if folder.is_root?
-        #   ar.add_dir( "#{folder.name}" )
-        #   folder.documents.each do |document|
-        #     data = Rails.env.development? ? document.uploaded_file.path : open(document.uploaded_file.url).path
-        #     ar.add_file("#{folder.name}/#{document.file_name}", data)
-        #   end
-        # else
-          result = ''
+        result = ''
+
+        unless folder.is_root?
           level.times do |i|
             result += "#{folder.ancestors.reverse[i].name}/"
           end
-          ar.add_dir( "#{result}#{folder.name}" )
+        end
 
-          folder.documents.each do |document|
-            data = Rails.env.development? ? document.uploaded_file.path : open(document.uploaded_file.url).path
-            ar.add_file("#{result}#{folder.name}/#{document.file_name}", data)
-          end
-        # end
+        ar.add_dir( "#{result}#{folder.name}" )
+
+        folder.documents.each do |document|
+          data = Rails.env.development? ? document.uploaded_file.path : open(document.uploaded_file.url).path
+          ar.add_file("#{result}#{folder.name}/#{document.file_name}", data)
+        end
       end
     end
 
