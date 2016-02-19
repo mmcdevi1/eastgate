@@ -51,3 +51,32 @@
             = link_to asset_folders_path(@asset), class: "auto", title: "File Manager" do
               %i.i.i-images
               %span File Manager
+              - @asset.folders.walk_tree do |folder, level|
+                %div
+                  = link_to asset_folder_path(@asset, folder) do
+                    %i.i.i-folder
+                    %span{style: "color:white;"}
+                      = "#{'--'*level}"
+                    = "#{folder.name}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

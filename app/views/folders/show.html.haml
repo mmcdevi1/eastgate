@@ -7,7 +7,7 @@
 /         = file.file_name
 
 %section
-  = link_to 'Download zip', asset_download_full_path(@asset), class: "btn btn-default"
+  = link_to 'Download All', asset_download_full_path(@asset), class: "btn btn-default"
 - if @current_folder.totally_empty?
   .bold This folder is empty! Your East Gate Professional is working on filling the content.
 - else
@@ -45,7 +45,7 @@
               %td
                 %span.text-ellipsis= document.time_updated_at
               %td
-                = link_to 'Download', asset_download_path(@asset, document)
+                = link_to 'Download File', asset_download_path(@asset, document)
 
 
 
