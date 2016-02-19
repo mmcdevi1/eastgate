@@ -26,14 +26,13 @@ class DocumentsController < HatchesController
     Zip::Archive.open(temp_file.path, Zip::CREATE) do |ar|
 
       folders.walk_tree do |folder, level|
-        if folder.is_root?
-          ar.add_dir( "#{folder.name}" )
-          folder.documents.each do |document|
-            data = Rails.env.development? ? document.uploaded_file.path : URI.encode(document.uploaded_file.url)
-            ar.add_file("#{folder.name}/#{document.file_name}", open(document.uploaded_file.url).path)
-            # ar.add_file("#{folder.name}/#{document.uploaded_file.path}", data)
-          end
-        else
+        unless folder.is_root?
+        #   ar.add_dir( "#{folder.name}" )
+        #   folder.documents.each do |document|
+        #     data = Rails.env.development? ? document.uploaded_file.path : open(document.uploaded_file.url).path
+        #     ar.add_file("#{folder.name}/#{document.file_name}", data)
+        #   end
+        # else
           result = ''
           level.times do |i|
             result += "#{folder.ancestors.reverse[i].name}/"
@@ -41,23 +40,16 @@ class DocumentsController < HatchesController
           ar.add_dir( "#{result}#{folder.name}" )
 
           folder.documents.each do |document|
-            data = Rails.env.development? ? document.uploaded_file.path : open(document.uploaded_file.url)
-            # ar.add_file("#{result}#{folder.name}/#{document.file_name}", data)
+            data = Rails.env.development? ? document.uploaded_file.path : open(document.uploaded_file.url).path
+            ar.add_file("#{result}#{folder.name}/#{document.file_name}", data)
           end
         end
       end
     end
 
-    if Rails.env.development?
-      send_file temp_file.path, :type => 'application/zip',
-                                :disposition => 'attachment',
-                                :filename => file_name
-    else
-      send_file temp_file.path, :type => 'application/zip',
-                      :disposition => 'attachment',
-                      :filename => file_name
-    end
-
+    send_file temp_file.path, :type => 'application/zip',
+                              :disposition => 'attachment',
+                              :filename => file_name
     temp_file.close
   end
 
