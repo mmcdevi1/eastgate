@@ -30,7 +30,7 @@ class DocumentsController < HatchesController
           folder.documents.each do |document|
             data = Rails.env.development? ? document.uploaded_file.path : document.uploaded_file.url
             # ar.add_file("#{folder.name}/#{document.file_name}", data)
-            ar.add_file("#{folder.name}/#{open(URI.parse( URI.encode( document.uploaded_file.url ) ))}", data)
+            ar.add_file("#{folder.name}/#{document.abstract.to_file.path}", data)
           end
         else
           result = ''
