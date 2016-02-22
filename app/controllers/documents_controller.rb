@@ -9,11 +9,17 @@ class DocumentsController < HatchesController
     if Rails.env.development?
       if document
         send_file( document.uploaded_file.path, :type => document.uploaded_file_content_type )
+      else
+        redirect_to asset_folders_path(@asset)
+        flash[:danger] = 'That page does not exist'
       end
     else
       if document
         data = open( document.uploaded_file.url ).path
         send_file data, :filename => document.uploaded_file_file_name
+      else
+        redirect_to asset_folders_path(@asset)
+        flash[:danger] = 'That page does not exist'
       end
     end
   end

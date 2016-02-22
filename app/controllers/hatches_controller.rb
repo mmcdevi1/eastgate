@@ -13,10 +13,15 @@ class HatchesController < ApplicationController
   private
 
   def set_asset
-    if params[:action] == 'show' && params[:controller] == 'assets'
-      @asset = Asset.find(params[:id])
-    else
-      @asset = Asset.find(params[:asset_id])
+    begin
+      if params[:action] == 'show' && params[:controller] == 'assets'
+        @asset = Asset.find(params[:id])
+      else
+        @asset = Asset.find(params[:asset_id])
+      end
+    rescue
+      redirect_to assets_path
+      flash[:danger] = 'That page does not exist'
     end
   end
 
