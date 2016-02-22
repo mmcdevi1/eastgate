@@ -8,10 +8,15 @@ class FoldersController < HatchesController
   end
 
   def show
-    @current_folder = Folder.find(params[:id])
-    if @current_folder
-      @folders = @current_folder.children
-      @documents = @current_folder.documents
+    begin
+      @current_folder = Folder.find(params[:id])
+      if @current_folder
+        @folders = @current_folder.children
+        @documents = @current_folder.documents
+      end
+    rescue
+      redirect_to asset_folders_path(@asset)
+      flash[:danger] = 'That page does not exist'
     end
   end
 
