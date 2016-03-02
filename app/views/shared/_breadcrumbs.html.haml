@@ -1,5 +1,5 @@
 .breadcrumbs.bold
-  = link_to 'File Manager', ''
+  = link_to 'File Manager', asset_folders_path(@asset)
   >
   - if @current_folder
     = link_to @asset.name, asset_folders_path(@asset)
