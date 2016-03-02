@@ -1,6 +1,6 @@
 = render 'shared/breadcrumbs'
 %section
-  = link_to 'Download all', asset_download_full_path(@asset), class: "btn btn-default"
+  = link_to "Download Entire #{@asset.name}", asset_download_full_path(@asset), class: "btn btn-default"
 .panel
   .table-responsive
     %table.table.table-striped.b-light
