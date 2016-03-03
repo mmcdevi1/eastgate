@@ -27,8 +27,11 @@
           %li.hidden-folded.m-t.m-b-sm.text-xs.nav-sm-title
             %span Users
           %li
-            = link_to admin_users_path, class: "auto", title: "People" do
-              %span People
+            = link_to admin_users_admins_path, class: "auto", title: "Admin" do
+              %span Admins
+          %li
+            = link_to admin_users_path, class: "auto", title: "Contacts" do
+              %span Contacts
           %li
             = link_to admin_create_user_path, class: "auto", title: "People" do
               %span + Add New

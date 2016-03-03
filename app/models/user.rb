@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
   validates :username, presence: true,
                uniqueness: true
 
+  scope :is_admin, ->      { where( admin: true ) }
+  scope :regular_users, -> { where( admin: false ) }
+
   def full_name
     "#{self.first_name} #{self.last_name}"
   end

@@ -3,7 +3,7 @@ module Admin
     before_action :set_user, only: [:show, :edit, :destroy, :update]
 
     def index
-      @users = User.all
+      @users = User.regular_users
     end
 
     def show
@@ -39,6 +39,11 @@ module Admin
       @user.destroy
       flash[:success] = 'User deleted.'
       redirect_to :back
+    end
+
+    def admins
+      @users = User.is_admin
+      render :index
     end
 
     private

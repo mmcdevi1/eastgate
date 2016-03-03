@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     resources :approvals
     resources :career_applications, only: [:index, :show, :destroy]
 
+    get '/users/admins', to: 'users#admins'
     post '/users/new' => 'users#create', as: :create_user_post
     get '/users/new', to: 'users#new', as: :create_user
     get '/users', to: 'users#index'
