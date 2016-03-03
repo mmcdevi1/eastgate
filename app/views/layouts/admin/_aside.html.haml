@@ -1,37 +1,41 @@
-/ aside
-%aside#aside.app-aside.hidden-xs.bg-dark.lter{:style => "position:fixed; height:100%;"}
+%aside#aside.app-aside.hidden-xs.bg-dark{:style => "position:fixed; height:100%;"}
   .aside-wrap
     .navi-wrap
-      / nav
       %nav.navi.clearfix{:style => "padding:20px", "ui-nav" => ""}
         %ul.nav
           %li.hidden-folded.m-b-sm.text-xs.nav-sm-title
             %span Menu
           %li
             = link_to '', class: "auto", title: "Dashboard" do
-              %i.i.i-statistics
               %span Dashboard
           %li
             = link_to admin_clients_path, class: "auto", title: "Clients" do
-              %i.i.i-mail2
               %span Clients
           %li
             = link_to admin_assets_path, class: "auto", title: "Assets" do
-              %i.i.i-mail2
               %span Assets
           %li
             = link_to admin_approvals_path, class: "auto", title: "Assets" do
-              %i.i.i-like
               %span Approvals
-          %li
-            = link_to admin_users_path, class: "auto", title: "People" do
-              %i.i.i-user2
-              %span People
-          %li
-            = link_to admin_career_applications_path, class: "auto", title: "Applications" do
-              %i.i.i-user2
-              %span Applications
+          %li.line.dk.hidden-folded
+          %li.hidden-folded.m-t.m-b-sm.text-xs.nav-sm-title
+            %span War Room
           %li
             = link_to admin_file_manager_path, class: "auto", title: "File Manager" do
-              %i.i.i-user2
               %span File Manager
+          %li.line.dk.hidden-folded
+          %li.hidden-folded.m-t.m-b-sm.text-xs.nav-sm-title
+            %span Users
+          %li
+            = link_to admin_users_path, class: "auto", title: "People" do
+              %span People
+          %li
+            = link_to admin_create_user_path, class: "auto", title: "People" do
+              %span + Add New
+          %li.line.dk.hidden-folded
+          %li.hidden-folded.m-t.m-b-sm.text-xs.nav-sm-title
+            %span Careers
+          %li
+            = link_to admin_career_applications_path, class: "auto", title: "Applications" do
+              %b.label.bg-primary.pull-right= CareerApplication.display_count
+              %span Applications

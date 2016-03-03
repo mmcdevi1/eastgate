@@ -10,6 +10,10 @@ class CareerApplication < ActiveRecord::Base
   validates_attachment_content_type :resume,
     :content_type => [ 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ]
 
+  def self.display_count
+    self.count if self.count > 0
+  end
+
   def full_name
     "#{self.first_name} #{self.last_name}"
   end

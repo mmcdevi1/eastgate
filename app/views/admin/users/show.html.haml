@@ -1,0 +1,27 @@
+.row
+  .col-lg-3
+    %h4= @user.full_name
+    %p= "Manager at #{@user.client.name}"
+
+    .panel
+      .panel-heading
+        Asset Financial Information
+      %ul.list-group.no-radius
+        %li.list-group-item
+          %span.pull-right= @user.email
+          Email
+        %li.list-group-item
+          %span.pull-right= number_to_currency(33345678)
+          Phone
+        %li.list-group-item
+          %span.pull-right= number_to_currency(23437500)
+          Address
+        %li.list-group-item
+          %span.pull-right= number_to_currency(33345678)
+          Leverage
+        %li.list-group-item
+          %span.pull-right 58%
+          Loan to Cost
+        %li.list-group-item
+          %span.pull-right September 2015
+          Debt Maturity

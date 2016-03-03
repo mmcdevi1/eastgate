@@ -49,7 +49,7 @@ module Admin
 
     def user_params
       params.require(:user).permit(
-          :email, :password, :password_confirmation, :username, :first_name, :last_name, :client_id, :admin, :broker
+          :email, :password, :password_confirmation, :username, :first_name, :job_title, :last_name, :client_id, :admin, :broker
         )
     end
 
