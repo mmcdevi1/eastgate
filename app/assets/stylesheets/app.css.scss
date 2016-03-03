@@ -5343,7 +5343,12 @@ a.text-#000000:hover {
   font-size: 13px;
 }
 
-
+ul {
+  padding: 0;
+  li {
+    list-style: none;
+  }
+}
 
 
 

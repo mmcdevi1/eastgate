@@ -3,22 +3,25 @@
     %h4= @user.full_name
     - if @user.client
       %p= "Manager at #{@user.client.name}"
-    %ul.list-group.no-radius
-      %li.list-group-item
+    %ul
+      %li
         %span.pull-right= @user.email
         Email
-      %li.list-group-item
-        %span.pull-right= number_to_currency(33345678)
+      %li
+        %span.pull-right= "914-980-5339"
         Phone
-      %li.list-group-item
-        %span.pull-right= number_to_currency(23437500)
+      %li
+        %span.pull-right 590 Madison Ave
         Address
-      %li.list-group-item
-        %span.pull-right= number_to_currency(33345678)
-        Leverage
-      %li.list-group-item
-        %span.pull-right 58%
-        Loan to Cost
-      %li.list-group-item
-        %span.pull-right September 2015
-        Debt Maturity
+      %li
+        %span.pull-right New York
+        City
+      %li
+        %span.pull-right New York
+        State
+      %li
+        %span.pull-right= @user.sign_in_count
+        Sign in Count
+      %li
+        %span.pull-right= @user.last_sign_in_at
+        Last Sign In
