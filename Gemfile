@@ -21,6 +21,9 @@ gem 'aws-sdk', '< 2.0'
 gem 'aws-s3'
 gem 'acts_as_tree'
 gem 'zipruby'
+gem 'ahoy_matey'
+gem 'activeuuid', '>= 0.5.0'
+gem "browser", "~> 1.1"
 
 
 group :development do
@@ -46,4 +49,3 @@ group :production do
   gem 'rails_12factor'
   gem 'unicorn'
 end
-

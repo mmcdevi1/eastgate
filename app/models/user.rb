@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :assets, through: :brokers
   has_many :brokers
+  has_many :visits
 
   belongs_to :client
 
@@ -13,8 +14,7 @@ class User < ActiveRecord::Base
   validates_length_of :username, maximum: 32, message: "exceeds maximum of 32 characters"
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :username, presence: true,
-               uniqueness: true
+  validates :username, presence: true, uniqueness: true
 
   scope :is_admin, ->      { where( admin: true ) }
   scope :regular_users, -> { where( admin: false ) }
