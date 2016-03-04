@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304145042) do
+ActiveRecord::Schema.define(version: 20160304165431) do
 
 # Could not dump table "ahoy_events" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
@@ -174,6 +174,15 @@ ActiveRecord::Schema.define(version: 20160304145042) do
     t.string   "timeline_doc_content_type"
     t.integer  "timeline_doc_file_size"
     t.datetime "timeline_doc_updated_at"
+  end
+
+  create_table "track_downloads", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "asset_id"
+    t.boolean  "folder"
+    t.integer  "document_id"
   end
 
   create_table "users", force: true do |t|

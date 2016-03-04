@@ -4,6 +4,8 @@ class Document < ActiveRecord::Base
 
   belongs_to :folder
 
+  has_many :track_downloads
+
   if Rails.env.development? || Rails.env.test?
     has_attached_file :uploaded_file
   elsif Rails.env.production?

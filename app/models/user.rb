@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :assets, through: :brokers
   has_many :brokers
   has_many :visits
+  has_many :track_downloads
 
   belongs_to :client
 
@@ -33,5 +34,10 @@ class User < ActiveRecord::Base
 
   def not_admin?
     !self.admin?
+  end
+
+  def track_download(asset, document=nil, folder=true)
+    tracker = TrackDownload.new(user_id: self.id, asset_id: asset.id, folder: folder, document_id: document)
+    tracker.save
   end
 end

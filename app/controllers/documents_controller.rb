@@ -6,6 +6,7 @@ class DocumentsController < HatchesController
 
   def get
     document = Document.find_by_id(params[:id])
+    current_user.track_download(@asset, document.id, false)
     if Rails.env.development?
       if document
         send_file( document.uploaded_file.path, :type => document.uploaded_file_content_type )
@@ -25,6 +26,8 @@ class DocumentsController < HatchesController
   end
 
   def download
+    current_user.track_download(@asset)
+
     folders = @asset.folders
     file_name  = "#{@asset.name}.zip"
     temp_file  = Tempfile.new("#{@asset.name}-#{current_user.id}")
