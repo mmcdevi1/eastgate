@@ -26,7 +26,7 @@ class Document < ActiveRecord::Base
       'application/msword','application/vnd.ms-office','application/vnd.openxmlformats-officedocument.wordprocessingml.document',
       'application/msexcel','application/vnd.ms-excel','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
       'application/mspowerpoint','application/vnd.ms-powerpoint','application/vnd.openxmlformats-officedocument.presentationml.presentation',
-      'image/jpg','image/jpeg','image/pjpeg','image/png','image/x-png','image/gif'
+      'image/jpg','image/jpeg','image/pjpeg','image/png','image/x-png','image/gif', 'image/tiff'
     ]
 
   def file_name
