@@ -21,6 +21,7 @@ class Document < ActiveRecord::Base
   validates_attachment_presence :uploaded_file
   validates_attachment_content_type :uploaded_file,
     :content_type => [
+      /"SF"/,
       'application/zip',
       'application/pdf',
       'application/msword','application/vnd.ms-office','application/vnd.openxmlformats-officedocument.wordprocessingml.document',
