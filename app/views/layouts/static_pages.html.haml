@@ -3,14 +3,13 @@
   = render 'layouts/eastgate/head'
   %body.homepage
     = render 'shared/flash'
+    = render 'shared/eastgate/header'
+    #bg_overlay
+    .video-container
+      %video{:autoplay => "", :loop => "", :preload => "auto", :id => "video-bg"}
+        %source{:src => "http://www.theliuscapital.com/wp-content/uploads/2017/01/nyc-night.mp4", :type => "video/mp4"}
     #wrapper
       #page
         #content_container
-          #content
-            .row{style: "color:black"}
-              .col-sm-10.col-sm-offset-1
-                .panel{style: 'margin: 0'}
-                  .panel-body
-                    = render 'shared/eastgate/header'
-                    = yield
-                    = render 'shared/eastgate/footer'
+          #content.center
+            = yield

@@ -1,12 +1,134 @@
-.row{style: "padding: 20px 0"}
-  .col-sm-6
-    = image_tag('img_1.png', class: "img-responsive mb")
-  .col-sm-6
-    %h3{style: 'margin: 0 0 20px 0;'} About Us
-    %p
-      East Gate focuses on unlocking value in commercial real estate investments.
-      The firm's strategic partnership approach has proven track record of increasing investment value through a
-      variety of strategies such as financial restructuring, physical repositioning, and management improvements.
-      East Gate's approach extends beyond traditional consulting and advisory work by providing a full
-      service implementation platform that is directly responsible for achieving its partners goals.
-      Our principle focus is to execute business plans that increase cash flow and value for its partners.
+.col-sm-12
+  %section#who-we-are
+    .row
+      .col-sm-10.col-sm-offset-1
+        %h2 Who We Are
+        %p
+          Thelius is a privately-held real estate company that specializes in unlocking value in underutilized real estate. We focus on relationship-driven opportunities where we can improve cash flow and asset value by investing capital, providing strategic advice, repositioning existing buildings, or developing underutilized land. We operate in markets where we have deep roots and are are able to leverage our extensive network to generate off-market deal flow. We have a proven track record of generating exceptional results for our clients, investors, and partners, with whom we maintain trusted, long-term relationships. Our executive team brings more than three decades of work experience  at top-tier private equity, asset management, and development companies.
+
+        %p
+          Thelius was founded in 2015 and has since completed over $200MM in value-add transactions. We are currently repositioning 1.5MM SF of commercial real estate assets in Manhattan as well as the New York Tri-state area.
+  %section#core-values
+    .row
+      .col-sm-10.col-sm-offset-1
+        %h2 Core Values
+        %p
+          Our core values define us and our work. We incorporate these values in our day-to-day to differentiate our brand and achieve the best results.
+        #accordion.panel-group{"aria-multiselectable" => "true", :role => "tablist"}
+          .panel.panel-default
+            #headingOne.panel-heading{:role => "tab"}
+              %h4.panel-title
+                %a{"aria-controls" => "collapseOne", "aria-expanded" => "true", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseOne", :role => "button"}
+                  Ownership
+            #collapseOne.panel-collapse.collapse{"aria-labelledby" => "headingOne", :role => "tabpanel"}
+              .panel-body
+                We own every decision we make. This means holding ourselves accountable for not only the short-term results, but also the long-term impact on growth, sustainability, and community.
+          .panel.panel-default
+            #headingTwo.panel-heading{:role => "tab"}
+              %h4.panel-title
+                %a.collapsed{"aria-controls" => "collapseTwo", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseTwo", :role => "button"}
+                  Excellence
+            #collapseTwo.panel-collapse.collapse{"aria-labelledby" => "headingTwo", :role => "tabpanel"}
+              .panel-body
+                We aim for excellence in all aspects of our work. Whether we’re analyzing a cash flow, advising a nonprofit or executing a technical development plan, we set the highest personal and professional standards.
+          .panel.panel-default
+            #headingThree.panel-heading{:role => "tab"}
+              %h4.panel-title
+                %a.collapsed{"aria-controls" => "collapseThree", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseThree", :role => "button"}
+                  Creativity
+            #collapseThree.panel-collapse.collapse{"aria-labelledby" => "headingThree", :role => "tabpanel"}
+              .panel-body
+                We push to break through convention. Creativity is founded on extreme effort, persistence and forward-thinking. This process allows us to unlock unseen potential.
+          .panel.panel-default
+            #headingFour.panel-heading{:role => "tab"}
+              %h4.panel-title
+                %a.collapsed{"aria-controls" => "collapseFour", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseFour", :role => "button"}
+                  Trust
+            #collapseFour.panel-collapse.collapse{"aria-labelledby" => "headingFour", :role => "tabpanel"}
+              .panel-body
+                We build our business on relationships. We safeguard our trusted network of investors, clients, partners, consultants and employees to secure the most attractive opportunities and deliver the best results.
+  %section#our-capabilities
+    .row
+      .col-sm-10.col-sm-offset-1
+        %h2 Our Capabilities
+        %p
+          Thelius is a fully-integrated real estate investment management company.  We have in-house capabilities to plan and execute all phases of a complex real estate investment, including a ground-up development. We are uniquely positioned to deliver capital solutions to nonprofit institutions to support their missions, while providing attractive risk-adjusted investment opportunities for our investors.
+        #accordion.panel-group{"aria-multiselectable" => "true", :role => "tablist"}
+          .panel.panel-default
+            #acquisition.panel-heading{:role => "tab"}
+              %h4.panel-title
+                %a{"aria-controls" => "acquisitionCollapse", "aria-expanded" => "true", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#acquisitionCollapse", :role => "button"}
+                  Acquisition
+            #acquisitionCollapse.panel-collapse.collapse{"aria-labelledby" => "acquisition", :role => "tabpanel"}
+              .panel-body
+                We own every decision we make. This means holding ourselves accountable for not only the short-term results, but also the long-term impact on growth, sustainability, and community.
+          .panel.panel-default
+            #developmentConstruction.panel-heading{:role => "tab"}
+              %h4.panel-title
+                %a.collapsed{"aria-controls" => "developmentcollapseTwo", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#developmentcollapseTwo", :role => "button"}
+                  Development & Construction
+            #developmentcollapseTwo.panel-collapse.collapse{"aria-labelledby" => "developmentConstruction", :role => "tabpanel"}
+              .panel-body
+                We aim for excellence in all aspects of our work. Whether we’re analyzing a cash flow, advising a nonprofit or executing a technical development plan, we set the highest personal and professional standards.
+          .panel.panel-default
+            #assetManagement.panel-heading{:role => "tab"}
+              %h4.panel-title
+                %a.collapsed{"aria-controls" => "assetManagementcollapseThree", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#assetManagementcollapseThree", :role => "button"}
+                  Asset Management
+            #assetManagementcollapseThree.panel-collapse.collapse{"aria-labelledby" => "assetManagement", :role => "tabpanel"}
+              .panel-body
+                We push to break through convention. Creativity is founded on extreme effort, persistence and forward-thinking. This process allows us to unlock unseen potential.
+          .panel.panel-default
+            #advisory.panel-heading{:role => "tab"}
+              %h4.panel-title
+                %a{"aria-controls" => "advisoryCollapse", "aria-expanded" => "true", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#advisoryCollapse", :role => "button"}
+                  Advisory
+            #advisoryCollapse.panel-collapse.collapse{"aria-labelledby" => "advisory", :role => "tabpanel"}
+              .panel-body
+                We own every decision we make. This means holding ourselves accountable for not only the short-term results, but also the long-term impact on growth, sustainability, and community.
+          .panel.panel-default
+            #nonprofit.panel-heading{:role => "tab"}
+              %h4.panel-title
+                %a.collapsed{"aria-controls" => "nonprofitCollapse", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#nonprofitCollapse", :role => "button"}
+                  Nonprofit
+            #nonprofitCollapse.panel-collapse.collapse{"aria-labelledby" => "nonprofit", :role => "tabpanel"}
+              .panel-body
+                We aim for excellence in all aspects of our work. Whether we’re analyzing a cash flow, advising a nonprofit or executing a technical development plan, we set the highest personal and professional standards.
+          .panel.panel-default
+            #crossborder.panel-heading{:role => "tab"}
+              %h4.panel-title
+                %a.collapsed{"aria-controls" => "crossborderCollapse", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#crossborderCollapse", :role => "button"}
+                  Cross Border
+            #crossborderCollapse.panel-collapse.collapse{"aria-labelledby" => "crossborder", :role => "tabpanel"}
+              .panel-body
+                We push to break through convention. Creativity is founded on extreme effort, persistence and forward-thinking. This process allows us to unlock unseen potential.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

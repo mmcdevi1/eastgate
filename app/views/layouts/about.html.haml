@@ -1,0 +1,14 @@
+!!!
+%html
+  = render 'layouts/eastgate/head'
+  %body.subpage
+    = render 'shared/flash'
+    = render 'shared/eastgate/aboutheader'
+    #bg_overlay
+    .video-container
+      %video{:autoplay => "", :loop => "", :preload => "auto", :id => "video-bg"}
+        %source{:src => "http://www.theliuscapital.com/wp-content/uploads/2017/01/nyc-night.mp4s", :type => "video/mp4"}
+    %div{:style => "margin-top:150px;"}
+      .container
+        .row
+          = yield

@@ -1,4 +1,4 @@
-%header#top.bs-docs-nav.navbar.navbar-fixed-top
+%header#top.bs-docs-nav.navbar.navbar-fixed-top.header-inverse
   .container
     .navbar-header
       %button.collapsed.navbar-toggle{"aria-controls" => "bs-navbar", "aria-expanded" => "false", "data-target" => "#bs-navbar", "data-toggle" => "collapse", :type => "button"}
@@ -6,11 +6,18 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand= image_tag('thelius-logo-white.png', height: 15)
     %nav#bs-navbar.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         %li
-          =link_to "About Us", about_path
+          =link_to "Who We Are", "#who-we-are"
         %li
-          %a{:href => ""} Connect
+          =link_to "Core Values", "#core-values"
+        %li
+          =link_to "Our Capabilities", "#our-capabilities"
+        %li
+          =link_to "Case Studies", "#case-studies"
+        %li
+          =link_to "Executive Team", "#executive-team"
+        %li
+          =link_to "Contact Us", "#contact-us"
 
