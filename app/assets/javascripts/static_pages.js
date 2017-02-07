@@ -27,6 +27,10 @@ $(document).ready(function() {
     $("#first_name_input").focus();
   });
 
+  $("html, body, #div_wrapper").css({
+    height: $(window).height()
+  });
+
 });
 
 $(function() {

@@ -2,15 +2,16 @@
 %html
   = render 'layouts/eastgate/head'
   %body.subpage
-    = render 'shared/flash'
-    = render 'shared/eastgate/aboutheader'
-    #bg_overlay
-    .video-container
-      %img{:class => "video_poster", :src => "assets/nycbg.jpg"}
-    %div{:style => "margin-top:150px;"}
-      .container
-        = yield
-      %script{:src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyAgKGBnfVSn0jWq03ORE-aoEA95rUX6khI&callback=initMap"}
-      %script
-        smoothScroll.init();
+    #div_wrapper
+      = render 'shared/flash'
+      = render 'shared/eastgate/aboutheader'
+      #bg_overlay
+      .video-container
+        %img{:class => "video_poster", :src => "assets/nycbg.jpg"}
+      %div{:style => "margin-top:150px;"}
+        .container
+          = yield
+        %script{:src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyAgKGBnfVSn0jWq03ORE-aoEA95rUX6khI&callback=initMap"}
+        %script
+          smoothScroll.init();
 
