@@ -329,24 +329,44 @@ a:hover {
 }
 #video-bg {
   position: absolute;
-  width: auto;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  background: transparent url(video-bg.jpg) no-repeat;
-  background-size: cover;
+  height: 100%;
 }
-video {
-  display: block;
-}
+
 .video-container {
-  width: 100%;
-  overflow: hidden;
   position: fixed;
   top: 0;
   right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
   z-index: -100;
-  height:100%;
 }
+
+@media (min-aspect-ratio: 16/9) {
+  #video-bg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  #video-bg {
+    width: auto;
+    height: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
 .navbar-brand {
   padding:0;
 }
