@@ -498,7 +498,7 @@ Responsive Design
     header {
       padding: 15px;
       ul.navbar-nav {
-        margin-top: 30px;
+        margin: 15px 0 0 0;
         li {
           a {
             margin-left: 10px;
@@ -510,17 +510,17 @@ Responsive Design
       }
     }
   }
+  .navbar-header {
+    float: left;
+  }
   .navbar-brand {
     padding:17px 15px;
-    float: none;
-    display: block;
   }
   .navbar-brand > img {
-    display: block;
-    margin: 0 auto;
+
   }
   .navbar-right {
-    float: none
+    float: right;
   }
   .navbar-nav {
     margin:0;
@@ -529,8 +529,7 @@ Responsive Design
     float: left;
   }
   .collapse {
-    display: table;
-    margin: 0 auto !important;
+    display: block;
   }
   .navbar {
     /*border-bottom:1px solid rgba(255,255,255,0.4);*/
