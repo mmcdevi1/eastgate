@@ -497,8 +497,11 @@ Responsive Design
     }
     header {
       padding: 15px;
+      .navbar-header {
+        float: left;
+      }
       ul.navbar-nav {
-        margin: 12px 0 0 0;
+        margin: 15px 0 0 0;
         li {
           a {
             margin-left: 10px;
@@ -510,9 +513,7 @@ Responsive Design
       }
     }
   }
-  .navbar-header {
-    float: left;
-  }
+
   .navbar-brand {
     padding:17px 15px;
   }
