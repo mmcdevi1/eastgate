@@ -61,7 +61,7 @@ body.homepage {
     font-weight: 400;
   }
   #bg_overlay {
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.4);
     position: fixed;
     top: 0;
     height: 100vh;
@@ -80,6 +80,10 @@ body.homepage {
       min-height: 30px;
       color:#fff;
       margin-left: 30px;
+      &:hover {
+        color:#1b96ed;
+        border-bottom: 3px solid #1b96ed;
+      }
     }
   }
 }
@@ -535,20 +539,14 @@ Responsive Design
     }
     header {
       padding: 15px;
-      .navbar-header {
-        float: left;
-      }
-      .collapse {
-        display: block;
-      }
       ul.navbar-nav {
         margin: 12px 0 0 0;
         li {
           a {
-            margin-left: 15px;
-            text-align: center;
+            margin-right: 12px;
+            margin-bottom: 8px;
+            text-align: right;
             border: none;
-            font-size:15px;
           }
         }
       }
@@ -561,14 +559,8 @@ Responsive Design
   .navbar-brand > img {
     height: 12px;
   }
-  .navbar-right {
-    float: right;
-  }
   .navbar-nav {
     margin:0;
-  }
-  .navbar-nav > li {
-    float: left;
   }
   .navbar {
     /*border-bottom:1px solid rgba(255,255,255,0.4);*/

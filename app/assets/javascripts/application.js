@@ -11,11 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap
 //= require ahoy
 //= require underscore
 //= require google_maps
 //= require smooth-scroll
+//= require turbolinks
 //= require_tree .

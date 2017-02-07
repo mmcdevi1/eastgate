@@ -1,11 +1,16 @@
 %header#top.bs-docs-nav.navbar.navbar-fixed-top
   .container
     .navbar-header
+      %button.collapsed.navbar-toggle{"aria-controls" => "bs-navbar", "aria-expanded" => "false", "data-target" => "#bs-navbar", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
       %a.navbar-brand= image_tag('thelius-logo-white.png', height: 15)
     %nav#bs-navbar.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         %li
           =link_to "About Us", about_path
         %li
-          %a{:href => ""} Connect
+          =link_to "Connect", "#{about_path}/#contactform"
 
