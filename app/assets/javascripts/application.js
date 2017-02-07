@@ -15,4 +15,7 @@
 //= require turbolinks
 //= require bootstrap
 //= require ahoy
+//= require underscore
+//= require google_maps
+//= require smooth-scroll
 //= require_tree .

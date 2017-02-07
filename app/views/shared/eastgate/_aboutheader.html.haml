@@ -1,3 +1,6 @@
+.home-link
+  %a{:href => "/"}
+    %span.glyphicon.glyphicon-arrow-left
 %header#top.bs-docs-nav.navbar.navbar-fixed-top.header-inverse
   .container
     .navbar-header
@@ -9,15 +12,15 @@
     %nav#bs-navbar.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         %li
-          =link_to "Who We Are", "#who-we-are"
+          =link_to "Who We Are", "#who-we-are", data: {scroll: ""}
         %li
-          =link_to "Core Values", "#core-values"
+          =link_to "Core Values", "#core-values", data: {scroll: ""}
         %li
-          =link_to "Our Capabilities", "#our-capabilities"
+          =link_to "Our Capabilities", "#our-capabilities", data: {scroll: ""}
         %li
-          =link_to "Case Studies", "#case-studies"
+          =link_to "Case Studies", "#case-studies", data: {scroll: ""}
         %li
-          =link_to "Executive Team", "#executive-team"
+          =link_to "Executive Team", "#executive-team", data: {scroll: ""}
         %li
-          =link_to "Contact Us", "#contact-us"
+          =link_to "Contact Us", "#contact-us", data: {scroll: ""}
 

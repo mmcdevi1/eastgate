@@ -3,8 +3,54 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready(function() {
-  $("#log_in_btn").click(function() {
-    $('#placeholder').text("Invalid Login");
-    $('input').css('border', '1px solid red');
+  $(window).on("scroll", function() {
+    if($(window).scrollTop() > 50) {
+      $(".header-inverse").css("background-color", "#000");
+    } else {
+      $(".header-inverse").css("background-color", "rgba(0,0,0,0)");
+    }
+  });
+
+
+});
+
+
+
+$(function() {
+  $(window).on('scroll',function(){
+    var WindowTop = $(window).scrollTop();
+    $('section').each(function(i){
+      if(WindowTop > $(this).offset().top - 50 && WindowTop < $(this).offset().top + $(this).outerHeight(true)){
+        $('.nav > li > a').removeClass('active');
+        $('.nav li').eq(i).find('a').addClass('active');
+      } else if ($(window).scrollTop() == 0) {
+        $('.nav > li > a').removeClass('active');
+      }
+    });
+  });
+  $('.nav > li > a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+

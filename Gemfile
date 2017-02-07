@@ -25,7 +25,6 @@ gem 'ahoy_matey'
 gem 'activeuuid', '>= 0.5.0'
 gem "browser", "~> 1.1"
 
-
 group :development do
   gem 'thin'
   gem "better_errors"

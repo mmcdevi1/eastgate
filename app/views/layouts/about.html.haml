@@ -10,5 +10,8 @@
         %source{:src => "http://www.theliuscapital.com/wp-content/uploads/2017/01/nyc-night.mp4s", :type => "video/mp4"}
     %div{:style => "margin-top:150px;"}
       .container
-        .row
-          = yield
+        = yield
+      %script{:src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyAgKGBnfVSn0jWq03ORE-aoEA95rUX6khI&callback=initMap"}
+      %script
+        smoothScroll.init();
+
