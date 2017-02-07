@@ -486,6 +486,17 @@ Video Background
   left: 0;
   overflow: hidden;
   z-index: -100;
+  .video_poster {
+    height: 100%;
+    min-height: 56.25vw;
+    min-width: 100%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 177.77777778vh;
+  }
 }
 
 @media (min-aspect-ratio: 16/9) {
