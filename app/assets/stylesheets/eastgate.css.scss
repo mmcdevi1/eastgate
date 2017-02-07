@@ -500,6 +500,9 @@ Responsive Design
       .navbar-header {
         float: left;
       }
+      .collapse {
+        display: block;
+      }
       ul.navbar-nav {
         margin: 12px 0 0 0;
         li {
@@ -529,9 +532,6 @@ Responsive Design
   .navbar-nav > li {
     float: left;
   }
-  .collapse {
-    display: block;
-  }
   .navbar {
     /*border-bottom:1px solid rgba(255,255,255,0.4);*/
   }
@@ -545,6 +545,13 @@ Responsive Design
     }
     p {
       font-size: 20px;
+    }
+    .nav > li > a:hover {
+      border-bottom: none;
+      color: #1b96ed;
+    }
+    ul.navbar-nav a.active {
+      border-bottom: none;
     }
   }
   .portfolio-grid .portfolio-item a, .team-grid .portfolio-item a {
