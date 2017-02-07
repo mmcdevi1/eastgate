@@ -539,6 +539,9 @@ Responsive Design
   }
 }
 @media (max-width: 767px) {
+  html, body, #div_wrapper {
+    height: 100vh;
+  }
   #div_wrapper{
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;

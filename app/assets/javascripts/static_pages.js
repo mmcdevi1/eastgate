@@ -3,8 +3,27 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready(function() {
+
+  var windowHeight = $(window).height();
+  var headerHeight = $('.navbar').height();
+
+  // $(window).on('resize', function() {
+  //   var windowHeight = $(window).height();
+  //   $("html, body, #div_wrapper").css({
+  //     height: windowHeight
+  //   });
+  // })
+
   $(window).on("scroll", function() {
     if($(window).scrollTop() > 50) {
+      $(".header-inverse").css("background-color", "#000");
+    } else {
+      $(".header-inverse").css("background-color", "rgba(0,0,0,0)");
+    }
+  });
+
+  $("#div_wrapper").on("scroll", function() {
+    if($("#div_wrapper").scrollTop() > 50) {
       $(".header-inverse").css("background-color", "#000");
     } else {
       $(".header-inverse").css("background-color", "rgba(0,0,0,0)");
@@ -27,20 +46,28 @@ $(document).ready(function() {
     $("#first_name_input").focus();
   });
 
-  $("html, body, #div_wrapper").css({
-    height: $(window).height()
-  });
+
+  // if(!/chrom(e|ium)/.test(navigator.userAgent.toLowerCase())){
+  //       $('html').css({'overflow-x':'auto','overflow-y':'hidden'});
+  //   }
+  //   $('.nav > li > a[href*=#]:not([href=#])').click(function () {
+  //     var $el = $($(this).attr('href'));
+  //     $('html, body').stop().animate({
+  //         scrollTop: $el.prop('offsetTop')
+  //     }, 2000);
+  //     return false;
+  // });
 
 });
 
 $(function() {
-  $(window).on('scroll',function(){
-    var WindowTop = $(window).scrollTop();
+  $("#div_wrapper").on('scroll',function(){
+    var WindowTop = $("#div_wrapper").scrollTop();
     $('section').each(function(i){
       if(WindowTop > $(this).offset().top - 50 && WindowTop < $(this).offset().top + $(this).outerHeight(true)){
         $('.nav > li > a').removeClass('active');
         $('.nav li').eq(i).find('a').addClass('active');
-      } else if ($(window).scrollTop() == 0) {
+      } else if ($("#div_wrapper").scrollTop() == 0) {
         $('.nav > li > a').removeClass('active');
       }
     });
