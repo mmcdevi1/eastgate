@@ -498,13 +498,13 @@ Responsive Design
     header {
       padding: 15px;
       ul.navbar-nav {
-        margin: 15px 0 0 0;
+        margin: 12px 0 0 0;
         li {
           a {
             margin-left: 10px;
-            margin-right: 10px;
             text-align: center;
             border: none;
+            font-size:15px;
           }
         }
       }
@@ -517,7 +517,7 @@ Responsive Design
     padding:17px 15px;
   }
   .navbar-brand > img {
-
+    height: 12px;
   }
   .navbar-right {
     float: right;
