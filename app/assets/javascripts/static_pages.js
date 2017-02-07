@@ -29,8 +29,6 @@ $(document).ready(function() {
 
 });
 
-
-
 $(function() {
   $(window).on('scroll',function(){
     var WindowTop = $(window).scrollTop();

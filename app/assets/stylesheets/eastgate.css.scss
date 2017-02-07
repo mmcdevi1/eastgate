@@ -100,11 +100,12 @@ body.homepage {
 .subpage {
   font-family: "calibre-light";
   color:#fff;
-   background: url('nycbg.jpg') no-repeat center center fixed;
+  background: url('nycbg.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-attachment: fixed;
   p {
     color:#fff;
     font-size: 25px;
@@ -547,6 +548,10 @@ Responsive Design
             margin-bottom: 8px;
             text-align: right;
             border: none;
+            &:hover {
+              color:#fff;
+              border-bottom: none;
+            }
           }
         }
       }
@@ -570,6 +575,10 @@ Responsive Design
     box-shadow: none;
   }
   .subpage {
+    .container {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
     h2 {
       font-size: 36px;
     }
