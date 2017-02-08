@@ -57,7 +57,7 @@ body.homepage {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;*/
-  font-family: 'calibre-semibold', arial, sans-serif;
+  font-family: 'calibre-light', arial, sans-serif;
   color: #fff;
   height: 100%;
   font-size: 12px;
@@ -67,9 +67,8 @@ body.homepage {
     line-height: 55px;
     margin-bottom: 30px;
     font-weight: 400;
-    text-transform: uppercase;
     span {
-      background-color: rgba(0,0,0,0.8);
+
     }
   }
   p {
