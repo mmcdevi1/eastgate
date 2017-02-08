@@ -523,18 +523,26 @@ Video Background
 
 
 
-/*html, body, #div_wrapper {
-    height: 100vh;
+@media (max-device-aspect-ratio: 3/4) {
+  .video-container .video_poster {
+    height: calc(100vw * 1.333 - 9%);
   }
-  #div_wrapper{
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
+}
+@media (max-device-aspect-ratio: 2/3) {
+  .video-container .video_poster {
+    height: calc(100vw * 1.5 - 9%);
   }
-  #div_wrapper {
-    position: absolute;
-    width: 100%;
+}
+@media (max-device-aspect-ratio: 10/16) {
+  .video-container .video_poster {
+    height: calc(100vw * 1.6 - 9%);
   }
-*/
+}
+@media (max-device-aspect-ratio: 9/16) {
+  .video-container .video_poster {
+    height: calc(100vw * 1.778 - 9%);
+  }
+}
 
 
 /**************************************************************
