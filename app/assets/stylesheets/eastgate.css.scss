@@ -97,15 +97,6 @@ body.homepage {
     color: #fff;
     font-family: "calibre-semibold", sans-serif;
 }
-.image-poster {
-  color:#fff;
-  background: url('nycbg.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-attachment: fixed;
-}
 .subpage {
   font-family: "calibre-light";
   color: #fff;
@@ -522,13 +513,13 @@ Video Background
   }
 }
 
-/*html, body, #div_wrapper {
-  height: 100vh;
+html, body, #div_wrapper {
+  height: 100%;
 }
 #div_wrapper {
   overflow-y: scroll;
 }
-*/
+
 
 
 
