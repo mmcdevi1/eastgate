@@ -97,15 +97,18 @@ body.homepage {
     color: #fff;
     font-family: "calibre-semibold", sans-serif;
 }
-.subpage {
-  font-family: "calibre-light";
+.image-poster {
   color:#fff;
-  /*background: url('nycbg.jpg') no-repeat center center fixed;*/
+  background: url('nycbg.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   background-attachment: fixed;
+}
+.subpage {
+  font-family: "calibre-light";
+
   p {
     color:#fff;
     font-size: 25px;
