@@ -54,7 +54,7 @@ Rails.application.routes.draw do
     get  '/logout', to: 'devise/sessions#destroy', as: :logout
   end
 
-  ##### Routes for Eastgate.io ##############
+  ##### Routes for TheliusCapital.com ##############
   resources 'static_pages', only: [:index]
   get '/test', to: 'static_pages#test'
   get '/about', to: 'static_pages#about'
