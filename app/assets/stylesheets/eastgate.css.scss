@@ -589,7 +589,15 @@ Responsive Design
     box-shadow: none;
   }
   .subpage {
-
+    .modal-team-description embed {
+      display: none;
+    }
+    #case-studies .portfolio-item {
+      min-height: 119px;
+    }
+    .navbar-toggle {
+      display: none;
+    }
     #bg_overlay {
       background: rgba(0,0,0,0.8);
     }
