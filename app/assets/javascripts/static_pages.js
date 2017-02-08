@@ -39,14 +39,20 @@ $(document).ready(function() {
     $("#first_name_input").focus();
   });
 
-  var bg = $(".video_poster");
+  var $w = $(window),
+  $background = $('.video_poster');
 
+  // Fix background image jump on mobile
+  if ((/Android|iPhone|iPad|iPod|BlackBerry/i).test(navigator.userAgent || navigator.vendor || window.opera)) {
+    $background.css({'top': 'auto', 'bottom': 0});
 
+    $w.resize(sizeBackground);
+    sizeBackground();
+  }
 
-
-
-  // $(window).resize(resizeBackground);
-  // resizeBackground();
+  function sizeBackground() {
+     $background.height(screen.height);
+  }
 
 
 });
