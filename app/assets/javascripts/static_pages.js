@@ -39,8 +39,22 @@ $(document).ready(function() {
     $("#first_name_input").focus();
   });
   $(".modal").each(function() {
-      $(this).appendTo('body');
-    });
+    $(this).appendTo('body');
+  });
+
+
+$('h4 a[data-toggle="collapse"]').parent().addClass('inactive');
+$('#accordion h4 a[data-toggle="collapse"]').on('click', function(e) {
+    if($(this).parent().hasClass('inactive')) {
+        $('#accordion h4').removeClass('active').addClass('inactive');
+        $(this).parent().removeClass('inactive');
+        $(this).parent().addClass('active');
+    }
+    else {
+        $(this).parent().removeClass('active');
+        $(this).parent().addClass('inactive');
+    }
+});
 
 
 });

@@ -16,6 +16,13 @@
         font-url('CalibreWeb-Semibold.woff') format("woff"),
         font-url('CalibreWeb-Semibold.ttf') format("truetype")
 }
+@font-face{
+    font-family:'hodyicons';
+    src:font-url('hodyicons.eot');
+    src:font-url('hodyicons.eot?#iefix') format("embedded-opentype"),
+        font-url('hodyicons.woff') format("woff"),
+        font-url('hodyicons.ttf') format("truetype")
+}
 
 /*@font-face{
     font-family:"calibre";
@@ -179,6 +186,18 @@ section {
       &:focus {text-decoration:none;}
     }
   }
+}
+h4.panel-title:before {
+    content: "\e00a";
+    font-family: "hodyicons";
+    font-size: 13px;
+    margin-right: 10px;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    color: #fff;
+}
+h4.panel-title.active:before {
+  content: "\e00e";
 }
 .panel-group .panel + .panel {
      margin-top: 0px;
