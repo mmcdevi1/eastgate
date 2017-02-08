@@ -629,6 +629,7 @@ Responsive Design
   }
   .modal {
     padding-right: 0 !important;
+    z-index: 99999999;
     .modal-dialog {
       padding-top: 0px;
       margin:0;
