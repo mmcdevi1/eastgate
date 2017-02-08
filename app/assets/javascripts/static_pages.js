@@ -42,8 +42,8 @@ $(document).ready(function() {
   var bg = $(".video_poster");
 
 
-      // bg.height($(window).height() + 100);
-      // bg.width($(window).width() + 100);
+      bg.height($(window).height()*1.2);
+      bg.width($(window).width()*1.2);
 
 
   // $(window).resize(resizeBackground);
