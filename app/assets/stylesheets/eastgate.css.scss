@@ -522,7 +522,7 @@ Video Background
 
   }
 }
-
+.homepage .video-container .video_poster {display:none;}
 @media (min-aspect-ratio: 16/9) {
   #video-bg {
     height: 300%;
@@ -592,6 +592,12 @@ Responsive Design
     padding:25px 0 30px 0;;
   }
   body.homepage {
+    .video-container {
+      video {display:none;}
+      .video_poster {
+        display:block;
+      }
+    }
     h1 {
       font-size: 30px;
       line-height: normal;
