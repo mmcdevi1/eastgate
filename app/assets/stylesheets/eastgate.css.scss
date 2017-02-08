@@ -535,7 +535,9 @@ Video Background
 
 
 
-
+.description-mobile {
+  display: none;
+}
 /**************************************************************
 Responsive Design
 ***************************************************************/
@@ -555,6 +557,17 @@ Responsive Design
   }
 }
 @media (max-width: 767px) {
+  .modal {
+    padding-left: 0 !important;
+  }
+  .description-mobile {
+    display: block;
+    .overview {
+      h2+p {
+        margin-bottom: 25px;
+      }
+    }
+  }
   html, body, #div_wrapper {
     height: 100%;
   }

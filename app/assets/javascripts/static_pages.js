@@ -55,6 +55,19 @@ $('#accordion h4 a[data-toggle="collapse"]').on('click', function(e) {
         $(this).parent().addClass('inactive');
     }
 });
+  $('#core-capabilities-accordion h4 a[data-toggle="collapse"]').on('click', function(e) {
+    if($(this).parent().hasClass('inactive')) {
+        $('#core-capabilities-accordion h4').removeClass('active').addClass('inactive');
+        $(this).parent().removeClass('inactive');
+        $(this).parent().addClass('active');
+    }
+    else {
+        $(this).parent().removeClass('active');
+        $(this).parent().addClass('inactive');
+    }
+
+
+});
 
 
 });
