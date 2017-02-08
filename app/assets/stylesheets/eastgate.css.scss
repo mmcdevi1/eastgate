@@ -57,15 +57,24 @@ body.homepage {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;*/
-  font-family: 'calibre-light', arial, sans-serif;
+  font-family: 'calibre-semibold', arial, sans-serif;
   color: #fff;
   height: 100%;
   font-size: 12px;
+
   h1 {
     font-size: 48px;
     line-height: 55px;
     margin-bottom: 30px;
     font-weight: 400;
+    text-transform: uppercase;
+    span {
+      background-color: rgba(0,0,0,0.8);
+    }
+  }
+  p {
+    font-size: 18px;
+    font-family: "calibre-semibold", sans-serif;
   }
   #bg_overlay {
     background: rgba(0,0,0,0.4);
@@ -156,6 +165,9 @@ body.homepage {
 section {
   border-bottom: 1px solid #fff;
   padding:85px 0 100px 0;
+  &:last-child {
+    border-bottom:none;
+  }
 }
 #accordion, #core-capabilities-accordion {
   .panel {
@@ -583,6 +595,9 @@ Responsive Design
     h1 {
       font-size: 30px;
       line-height: normal;
+      span {
+        background: transparent;
+      }
     }
     header {
       padding: 15px;
