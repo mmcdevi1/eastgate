@@ -520,15 +520,18 @@ Video Background
 
 
 
-html, body, #div_wrapper {
+/*html, body, #div_wrapper {
     height: 100vh;
   }
   #div_wrapper{
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
   }
-
-
+  #div_wrapper {
+    position: absolute;
+    width: 100%;
+  }
+*/
 
 
 /**************************************************************
