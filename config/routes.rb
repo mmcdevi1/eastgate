@@ -44,6 +44,9 @@ Rails.application.routes.draw do
     get '/users/:id', to: 'users#show', as: :user
 
     resources :users, only: [:destroy, :edit]
+
+    # Thelius Website Content
+    resources :executive_teams
   end
 
   devise_for :users, :controllers => { :registrations => 'registrations' }

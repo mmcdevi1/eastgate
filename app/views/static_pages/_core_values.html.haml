@@ -1,0 +1,39 @@
+%section#core-values
+  .row
+    .col-sm-10.col-sm-offset-1
+      %h2 Core Values
+      %p
+        Our core values define us and our work. We incorporate these values in our day-to-day to differentiate our brand and achieve the best results.
+      #accordion.panel-group{"aria-multiselectable" => "true", :role => "tablist"}
+        .panel.panel-default
+          #headingOne.panel-heading{:role => "tab"}
+            %h4.panel-title
+              %a{"aria-controls" => "collapseOne", "aria-expanded" => "true", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseOne", :role => "button"}
+                Ownership
+          #collapseOne.panel-collapse.collapse{"aria-labelledby" => "headingOne", :role => "tabpanel"}
+            .panel-body
+              We own every decision we make. This means holding ourselves accountable for not only the short-term results, but also the long-term impact on growth, sustainability, and community.
+        .panel.panel-default
+          #headingTwo.panel-heading{:role => "tab"}
+            %h4.panel-title
+              %a.collapsed{"aria-controls" => "collapseTwo", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseTwo", :role => "button"}
+                Excellence
+          #collapseTwo.panel-collapse.collapse{"aria-labelledby" => "headingTwo", :role => "tabpanel"}
+            .panel-body
+              We aim for excellence in all aspects of our work. Whether we’re analyzing a cash flow, advising a nonprofit or executing a technical development plan, we set the highest personal and professional standards.
+        .panel.panel-default
+          #headingThree.panel-heading{:role => "tab"}
+            %h4.panel-title
+              %a.collapsed{"aria-controls" => "collapseThree", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseThree", :role => "button"}
+                Creativity
+          #collapseThree.panel-collapse.collapse{"aria-labelledby" => "headingThree", :role => "tabpanel"}
+            .panel-body
+              We push to break through convention. Creativity is founded on extreme effort, persistence and forward-thinking. This process allows us to unlock unseen potential.
+        .panel.panel-default
+          #headingFour.panel-heading{:role => "tab"}
+            %h4.panel-title
+              %a.collapsed{"aria-controls" => "collapseFour", "aria-expanded" => "false", "data-parent" => "#accordion", "data-toggle" => "collapse", :href => "#collapseFour", :role => "button"}
+                Trust
+          #collapseFour.panel-collapse.collapse{"aria-labelledby" => "headingFour", :role => "tabpanel"}
+            .panel-body
+              We build our business on relationships. We safeguard our trusted network of investors, clients, partners, consultants and employees to secure the most attractive opportunities and deliver the best results.

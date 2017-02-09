@@ -5,9 +5,9 @@ class StaticPagesController < ApplicationController
   end
 
   def about
+    @executive_teams = ExecutiveTeam.is_member
+    @executive_team_header = ExecutiveTeam.where(is_member: false).first
     render layout: "about"
-    @pdf_filename = File.join(Rails.root, "tmp/Project Copper.pdf")
-    # send_file(@pdf_filename, :filename => "your_document.pdf", :disposition => 'inline', :type => "application/pdf")
   end
 
   def career
