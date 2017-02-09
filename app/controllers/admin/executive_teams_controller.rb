@@ -28,8 +28,8 @@ module Admin
 
     def update
       if @executive_team.update(executive_team_params)
-        redirect_to admin_asset_folders_path
-        flash[:success] = 'Rename Successful.'
+        redirect_to admin_team_edit_path(@executive_team)
+        flash[:success] = 'Saved'
       else
         render 'edit'
       end

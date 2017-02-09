@@ -25,6 +25,7 @@ gem 'zipruby'
 gem 'ahoy_matey'
 gem 'activeuuid', '>= 0.5.0'
 gem "browser", "~> 1.1"
+gem 'summernote-rails'
 
 group :development do
   gem 'thin'

@@ -1,0 +1,25 @@
+%aside#aside.app-aside.hidden-xs.bg-dark{:style => "position:fixed; height:100%;"}
+  .aside-wrap
+    .navi-wrap
+      %nav.navi.clearfix{:style => "padding:20px", "ui-nav" => ""}
+        %ul.nav
+          %li.hidden-folded.m-b-sm.text-xs.nav-sm-title
+            %span Menu
+          %li
+            = link_to '', class: "auto", title: "Dashboard" do
+              %span General Info
+          %li
+            = link_to admin_team_index_path, class: "auto", title: "Team" do
+              %span Team Members
+          %li
+            = link_to admin_assets_path, class: "auto", title: "Assets" do
+              %span Core Values
+          %li
+            = link_to admin_approvals_path, class: "auto", title: "Assets" do
+              %span Our Capabilities
+          %li
+            = link_to admin_approvals_path, class: "auto", title: "Assets" do
+              %span Case Studies
+
+
+

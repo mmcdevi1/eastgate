@@ -6,7 +6,11 @@ class AdminsController < ApplicationController
   private
 
   def admin_layout
-    'admin'
+    if params[:controller] == 'admin/executive_teams'
+      'website_editor'
+    else
+      'admin'
+    end
   end
 
   def authenticate_admin

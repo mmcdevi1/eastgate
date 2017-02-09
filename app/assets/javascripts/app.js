@@ -23,7 +23,7 @@ Modernizr.addTest('ios',function(){return!!navigator.userAgent.match(/iPhone|iPa
 (function(a,b){"use strict";var c="undefined"!=typeof Element&&"ALLOW_KEYBOARD_INPUT"in Element,d=function(){for(var a,c,d=[["requestFullscreen","exitFullscreen","fullscreenElement","fullscreenEnabled","fullscreenchange","fullscreenerror"],["webkitRequestFullscreen","webkitExitFullscreen","webkitFullscreenElement","webkitFullscreenEnabled","webkitfullscreenchange","webkitfullscreenerror"],["webkitRequestFullScreen","webkitCancelFullScreen","webkitCurrentFullScreenElement","webkitCancelFullScreen","webkitfullscreenchange","webkitfullscreenerror"],["mozRequestFullScreen","mozCancelFullScreen","mozFullScreenElement","mozFullScreenEnabled","mozfullscreenchange","mozfullscreenerror"]],e=0,f=d.length,g={};f>e;e++)if(a=d[e],a&&a[1]in b){for(e=0,c=a.length;c>e;e++)g[d[0][e]]=a[e];return g}return!1}(),e={request:function(a){var e=d.requestFullscreen;a=a||b.documentElement,/5\.1[\.\d]* Safari/.test(navigator.userAgent)?a[e]():a[e](c&&Element.ALLOW_KEYBOARD_INPUT)},exit:function(){b[d.exitFullscreen]()},toggle:function(a){this.isFullscreen?this.exit():this.request(a)},onchange:function(){},onerror:function(){},raw:d};return d?(Object.defineProperties(e,{isFullscreen:{get:function(){return!!b[d.fullscreenElement]}},element:{enumerable:!0,get:function(){return b[d.fullscreenElement]}},enabled:{enumerable:!0,get:function(){return!!b[d.fullscreenEnabled]}}}),b.addEventListener(d.fullscreenchange,function(a){e.onchange.call(e,a)}),b.addEventListener(d.fullscreenerror,function(a){e.onerror.call(e,a)}),a.screenfull=e,void 0):a.screenfull=!1})(window,document);
 
 
-// data-shift api 
+// data-shift api
 +function ($) { "use strict";
 
  /* SHIFT CLASS DEFINITION
@@ -40,7 +40,7 @@ Modernizr.addTest('ios',function(){return!!navigator.userAgent.match(/iPhone|iPa
 
     , init:function(){
     	var $el = this.$element
-    	, method = $el.data()['toggle'].split(':')[1]    	
+    	, method = $el.data()['toggle'].split(':')[1]
     	, $target = $el.data('target')
     	$el.hasClass('in') || $el[method]($target).addClass('in')
     }
@@ -67,7 +67,7 @@ Modernizr.addTest('ios',function(){return!!navigator.userAgent.match(/iPhone|iPa
 }(jQuery);
 
 
-// data-bjax api 
+// data-bjax api
 +function ($) { "use strict";
   var Bjax = function (element, options) {
     this.options   = options
@@ -97,7 +97,7 @@ Modernizr.addTest('ios',function(){return!!navigator.userAgent.match(/iPhone|iPa
       window.location.replace(this.options.url)
     }
 
-    this.updateBar(100);    
+    this.updateBar(100);
   }
 
   Bjax.prototype.backdrop = function(){
@@ -139,7 +139,7 @@ Modernizr.addTest('ios',function(){return!!navigator.userAgent.match(/iPhone|iPa
          location.href.replace(location.hash, ''))
       return false
     if (link.href === location.href + '#' || link.href === location.href)
-      return false    
+      return false
     return true;
   }
 
@@ -211,7 +211,7 @@ Date.now = Date.now || function() { return +new Date; };
         $modal.load($remote);
       }
     );
-    
+
     // dropdown menu
     $.fn.dropdown.Constructor.prototype.change = function(e){
       e.preventDefault();
@@ -259,11 +259,11 @@ Date.now = Date.now || function() { return +new Date; };
       $target && ($targets = $target.split(','));
       $classes && $classes.length && $.each($targets, function( index, value ) {
         if ( $classes[index].indexOf( '*' ) !== -1 ) {
-          var patt = new RegExp( '\\s' + 
+          var patt = new RegExp( '\\s' +
               $classes[index].
                 replace( /\*/g, '[A-Za-z0-9-_]+' ).
                 split( ' ' ).
-                join( '\\s|\\s' ) + 
+                join( '\\s|\\s' ) +
               '\\s', 'g' );
           $($this).each( function ( i, it ) {
             var cn = ' ' + it.className + ' ';
@@ -287,17 +287,17 @@ Date.now = Date.now || function() { return +new Date; };
         $target.find('.panel-body').toggleClass($class);
         $this.toggleClass('active');
     });
-  	
+
   	// carousel
   	$('.carousel.auto').carousel();
-  	
+
   	// button loading
   	$(document).on('click.button.data-api', '[data-loading-text]', function (e) {
   	    var $this = $(e.target);
   	    $this.is('i') && ($this = $this.parent());
   	    $this.button('loading');
   	});
- 	
+
     var $window = $(window);
     // mobile
   	var mobile = function(option){
@@ -319,7 +319,7 @@ Date.now = Date.now || function() { return +new Date; };
         $window.width() >= 768 && mobile('reset') && fixVbox();
       }, 500);
   	});
-    
+
     // fix vbox
     var fixVbox = function(){
       $('.ie11 .vbox').each(function(){
@@ -330,18 +330,18 @@ Date.now = Date.now || function() { return +new Date; };
 
     // collapse nav
     $(document).on('click', '[data-ride="collapse"] a', function (e) {
-      var $this = $(e.target), $active;      
+      var $this = $(e.target), $active;
       $this.is('a') || ($this = $this.closest('a'));
-      
+
       $active = $this.parent().siblings( ".active" );
       $active && $active.toggleClass('active').find('> ul:visible').slideUp(200);
-      
+
       ($this.parent().hasClass('active') && $this.next().slideUp(200)) || $this.next().slideDown(200);
       $this.parent().toggleClass('active');
-      
+
       $this.next().is('ul') && e.preventDefault();
 
-      setTimeout(function(){ $(document).trigger('updateNav'); }, 300);      
+      setTimeout(function(){ $(document).trigger('updateNav'); }, 300);
     });
 
     // dropdown still
@@ -349,3 +349,32 @@ Date.now = Date.now || function() { return +new Date; };
 
   });
 }(jQuery);
+
+$(document).ready(function() {
+  $('#summernote').summernote({
+    height: 400,
+    toolbar: [
+      // [groupName, [list of button]]
+      ['style', ['style']],
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['misc', ['fullscreen', 'codeview']]
+    ]
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

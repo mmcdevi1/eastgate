@@ -18,5 +18,6 @@
 //= require underscore
 //= require google_maps
 //= require smooth-scroll
+//= require summernote
 //= require turbolinks
 //= require_tree .

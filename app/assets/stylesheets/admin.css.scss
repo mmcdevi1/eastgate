@@ -1,3 +1,11 @@
+@import "summernote";
+.note-editor.note-frame {
+    border: 2px solid #DEE2E4;
+}
+.note-editor.panel-default .panel-heading {
+  background-color: #fff;
+  border-bottom: 2px solid #DEE2E4;
+}
 .admin {
   background: #fff;
   font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;

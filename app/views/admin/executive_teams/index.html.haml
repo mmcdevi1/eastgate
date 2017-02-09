@@ -1,0 +1,26 @@
+.m-b-lg
+  = link_to "New Post", 'new_admin_blog_post_path', class: 'btn btn-info'
+%ul.list-group.list-group-lg.list-group-sp
+  - @executive_teams.each do |team_member|
+    %li.list-group-item{:draggable => "true"}
+      %span.pull-right
+        = link_to admin_team_edit_path(team_member) do
+          %i.fa.fa-fw.m-r-xs.fa-pencil{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Edit"}
+        = link_to 'blog_post_path' do
+          %i.i.i-popup{"data-placement" => "top", "data-toggle" => "tooltip", :title => "View"}
+        %a{"data-target" => "#team_#{team_member.id}", "data-toggle" => "modal", :href => ""}
+          %i.fa.fa-fw.fa-times{"data-placement" => "top", "data-toggle" => "tooltip", :title => "Delete"}
+      .clear
+        .title
+          = link_to team_member.full_name, admin_team_edit_path(team_member)
+      .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "team_#{team_member.id}", :role => "dialog", :tabindex => "-1"}
+        .modal-dialog
+          .modal-content
+            .modal-header
+              %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+              %h4#myModalLabel.modal-title Are you sure?
+            .modal-body
+              Once the post is deleted, it's gone forever!
+            .modal-footer
+              %button.btn.btn-link{"data-dismiss" => "modal", :type => "button"} Close
+              = link_to "Delete", 'admin_blog_post_path', method: :delete, class: "btn btn-danger"
