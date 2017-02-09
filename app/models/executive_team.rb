@@ -6,6 +6,6 @@ class ExecutiveTeam < ActiveRecord::Base
   end
 
   def modal_id
-    "#{self.first_name.downcase}_#{self.last_name.downcase}_#{self.id}"
+    "#{self.first_name.downcase}_#{self.last_name.downcase.gsub(/[^a-zA-Z]/, '')}_#{self.id}"
   end
 end
