@@ -19,7 +19,7 @@ module Admin
     def create
       @executive_team = ExecutiveTeam.new(executive_team_params)
       if @executive_team.save
-        redirect_to :back
+        redirect_to admin_team_edit_path(@executive_team)
         flash[:success] = 'Team member created.'
       else
         render 'new'

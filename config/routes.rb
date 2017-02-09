@@ -48,9 +48,10 @@ Rails.application.routes.draw do
     # Thelius Website Content
     scope :config do
       scope :website do
+        resources :executive_teams, only: :create
         get '/team', to: 'executive_teams#index', as: :team_index
-        get '/team/new', to: 'executive_teams#new'
-        post '/team/new', to: 'executive_teams#create'
+        get '/team/new', to: 'executive_teams#new', as: :new_admin_executive_team
+        post '/team', to: 'executive_teams#create'
         get '/team/:id', to: 'executive_teams#show', as: :executive_team
         get '/team/:id/edit', to: 'executive_teams#edit', as: :team_edit
         patch '/team/:id', to: 'executive_teams#update'

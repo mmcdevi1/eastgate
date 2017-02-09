@@ -2,17 +2,34 @@
   .row
     .col-sm-6
       .form-group
-        %label= f.label :first_name
+        %label= f.label :first_name, 'First Name'
         = f.text_field :first_name, class: "form-control"
     .col-sm-6
       .form-group
-        %label= f.label :last_name
+        %label= f.label :last_name, 'Last Name'
         = f.text_field :last_name, class: "form-control"
   .form-group
     %label= f.label :title
     = f.text_field :title, class: "form-control"
   .form-group
-    %label= f.label :content
+    %label= f.label :content, 'Description'
     = f.text_area :content, class: "form-control", id: "summernote"
+  .form-group
+    = f.label :is_member, 'Is this a team member or content?', class: 'control-label'
+    %div
+      .btn-group.m-r
+        .dropdown
+          %button#parent_page_btn.btn.btn-more-padding.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :style => "padding:7px 16px;"}
+            %span.dropdown-label{"data-placeholder" => "Please select"} Select
+            %span.caret{:style => "margin-left:30px;"}
+          %ul.dropdown-menu.dropdown-select
+            %li
+              %a{:href => "#"}
+                Team Member
+                = f.radio_button :is_member, true
+            %li
+              %a{:href => "#"}
+                Content
+                = f.radio_button :is_member, false
   .action
     = f.submit 'Save Changes', class: 'btn btn-info btn-lg btn-fixed'

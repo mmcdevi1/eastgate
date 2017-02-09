@@ -11,5 +11,7 @@
           .hbox.hbox-auto-xs.hbox-auto-sm{"ng-init" => "\n            app.settings.asideFolded = false; \n            app.settings.asideDock = false;\n          "}
             / main
             .col
-              .wrapper-lg
-                = yield
+              .container
+                .row
+                  .col-md-offset-1.col-md-10.m-t-lg
+                    = yield

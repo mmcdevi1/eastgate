@@ -352,7 +352,7 @@ Date.now = Date.now || function() { return +new Date; };
 
 $(document).ready(function() {
   $('#summernote').summernote({
-    height: 400,
+    height: 300,
     toolbar: [
       // [groupName, [list of button]]
       ['style', ['style']],
