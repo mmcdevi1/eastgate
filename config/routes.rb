@@ -48,6 +48,10 @@ Rails.application.routes.draw do
     # Thelius Website Content
     scope :config do
       scope :website do
+        # Who we are
+        get '/who-we-are', to: 'general_contents#index', as: :who_we_are
+
+        # Team member
         resources :executive_teams, only: :create
         get '/team', to: 'executive_teams#index', as: :team_index
         get '/team/new', to: 'executive_teams#new', as: :new_admin_executive_team

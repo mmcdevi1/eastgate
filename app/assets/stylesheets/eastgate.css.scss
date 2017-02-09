@@ -283,6 +283,9 @@ h4.panel-title.active:before {
     padding:0;
   }
 }
+.modal-header {
+  padding:30px;
+}
 .address {
   margin-bottom: 30px;
   p {
@@ -326,7 +329,7 @@ h4.panel-title.active:before {
     margin: 30px auto;
   }
   .modal-pdf .modal-dialog {
-    width: 940px;
+    width: 1200px;
     margin: 0px auto;
   }
 }
@@ -552,7 +555,11 @@ Video Background
 /**************************************************************
 Responsive Design
 ***************************************************************/
-
+@media (min-width: 768px) {
+  .modal-pdf .modal-header {
+    display: none;
+  }
+}
 
 @media (max-width: 991px) and (min-width: 768px) {
   .subpage ul.navbar-nav > li a {
@@ -568,6 +575,7 @@ Responsive Design
   }
 }
 @media (max-width: 767px) {
+
   .modal {
     padding-left: 0 !important;
   }

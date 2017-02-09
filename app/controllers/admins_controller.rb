@@ -8,6 +8,8 @@ class AdminsController < ApplicationController
   def admin_layout
     if params[:controller] == 'admin/executive_teams'
       'website_editor'
+    elsif params[:controller] == 'admin/general_contents'
+      'website_editor'
     else
       'admin'
     end

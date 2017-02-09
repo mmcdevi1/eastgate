@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208230125) do
+ActiveRecord::Schema.define(version: 20170209224442) do
 
 # Could not dump table "ahoy_events" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
@@ -136,6 +136,15 @@ ActiveRecord::Schema.define(version: 20170208230125) do
     t.integer  "asset_id"
     t.string   "name"
     t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "general_contents", force: true do |t|
+    t.string   "title"
+    t.string   "content"
+    t.boolean  "is_blurb"
+    t.integer  "section"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
