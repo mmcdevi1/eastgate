@@ -11,7 +11,7 @@
               .portfolio-item{:id => "#{team_member.full_name.downcase.tr(" ", "_")}"}
                 =link_to "#", data: {target: "##{team_member.modal_id}", toggle: "modal"} do
                   %h3= team_member.full_name
-                  %p Managing Partner
+                  %p= team_member.title
                 .modal.fade{:id => "#{team_member.modal_id}", :role => "dialog", :tabindex => "-1"}
                   .modal-dialog{:role => "document"}
                     .modal-content
