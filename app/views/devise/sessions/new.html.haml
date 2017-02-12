@@ -1,11 +1,23 @@
-.panel
-  .panel-body
-    .center{style: "padding:0 0 30px 0;"}
-      = image_tag('logo_black.png', height: "60")
+.row
+  .col-sm-4.col-sm-offset-4
+    .m-b
+      = link_to root_path do
+        = image_tag("thelius-logo-white.png", height: '18')
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .form-group
         = f.email_field :email, class: "form-control", placeholder: "Email address"
       .form-group
         = f.password_field :password, class: "form-control", placeholder: "Password"
+      .form-group
+        .row
+          .col-sm-12
+            .pull-right
+              = link_to 'Forgot password?', "#", class: 'forgot-password'
       .actions
-        = f.submit "Log in", class: "btn btn-off-blue btn-lg btn-block"
+        = f.submit "Login", class: "btn btn-gray"
+.row
+  .col-sm-6.col-sm-offset-3
+    %p.tiny
+      Access to Thelius Capital is intended solely for the employees of Thelius Capital, its investor partners and its clients. If you would like more information, please visit our
+      = link_to "website", "#{about_path}/#contactform", class: 'underline'
+      and fill in our contact form.

@@ -740,9 +740,45 @@ Responsive Design
   -webkit-appearance: none;
 }
 
+body.devise {
+  background: #f4f4f7;
+  font-family: 'calibre-light';
 
-
-
+  .form-control {
+    border:none;
+  }
+  .forgot-password {
+    color: #303441;
+    font-size: 12px;
+  }
+  .tiny {
+    font-size: 12px;
+    text-align: center;
+  }
+  .underline {
+    text-decoration: underline;
+  }
+  img {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+  }
+  .m-b {
+    margin-bottom: 25px;
+  }
+}
+.btn-gray {
+  background: #50576d;
+  color: #fff;
+  padding:10px 40px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 4px;
+}
+.btn-gray:hover {
+  color: #fff;
+  background: #394054;
+}
 
 
 
