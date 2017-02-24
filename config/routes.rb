@@ -53,12 +53,23 @@ Rails.application.routes.draw do
 
         # Team member
         resources :executive_teams, only: :create
-        get '/team', to: 'executive_teams#index', as: :team_index
-        get '/team/new', to: 'executive_teams#new', as: :new_admin_executive_team
-        post '/team', to: 'executive_teams#create'
-        get '/team/:id', to: 'executive_teams#show', as: :executive_team
+        get '/team',          to: 'executive_teams#index', as: :team_index
+        get '/team/new',      to: 'executive_teams#new', as: :new_admin_executive_team
+        post '/team',         to: 'executive_teams#create'
+        get '/team/:id',      to: 'executive_teams#show', as: :executive_team
         get '/team/:id/edit', to: 'executive_teams#edit', as: :team_edit
-        patch '/team/:id', to: 'executive_teams#update'
+        patch '/team/:id',    to: 'executive_teams#update'
+      end
+
+      scope :applications do
+        resources :job_categories, only: :create
+        get '/categories', to: 'job_categories#index', as: :job_categories_index
+        get '/categories/new',      to: 'job_categories#new'
+        post '/categories',         to: 'job_categories#create'
+        get '/categories/:id',      to: 'job_categories#show', as: :job_category
+        get '/categories/:id/edit', to: 'job_categories#edit', as: :job_categories_edit
+        patch '/categories/:id',    to: 'job_categories#update'
+        delete '/categories/:id',   to: 'job_categories#destroy', as: :job_categories_destroy
       end
     end
   end

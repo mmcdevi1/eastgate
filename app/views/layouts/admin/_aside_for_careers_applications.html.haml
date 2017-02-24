@@ -1,0 +1,25 @@
+%aside#aside.app-aside.hidden-xs.bg-dark{:style => "position:fixed; height:100%;"}
+  .aside-wrap
+    .navi-wrap
+      %nav.navi.clearfix{:style => "padding:20px", "ui-nav" => ""}
+        %ul.nav
+          %li.hidden-folded.m-b-sm.text-xs.nav-sm-title
+            %span Menu
+          %li
+            = link_to admin_clients_path, class: "auto", title: "Clients" do
+              %span Jobs
+          %li
+            = link_to admin_assets_path, class: "auto", title: "Assets" do
+              %span Candidates
+          %li.line.dk.hidden-folded
+          %li.hidden-folded.m-t.m-b-sm.text-xs.nav-sm-title
+            %span Application Form Elements
+          %li
+            = link_to admin_job_categories_index_path, class: "auto", title: "Dashboard" do
+              %span + Add Job Categories
+          %li
+            = link_to admin_team_index_path, class: "auto", title: "Edit Website" do
+              %span + Add Employment Type
+          %li
+            = link_to admin_team_index_path, class: "auto", title: "Edit Website" do
+              %span + Add Minimum Experience

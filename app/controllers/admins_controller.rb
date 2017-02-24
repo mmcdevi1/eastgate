@@ -10,6 +10,10 @@ class AdminsController < ApplicationController
       'website_editor'
     elsif params[:controller] == 'admin/general_contents'
       'website_editor'
+    elsif params[:controller] == 'admin/career_applications'
+      'careers_applications'
+    elsif params[:controller] == 'admin/job_categories'
+      'careers_applications'
     else
       'admin'
     end

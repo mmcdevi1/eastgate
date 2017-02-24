@@ -46,5 +46,8 @@
             %span Careers
           %li
             = link_to admin_career_applications_path, class: "auto", title: "Applications" do
+              %span Applicant Tracking System
+          %li
+            = link_to admin_career_applications_path, class: "auto", title: "Applications" do
               %b.label.bg-primary.pull-right= CareerApplication.display_count
               %span Applications
