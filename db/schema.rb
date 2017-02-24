@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224040913) do
+ActiveRecord::Schema.define(version: 20170224041108) do
 
 # Could not dump table "ahoy_events" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
@@ -122,6 +122,12 @@ ActiveRecord::Schema.define(version: 20170224040913) do
     t.datetime "uploaded_file_updated_at"
   end
 
+  create_table "employment_types", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "executive_teams", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -180,6 +186,12 @@ ActiveRecord::Schema.define(version: 20170224040913) do
     t.integer  "job_category_id"
     t.integer  "employment_type"
     t.integer  "minimum_experience"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "minimum_experiences", force: true do |t|
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
