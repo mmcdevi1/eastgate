@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170209224442) do
+ActiveRecord::Schema.define(version: 20170224040913) do
 
 # Could not dump table "ahoy_events" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
@@ -165,6 +165,23 @@ ActiveRecord::Schema.define(version: 20170209224442) do
     t.string   "property_image_content_type"
     t.integer  "property_image_file_size"
     t.datetime "property_image_updated_at"
+  end
+
+  create_table "job_categories", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "job_postings", force: true do |t|
+    t.string   "title"
+    t.string   "location"
+    t.text     "description"
+    t.integer  "job_category_id"
+    t.integer  "employment_type"
+    t.integer  "minimum_experience"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "priorities", force: true do |t|
