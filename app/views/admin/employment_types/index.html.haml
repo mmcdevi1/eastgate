@@ -1,0 +1,18 @@
+%div
+  = link_to 'New Employment Type', new_admin_employment_type_path
+- @employment_types.each do |employment_type|
+  %div
+    = employment_type.title
+    = link_to 'Edit', edit_admin_employment_type_path(employment_type)
+    = link_to 'Delete', '', data: { target: "#employment_type_#{employment_type.id}", toggle: 'modal' }
+    .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "employment_type_#{employment_type.id}", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h4#myModalLabel.modal-title Are you sure?
+          .modal-body
+            Once the employment type is deleted, it's gone forever!
+          .modal-footer
+            %button.btn.btn-link{"data-dismiss" => "modal", :type => "button"} Close
+            = link_to "Delete", admin_employment_type_path(employment_type), method: :delete, class: "btn btn-danger"

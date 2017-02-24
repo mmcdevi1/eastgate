@@ -14,6 +14,10 @@ class AdminsController < ApplicationController
       'careers_applications'
     elsif params[:controller] == 'admin/job_categories'
       'careers_applications'
+    elsif params[:controller] == 'admin/employment_types'
+      'careers_applications'
+    elsif params[:controller] == 'admin/minimum_experiences'
+      'careers_applications'
     else
       'admin'
     end

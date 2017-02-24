@@ -35,7 +35,6 @@ Rails.application.routes.draw do
     resources :clients
     resources :timelines
     resources :approvals
-    resources :career_applications, only: [:index, :show, :destroy]
 
     get '/users/admins', to: 'users#admins'
     post '/users/new' => 'users#create', as: :create_user_post
@@ -52,24 +51,14 @@ Rails.application.routes.draw do
         get '/who-we-are', to: 'general_contents#index', as: :who_we_are
 
         # Team member
-        resources :executive_teams, only: :create
-        get '/team',          to: 'executive_teams#index', as: :team_index
-        get '/team/new',      to: 'executive_teams#new', as: :new_admin_executive_team
-        post '/team',         to: 'executive_teams#create'
-        get '/team/:id',      to: 'executive_teams#show', as: :executive_team
-        get '/team/:id/edit', to: 'executive_teams#edit', as: :team_edit
-        patch '/team/:id',    to: 'executive_teams#update'
+        resources :executive_teams, :path => 'team'
       end
 
       scope :applications do
-        resources :job_categories, only: :create
-        get '/categories', to: 'job_categories#index', as: :job_categories_index
-        get '/categories/new',      to: 'job_categories#new'
-        post '/categories',         to: 'job_categories#create'
-        get '/categories/:id',      to: 'job_categories#show', as: :job_category
-        get '/categories/:id/edit', to: 'job_categories#edit', as: :job_categories_edit
-        patch '/categories/:id',    to: 'job_categories#update'
-        delete '/categories/:id',   to: 'job_categories#destroy', as: :job_categories_destroy
+        resources :career_applications, only: [:index, :show, :destroy], :path => 'candidates'
+        resources :job_categories, :path => 'categories'
+        resources :employment_types, :path => 'employment'
+        resources :minimum_experiences, :path => 'experience'
       end
     end
   end

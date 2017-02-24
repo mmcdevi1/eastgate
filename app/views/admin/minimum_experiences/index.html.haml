@@ -1,0 +1,18 @@
+%div
+  = link_to 'New Minimum Experience Type', new_admin_minimum_experience_path
+- @minimum_experiences.each do |minimum_experience|
+  %div
+    = minimum_experience.title
+    = link_to 'Edit', edit_admin_minimum_experience_path(minimum_experience)
+    = link_to 'Delete', '', data: { target: "#minimum_experience_#{minimum_experience.id}", toggle: 'modal' }
+    .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "minimum_experience_#{minimum_experience.id}", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h4#myModalLabel.modal-title Are you sure?
+          .modal-body
+            Once the employment type is deleted, it's gone forever!
+          .modal-footer
+            %button.btn.btn-link{"data-dismiss" => "modal", :type => "button"} Close
+            = link_to "Delete", admin_minimum_experience_path(minimum_experience), method: :delete, class: "btn btn-danger"

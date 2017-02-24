@@ -1,9 +1,9 @@
 %div
-  = link_to 'New Category', admin_categories_new_path
+  = link_to 'New Category', new_admin_job_category_path
 - @job_categories.each do |category|
   %div
     = category.title
-    = link_to 'Edit', admin_job_categories_edit_path(category)
+    = link_to 'Edit', edit_admin_job_category_path(category)
     = link_to 'Delete', '', data: { target: "#category_#{category.id}", toggle: 'modal' }
     .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "category_#{category.id}", :role => "dialog", :tabindex => "-1"}
       .modal-dialog
@@ -15,4 +15,4 @@
             Once the category is deleted, it's gone forever!
           .modal-footer
             %button.btn.btn-link{"data-dismiss" => "modal", :type => "button"} Close
-            = link_to "Delete", admin_job_categories_destroy_path(category), method: :delete, class: "btn btn-danger"
+            = link_to "Delete", admin_job_category_path(category), method: :delete, class: "btn btn-danger"

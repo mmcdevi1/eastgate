@@ -19,7 +19,7 @@ module Admin
     def create
       @job_category = JobCategory.new(job_category_params)
       if @job_category.save
-        redirect_to admin_job_categories_edit_path(@job_category)
+        redirect_to admin_job_categories_path
         flash[:success] = 'Team member created.'
       else
         render 'new'
@@ -28,7 +28,7 @@ module Admin
 
     def update
       if @job_category.update(job_category_params)
-        redirect_to admin_job_categories_edit_path(@job_category)
+        redirect_to admin_job_categories_path
         flash[:success] = 'Saved'
       else
         render 'edit'
