@@ -1,0 +1,18 @@
+%div
+  = link_to 'New Job Posting', new_admin_job_posting_path
+- @job_postings.each do |job|
+  %div
+    = job.title
+    = link_to 'Edit', edit_admin_job_posting_path(job)
+    = link_to 'Delete', '', data: { target: "#job_posting_#{job.id}", toggle: 'modal' }
+    .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "job_posting_#{job.id}", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h4#myModalLabel.modal-title Are you sure?
+          .modal-body
+            Once the job is deleted, it's gone forever!
+          .modal-footer
+            %button.btn.btn-link{"data-dismiss" => "modal", :type => "button"} Close
+            = link_to "Delete", admin_job_posting_path(job), method: :delete, class: "btn btn-danger"

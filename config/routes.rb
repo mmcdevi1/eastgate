@@ -59,6 +59,7 @@ Rails.application.routes.draw do
         resources :job_categories, :path => 'categories'
         resources :employment_types, :path => 'employment'
         resources :minimum_experiences, :path => 'experience'
+        resources :job_postings, :path => 'jobs'
       end
     end
   end
@@ -76,9 +77,53 @@ Rails.application.routes.draw do
   get '/test', to: 'static_pages#test'
   get '/about', to: 'static_pages#about'
 
-  resources :career_applications, only: [:index, :create]
+  resources :career_applications, only: [:index, :show], :path => 'careers'
   get '/careers/apply', to: 'career_applications#new'
+
+  scope :careers do
+    resources :job_postings, only: :show, :path => 'jobs' do
+      resources :career_applications, only: :create
+    end
+  end
 
   root to: 'static_pages#index'
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

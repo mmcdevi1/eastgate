@@ -4,7 +4,7 @@ class CareerApplicationsController < ApplicationController
   layout :layout
 
   def index
-
+    @job_categories = JobCategory.all
   end
 
   def new
@@ -12,7 +12,8 @@ class CareerApplicationsController < ApplicationController
   end
 
   def create
-    @new_application = CareerApplication.new(career_application_params)
+    @job_posting = JobPosting.find(params[:job_posting_id])
+    @new_application = @job_posting.career_applications.new(career_application_params)
     if @new_application.save
       redirect_to root_path
       flash[:success] = 'Your application has been submitted.'
@@ -32,7 +33,8 @@ class CareerApplicationsController < ApplicationController
         :email,
         :phone,
         :cover_letter,
-        :resume
+        :resume,
+        :job_posting_id
       )
   end
 

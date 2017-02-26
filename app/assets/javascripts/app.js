@@ -357,8 +357,14 @@ $(document).ready(function() {
       // [groupName, [list of button]]
       ['style', ['style']],
       ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['para', ['ul', 'ol', 'paragraph']],
       ['misc', ['fullscreen', 'codeview']]
     ]
+  });
+
+  $('#image_uploader').change(function(){
+    var $this = $(this);
+    $('#file_name').html($this.val().split('\\').pop());
   });
 });
 

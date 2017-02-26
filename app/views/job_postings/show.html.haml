@@ -1,0 +1,13 @@
+%h1= @job_posting.title
+%h3.text-muted= "#{@job_posting.location} - HQ"
+.apply-now
+  .row
+    .col-sm-12
+      .pull-left.m-t
+        = link_to 'Back to Careers', career_applications_path, class: 'text-link'
+      .pull-right
+        = link_to 'Apply Now', '#application_form', class: 'btn btn-info'
+.job-posting-description
+  = markdown @job_posting.description
+.job-application-form
+  = render 'form'

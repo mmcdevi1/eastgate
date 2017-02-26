@@ -1,0 +1,14 @@
+!!!
+%html
+  = render 'layouts/eastgate/head'
+  %body.job-posting
+    = render 'shared/flash'
+    .container
+      .row
+        .col-sm-8.col-sm-offset-2
+          = yield
+    .footer
+      .row{style: 'padding: 100px 0; background: #f5f5f5;'}
+        .col-sm-12
+          .text-center.text-muted
+            &copy; 2017 Thelius Capital Partners LLC

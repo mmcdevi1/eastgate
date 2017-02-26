@@ -1,0 +1,36 @@
+#application_form.application-form
+  %h1 Please submit your application for review
+  = form_for [@job_posting, CareerApplication.new], html: {class: 'form-horizontal'} do |f|
+    .form-group
+      = f.label :first_name, class: 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_field :first_name, class: 'form-control'
+    .form-group
+      = f.label :last_name, class: 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_field :last_name, class: 'form-control'
+    .form-group
+      = f.label :email, class: 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_field :email, class: 'form-control'
+    .form-group
+      = f.label :phone, class: 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_field :phone, class: 'form-control'
+    .form-group
+      = f.label :cover_letter, class: 'col-sm-2 control-label'
+      .col-sm-10
+        = f.text_area :cover_letter, class: 'form-control'
+    .form-group
+      = f.label :resume, 'Resume', class: 'col-sm-2 control-label'
+      .col-sm-10
+        = f.file_field :resume, as: :file, class: "filestyle", id: "image_uploader", style: "position: fixed; left: -500px;"
+        .bootstrap-filestyle{:style => "display: inline;"}
+          %label.btn.btn-default.btn-small.fileinput-button{:for => "image_uploader"}
+            %i.glyphicon.glyphicon-cloud-upload
+            %span Upload Resume
+          %span#file_name.text-muted
+    .submit
+      .row
+        .col-sm-10.col-sm-offset-2
+          = f.submit "Submit", class: "btn btn-info btn-block"

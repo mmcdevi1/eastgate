@@ -1,13 +1,20 @@
 !!!
 %html
   = render 'layouts/eastgate/head'
-  %body
+  %body.homepage.careers
     = render 'shared/flash'
-    .container
-      .row{style: "color:black"}
-        .col-sm-10.col-sm-offset-1
-          .panel{style: 'margin: 0'}
-            .panel-body
-              = render 'shared/eastgate/header'
-              = yield
-              = render 'shared/eastgate/footer'
+    = render 'shared/eastgate/header'
+    #wrapper
+      #page
+        #content_container
+          #content.center
+            %h1 Careers at Thelius Capital
+            =link_to "Current Openings", '#current_openings', class: "btn btn-info"
+      %section.job-openings
+        .container
+          = yield
+      .footer
+        .row{style: 'padding: 100px 0; background: #f5f5f5;'}
+          .col-sm-12
+            .text-center.text-muted
+              &copy; 2017 Thelius Capital Partners LLC

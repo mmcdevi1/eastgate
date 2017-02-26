@@ -1,0 +1,11 @@
+#current_openings.center
+  %h2 Current Openings
+  - if JobPosting.count > 0
+    - @job_categories.each do |category|
+      %div
+        %h3= category.title
+        - category.job_postings.each do |job|
+          = link_to job.title, job_posting_path(job)
+          .text-muted= job.location
+  - else
+    %h3 There are currently no job openings
