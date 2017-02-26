@@ -43,7 +43,7 @@ module Admin
 
     private
     def job_posting_params
-      params.require(:job_posting).permit(:title, :location, :description)
+      params.require(:job_posting).permit(:title, :location, :description, :job_category_id)
     end
 
     def set_job_posting
