@@ -7,7 +7,17 @@ class CareerApplication < ActiveRecord::Base
   # validates :phone,        presence: true
   # validates :cover_letter, presence: true
 
-  has_attached_file :resume
+  if Rails.env.development? || Rails.env.test?
+    has_attached_file :resume
+  elsif Rails.env.production?
+    has_attached_file :resume,
+    :storage => :s3,
+    :bucket => 'eastgate-file-hosting',
+    :s3_credentials => {
+      :access_key_id => ENV['S3_ACCESS_KEY'],
+      :secret_access_key => ENV['S3_SECRET_KEY']
+    }
+  end
 
   validates_attachment_content_type :resume,
     :content_type => [ 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ]
