@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227203009) do
+ActiveRecord::Schema.define(version: 20170227204908) do
 
 # Could not dump table "ahoy_events" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20170227203009) do
     t.string   "last_name"
     t.string   "email"
     t.string   "phone"
-    t.text     "cover_letter"
+    t.text     "old_cover_letter"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "resume_file_name"
