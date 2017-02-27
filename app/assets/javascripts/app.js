@@ -366,6 +366,11 @@ $(document).ready(function() {
     var $this = $(this);
     $('#file_name').html($this.val().split('\\').pop());
   });
+
+  $('#image_uploader_cover_letter').change(function(){
+    var $this = $(this);
+    $('#file_name_2').html($this.val().split('\\').pop());
+  });
 });
 
 

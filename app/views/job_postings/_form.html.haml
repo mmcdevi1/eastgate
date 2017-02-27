@@ -18,9 +18,14 @@
       .col-sm-10
         = f.text_field :phone, class: 'form-control'
     .form-group
-      = f.label :cover_letter, class: 'col-sm-2 control-label'
+      = f.label :cover_letter, 'Cover Letter', class: 'col-sm-2 control-label'
       .col-sm-10
-        = f.text_area :cover_letter, class: 'form-control'
+        = f.file_field :cover_letter, as: :file, class: "filestyle", id: "image_uploader_cover_letter", style: "position: fixed; left: -500px;"
+        .bootstrap-filestyle{:style => "display: inline;"}
+          %label.btn.btn-default.btn-small.fileinput-button{:for => "image_uploader_cover_letter"}
+            %i.glyphicon.glyphicon-cloud-upload
+            %span Upload Cover Letter
+          %span#file_name_2.text-muted
     .form-group
       = f.label :resume, 'Resume', class: 'col-sm-2 control-label'
       .col-sm-10
