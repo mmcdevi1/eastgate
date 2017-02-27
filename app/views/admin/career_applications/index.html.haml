@@ -12,7 +12,7 @@
     %tbody
       - @applications.each do |application|
         %tr
-          %td= application.full_name
+          %td= link_to application.full_name, admin_career_application_path(application)
           %td= application.email
           %td= application.phone
           %td= link_to application.resume_file_name, application.resume.url
