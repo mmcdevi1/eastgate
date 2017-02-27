@@ -1,6 +1,4 @@
 class CareerApplicationsController < ApplicationController
-  before_action :authenticate_user!
-
   layout :layout
 
   def index
