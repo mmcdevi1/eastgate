@@ -17,8 +17,9 @@ class CareerApplicationsController < ApplicationController
       flash[:success] = 'Your application has been submitted.'
       # AppMailer.notify_on_new_application(@new_application).deliver
     else
-      render :new
-      flash[:danger] = 'All fields required.'
+      redirect_to job_posting_path(@job_posting)
+      # render 'job_postings/show'
+      flash[:danger] = 'First name, Last name, and Email fields required.'
     end
   end
 
