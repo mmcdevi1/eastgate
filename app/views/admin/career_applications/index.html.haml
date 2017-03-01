@@ -1,14 +1,12 @@
 %section
   %h4 Applications
 .table-wrap
-  .table-wrap-header
   %table.table
     %thead
       %tr
         %th Name
         %th Email
         %th Phone
-        %th Cover Letter
         %th Resume
     %tbody
       - @applications.each do |application|
@@ -16,5 +14,4 @@
           %td= link_to application.full_name, admin_career_application_path(application)
           %td= application.email
           %td= application.phone
-          %td= link_to application.cover_letter_file_name, application.cover_letter.url
           %td= link_to application.resume_file_name, application.resume.url

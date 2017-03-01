@@ -1,17 +1,17 @@
 %header#header.app-header.navbar{:role => "menu"}
-  .navbar-header.bg-dark.lter
-    %button.pull-right.visible-xs.dk{:target => ".navbar-collapse", "ui-toggle-class" => "show"}
-      %i.glyphicon.glyphicon-cog
-    %button.pull-right.visible-xs{:target => ".app-aside", "ui-scroll" => "app", "ui-toggle-class" => "off-screen"}
-      %i.glyphicon.glyphicon-align-justify
-    / brand
-    %a.navbar-brand.text-lt{:href => "#/"}
-      %span.hidden-folded.m-l-xs
-    / / brand
+  / .navbar-header.bg-dark.lter
+  /   %button.pull-right.visible-xs.dk{:target => ".navbar-collapse", "ui-toggle-class" => "show"}
+  /     %i.glyphicon.glyphicon-cog
+  /   %button.pull-right.visible-xs{:target => ".app-aside", "ui-scroll" => "app", "ui-toggle-class" => "off-screen"}
+  /     %i.glyphicon.glyphicon-align-justify
+  /   / brand
+  /   %a.navbar-brand.text-lt{:href => "#/"}
+  /     %span.hidden-folded.m-l-xs
+  /   / / brand
   .collapse.pos-rlt.navbar-collapse.bg-white-only
     %ul.nav.navbar-nav
-      / = link_to '#', class: 'navbar-brand text-lt' do
-      /   = image_tag('logo-icon.png')
+      %li
+        = link_to 'Back to Dashboard', root_path
     %ul.nav.navbar-nav.navbar-right
       %li.dropdown
         %a.dropdown-toggle.clear{"data-toggle" => "dropdown", :href => "#"}
