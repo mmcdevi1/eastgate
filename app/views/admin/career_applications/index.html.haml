@@ -20,11 +20,11 @@
           %td.email= applicant.email
           %td= applicant.phone
           %td
-            = link_to applicant.resume.url do
-              - unless applicant.resume_file_name.blank?
-                %i{ :class => "i i-file-#{icon_for_document(applicant)}" }
-              - else
-                No Resume
+            - unless applicant.resume_file_name.blank?
+              / %i{ :class => "i i-file-#{icon_for_document(applicant)}" }
+              = link_to 'View Resume', applicant.resume.url
+            - else
+              No Resume
           %td= time_ago_in_words applicant.created_at
           %td= link_to 'Delete', '', data: { target: "#application_#{applicant.id}", toggle: 'modal' }
           .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "application_#{applicant.id}", :role => "dialog", :tabindex => "-1"}
