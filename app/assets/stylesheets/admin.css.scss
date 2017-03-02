@@ -1,4 +1,11 @@
 @import "summernote";
+@font-face{
+    font-family:'avenirlt-roman';
+    src:font-url('avenirlt-roman.eot');
+    src:font-url('avenirlt-roman.eot?#iefix') format("embedded-opentype"),
+        font-url('avenirlt-roman.woff') format("woff"),
+        font-url('avenirlt-roman.ttf') format("truetype")
+}
 .note-editor.note-frame {
     border: 2px solid #DEE2E4;
 }
@@ -8,7 +15,7 @@
 }
 .admin {
   background: #f7f9fa;
-  font-family: 'proxima-nova', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'avenirlt-roman', "Helvetica Neue", Helvetica, Arial, sans-serif;
   .navbar {
     border-bottom:none !important;
   }
@@ -36,16 +43,19 @@
 }
 .table > tbody > tr {
   background: #fff;
-  border:1px solid #dde3e8;
+/*  border:1px solid #dde3e8;*/
+}
+.table > thead > tr > th {
+  border-bottom: 2px solid #dde3e8;
 }
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
   padding: 10px;
   border-top: none;
   font-size: 13px;
+  border-bottom:1px solid #dde3e8;
   &:first-child {
     width:270px;
-    font-weight: 700;
     color: #333;
   }
 }
@@ -53,6 +63,7 @@
   margin-bottom: 0px;
 }
 .table-wrap {
+  background: #fff;
   .table-wrap-header {
     padding:10px;
   }

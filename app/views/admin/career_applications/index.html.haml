@@ -1,23 +1,33 @@
 %section
   %h4 Applications
-.table-wrap
+.table-wrap.wrapper-md
   %table.table
     %thead
       %tr
-        %th Name
+        %th Last Name
+        %th First Name
         %th Email
         %th Phone
         %th Resume
+        %th Received
         %th Actions
-    %tbody
-      - @applications.each do |application|
+        %th Icon
+    %tbody.applicants
+      - @applications.each do |applicant|
         %tr
-          %td= link_to application.full_name, admin_career_application_path(application)
-          %td= application.email
-          %td= application.phone
-          %td= link_to application.resume_file_name, application.resume.url
-          %td= link_to 'Delete', '', data: { target: "#application_#{application.id}", toggle: 'modal' }
-          .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "application_#{application.id}", :role => "dialog", :tabindex => "-1"}
+          %td.last_name= applicant.last_name
+          %td.first_name= applicant.first_name
+          %td.email= applicant.email
+          %td= applicant.phone
+          %td
+            = link_to applicant.resume.url do
+              - unless applicant.resume_file_name.blank?
+                %i{ :class => "i i-file-#{icon_for_document(applicant)}" }
+              - else
+                No Resume
+          %td= time_ago_in_words applicant.created_at
+          %td= link_to 'Delete', '', data: { target: "#application_#{applicant.id}", toggle: 'modal' }
+          .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "application_#{applicant.id}", :role => "dialog", :tabindex => "-1"}
             .modal-dialog
               .modal-content
                 .modal-header
@@ -27,4 +37,7 @@
                   Once this applicant is deleted, they are gone forever!
                 .modal-footer
                   %button.btn.btn-link{"data-dismiss" => "modal", :type => "button"} Close
-                  = link_to "Delete", admin_career_application_path(application), method: :delete, class: "btn btn-danger"
+                  = link_to "Delete", admin_career_application_path(applicant), method: :delete, class: "btn btn-danger"
+          %td
+            %i.fa.fa-ellipsis-h
+
