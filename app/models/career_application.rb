@@ -39,4 +39,28 @@ class CareerApplication < ActiveRecord::Base
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
+
+  def file_name
+    resume_file_name
+  end
+
+  def extname
+    # file_name.split('.').last
+    File.extname( file_name )
+  end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
