@@ -2,7 +2,7 @@ class CareerApplicationsController < ApplicationController
   layout :layout
 
   def index
-    @job_categories = JobCategory.all
+    @job_categories = JobCategory.published
   end
 
   def new

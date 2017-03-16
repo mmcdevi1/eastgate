@@ -4,7 +4,7 @@
     - @job_categories.each do |category|
       %div
         %h3= category.title
-        - category.job_postings.each do |job|
+        - category.job_postings.published.each do |job|
           = link_to job.title, job_posting_path(job)
           .text-muted= job.location
   - else
