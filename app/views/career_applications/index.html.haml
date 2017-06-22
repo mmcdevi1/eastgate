@@ -1,6 +1,6 @@
 #current_openings.center
   %h2 Current Openings
-  - if JobPosting.count > 0
+  - if JobPosting.published.count > 0
     - @job_categories.each do |category|
       %div
         %h3= category.title
