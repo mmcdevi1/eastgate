@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
-	layout :layout
+	before_action :authenticate_user!
+  layout :layout
 
   def index
   end
