@@ -1,4 +1,5 @@
 class CareerApplicationsController < ApplicationController
+  before_action :redirect_to_login_path
   layout :layout
 
   def index
@@ -39,6 +40,12 @@ class CareerApplicationsController < ApplicationController
 
   def layout
     'career_applications'
+  end
+
+  def redirect_to_login_path
+    unless current_user
+      redirect_to login_path
+    end
   end
 
 end
