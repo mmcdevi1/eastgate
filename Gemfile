@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'bootstrap-sass'
 gem 'coffee-rails'
-gem 'rails', '4.1.5'
+gem 'rails', '4.2.8'
 gem 'haml-rails'
 gem 'sass-rails'
 gem 'uglifier'
