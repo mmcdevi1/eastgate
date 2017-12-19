@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_action :redirect_to_login_path, except: :index
+
 	layout :layout
 
   def index
