@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     elsif current_user.broker?
       asset_folders_path(current_user.assets.first)
     else
-      assets_path
+      root_path
     end
   end
 end

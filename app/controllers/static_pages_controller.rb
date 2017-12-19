@@ -1,14 +1,14 @@
 class StaticPagesController < ApplicationController
+  before_action :redirect_to_login_path, except: :index
 	layout :layout
 
   def index
   end
 
   def about
-    redirect_to login_path
     @executive_teams = ExecutiveTeam.is_member
     @executive_team_header = ExecutiveTeam.where(is_member: false).first
-    #render layout: "about"
+    render layout: "about"
   end
 
   def career
@@ -18,5 +18,11 @@ class StaticPagesController < ApplicationController
   private
   def layout
   	"static_pages"
+  end
+
+  def redirect_to_login_path
+    unless current_user
+      redirect_to login_path
+    end
   end
 end
