@@ -1,8 +1,10 @@
 class ApplicationController < ActionController::Base
-  lock :actions => ['static_pages#about']
   include DeviseHelper
 
   protect_from_forgery with: :exception
+
+  helper_method :logged_in?
+  helper_method :do_logout
 
   # User is redirected to users dashboard after sign in
   def after_sign_in_path_for(resource)
@@ -22,7 +24,7 @@ class ApplicationController < ActionController::Base
   private
   def authenticate
     login = authenticate_or_request_with_http_basic do |username, password|
-      username == 'username' && password == 'password'
+      username == 'guest' && password == 'monk2015'
     end
     session[:login] = login
   end

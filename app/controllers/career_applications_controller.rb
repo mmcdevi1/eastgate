@@ -1,5 +1,5 @@
 class CareerApplicationsController < ApplicationController
-  before_action :redirect_to_login_path
+  before_action :authenticate
   layout :layout
 
   def index
