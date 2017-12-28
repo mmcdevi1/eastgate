@@ -24,8 +24,7 @@
   }
   .navbar-collapse {
     /*margin-left:240px;*/
-    border-bottom: 1px solid #c4d1dc;
-    box-shadow: 0px 0px 3px rgba(0,0,0,0.1);
+
   }
   .nav-sm-title {
     padding-left: 6px;
@@ -74,3 +73,64 @@
 .breadcrumbs {
   font-weight: 700;
 }
+
+.admin-icon {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 30px;
+  text-align: center;
+
+  &:hover {background: #e2e2e2;}
+}
+
+.admin-links {
+  a {
+
+  }
+}
+
+.test-icon {
+  display: inline-block;
+  max-width: 130px;
+
+  position: relative;
+  vertical-align: tops;
+  width: 130px;
+
+
+
+  h6 {
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  p {
+    font-size:13px;
+    margin: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

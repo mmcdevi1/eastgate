@@ -6,4 +6,5 @@
       = render 'layouts/admin/header'
       = render 'shared/flash'
       #content.app-content{:role => "main"}
-        = yield
+        .app-content-body
+          = yield
