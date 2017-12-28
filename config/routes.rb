@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    get '/', to: 'assets#index'
+    get '/', to: 'admins#index'
     get '/file-manager', to: 'assets#file_manager', as: :file_manager
 
     resources :assets do

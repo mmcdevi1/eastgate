@@ -3,6 +3,10 @@ class AdminsController < ApplicationController
   before_action :authenticate_admin
   layout :admin_layout
 
+  def index
+
+  end
+
   private
 
   def admin_layout

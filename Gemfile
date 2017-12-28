@@ -19,7 +19,7 @@ gem 'breadcrumbs_on_rails'
 gem 'redcarpet'
 gem 'friendly_id'
 gem 'draper'
-gem 'aws-sdk'
+gem 'aws-sdk', "< 2.0"
 gem 'aws-s3'
 gem 'acts_as_tree'
 gem 'zipruby'
