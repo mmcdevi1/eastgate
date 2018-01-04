@@ -1,4 +1,13 @@
 module StatesHelper
+  def state_select
+    if (params[:action] == "edit" && params[:controller] == "assets")
+      @deal = Asset.find(params[:id])
+      return @deal.state
+    else
+      return "Select State"
+    end
+  end
+
   def us_states
     [
       ['Alabama', 'AL'],

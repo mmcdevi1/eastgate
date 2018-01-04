@@ -2,7 +2,7 @@ module PropertyTypeHelper
 
   def property_type_for_form(asset)
     if params[:action] == 'edit'
-      PropertyType.title(asset)
+      asset.property_type ? PropertyType.title(asset) : 'Select'
     elsif params[:action] == 'new'
       'Select Property Type'
     end
@@ -10,7 +10,7 @@ module PropertyTypeHelper
 
   def property_class_for_form(asset)
     if params[:action] == 'edit'
-      PropertyClass.title(asset)
+      asset.property_class ? PropertyClass.title(asset) : 'Select'
     elsif params[:action] == 'new'
       'Select Property Class'
     end

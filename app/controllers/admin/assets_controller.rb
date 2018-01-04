@@ -2,6 +2,8 @@ module Admin
   class AssetsController < AdminsController
     before_action :set_asset, only: [:show, :edit, :update, :destroy]
 
+    layout :deal_layout
+
     def index
       @clients = Client.all
       @assets = Asset.all
@@ -70,5 +72,38 @@ module Admin
         )
     end
 
+    def deal_layout
+      if params[:action] == "new"
+        "deals_new"
+      end
+    end
+
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

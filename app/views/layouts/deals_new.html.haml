@@ -1,0 +1,12 @@
+!!!
+%html
+  = render 'layouts/admin/head'
+  %body.admin
+    = render 'shared/flash'
+    #app.app
+      #content.app-content.container
+        #content-main.content-main
+          .padding
+            = yield
+
+
