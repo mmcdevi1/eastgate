@@ -11,9 +11,9 @@
  * file per style scope.
  *
  *= require icon
+ *= require bootstrap_override
  *= require app
  *= require hatch
- *= require bootstrap_override
  *= require assets
  *= require financial
  *= require row-equal-height

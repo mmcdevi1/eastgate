@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   # User is redirected to users dashboard after sign in
   def after_sign_in_path_for(resource)
     if current_user.admin?
-      admin_path
+      admin_root_path
     elsif current_user.broker?
       asset_folders_path(current_user.assets.first)
     else

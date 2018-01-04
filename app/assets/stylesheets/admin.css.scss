@@ -14,18 +14,12 @@
   border-bottom: 2px solid #DEE2E4;
 }
 .admin {
-  background: #f7f9fa;
-  font-family: 'avenirlt-roman', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #fff;
+  /*font-family: 'avenirlt-roman', "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   .navbar {
-    border-bottom:none !important;
+    /*border-bottom: 1px solid #e9ebf0 !important;*/
   }
-  .app-content {
-    margin: 0;
-  }
-  .navbar-collapse {
-    /*margin-left:240px;*/
 
-  }
   .nav-sm-title {
     padding-left: 6px;
     text-transform:uppercase;

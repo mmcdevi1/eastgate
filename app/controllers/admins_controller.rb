@@ -20,8 +20,10 @@ class AdminsController < ApplicationController
       'careers_applications'
     elsif params[:controller] == 'admin/job_postings'
       'careers_applications'
+    elsif params[:controller] == 'admin/dashboards'
+      'investors'
     else
-      'admin'
+      'investors'
     end
   end
 

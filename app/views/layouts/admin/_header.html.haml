@@ -1,38 +1,145 @@
-%header#header.app-header.navbar{:role => "menu"}
-  / .navbar-header.bg-dark.lter
-  /   %button.pull-right.visible-xs.dk{:target => ".navbar-collapse", "ui-toggle-class" => "show"}
-  /     %i.glyphicon.glyphicon-cog
-  /   %button.pull-right.visible-xs{:target => ".app-aside", "ui-scroll" => "app", "ui-toggle-class" => "off-screen"}
-  /     %i.glyphicon.glyphicon-align-justify
-  /   / brand
-  /   %a.navbar-brand.text-lt{:href => "#/"}
-  /     %span.hidden-folded.m-l-xs
-  /   / / brand
-  .collapse.pos-rlt.navbar-collapse.bg-info
-    / %ul.nav.navbar-nav
-    /   %li
-    /     = link_to 'Back to Dashboard', admin_assets_path
-    %ul.nav.navbar-nav.navbar-right
-      %li.dropdown
-        %a.dropdown-toggle.clear{"data-toggle" => "dropdown", :href => "#"}
-          %span.thumb-sm.avatar.pull-right.m-t-n-sm.m-b-n-sm.m-l-sm
-            = image_tag('a5.jpg')
-            %i.on.md.b-white.bottom
-          %span.hidden-sm.hidden-md
-          = current_user.full_name
-          %i.i.i-arrow-down5
+#content-header.content-header.white
+  .navbar.navbar-expand-lg.b-b
+    / btn to toggle sidenav on small screen
+    %a.d-lg-none.mx-2{"data-target" => "#aside", "data-toggle" => "modal"}
+      %svg{:height => "24", :viewbox => "0 0 512 512", :width => "24", :xmlns => "http://www.w3.org/2000/svg"}
+        %path{:d => "M80 304h352v16H80zM80 248h352v16H80zM80 192h352v16H80z"}
+    / Page title
+    %ul.nav.flex-row.order-lg-2
+      / Notification
+      %li.nav-item.dropdown.notification-dropdown
+        %a.nav-link.px-3{"data-toggle" => "dropdown"}
+          %i.fa.fa-bell.text-muted
+          %span.badge.badge-pill.up.danger 12
         / dropdown
-        %ul.dropdown-menu.animated.fadeInRight.w
-          %li
-            %a{:href => ""}
-              %span.badge.bg-danger.pull-right 30%
-              %span Settings
-          %li
-            %a{"ui-sref" => "app.page.profile"} Profile
-          %li
-            %a{"ui-sref" => "app.docs"}
-              %span.label.bg-info.pull-right new
-              Help
-          %li.divider
-          %li
-            = link_to "Logout", logout_path
+        .dropdown-menu.dropdown-menu-right.w-md.animate.fadeIn.mt-2.p-0
+          .scrollable.hover{:style => "max-height: 250px"}
+            .list
+              .list-item{"data-id" => "item-12"}
+                %span.w-24.avatar.circle.green
+                  %span.fa.fa-dot-circle-o
+                .list-body
+                  %a.item-title._500{:href => ""} Ashton Cox
+                  .item-except.text-sm.text-muted.h-1x
+                    Looking for some client-work
+                  .item-tag.tag.hide
+                %div
+                  %span.item-date.text-xs.text-muted 11:30
+              .list-item{"data-id" => "item-15"}
+                %span.w-24.avatar.circle.indigo
+                  %span.fa.fa-facebook
+                .list-body
+                  %a.item-title._500{:href => ""} Garrett Winters
+                  .item-except.text-sm.text-muted.h-1x
+                    Looking for some client-work
+                  .item-tag.tag.hide
+                %div
+                  %span.item-date.text-xs.text-muted 13:00
+              .list-item{"data-id" => "item-9"}
+                %span.w-24.avatar.circle.cyan
+                  %span.fa.fa-puzzle-piece
+                .list-body
+                  %a.item-title._500{:href => ""} Pablo Nouvelle
+                  .item-except.text-sm.text-muted.h-1x
+                    It's been a Javascript kind of day
+                  .item-tag.tag.hide
+                %div
+                  %span.item-date.text-xs.text-muted 15:00
+              .list-item{"data-id" => "item-4"}
+                %span.w-24.avatar.circle.pink
+                  %span.fa.fa-male
+                .list-body
+                  %a.item-title._500{:href => ""} Judith Garcia
+                  .item-except.text-sm.text-muted.h-1x
+                    Eddel upload a media
+                  .item-tag.tag.hide
+                %div
+                  %span.item-date.text-xs.text-muted 12:05
+              .list-item{"data-id" => "item-1"}
+                %span.w-24.avatar.circle.grey
+                  %span.fa.fa-comment
+                .list-body
+                  %a.item-title._500{:href => ""} Summerella
+                  .item-except.text-sm.text-muted.h-1x
+                    Send you a message
+                  .item-tag.tag.hide
+                %div
+                  %span.item-date.text-xs.text-muted July 21
+              .list-item{"data-id" => "item-10"}
+                %span.w-24.avatar.circle.blue
+                  %span.fa.fa-google
+                .list-body
+                  %a.item-title._500{:href => ""} Postiljonen
+                  .item-except.text-sm.text-muted.h-1x
+                    Looking for some client-work
+                  .item-tag.tag.hide
+                %div
+                  %span.item-date.text-xs.text-muted 08:00
+          .d-flex.px-3.py-2.b-t
+            .flex
+              %span 6 Notifications
+            %a{:href => "setting.html"}
+              See all
+              %i.fa.fa-angle-right.text-muted
+        / / dropdown
+      / User dropdown menu
+      %li.dropdown.d-flex.align-items-center.user-dropdown
+        %a.d-flex.align-items-center{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#"}
+          %span.dropdown-toggle.mx-2.d-none.l-h-1x.d-lg-block
+            %span
+              = current_user.full_name
+        .dropdown-menu.dropdown-menu-right.w.pt-0.mt-2.animate.fadeIn
+          .row.no-gutters.b-b.mb-2
+            .col-4.b-r
+              %a.py-2.pt-3.d-block.text-center{:href => "app.user.html"}
+                %i.fa.text-md.fa-phone-square.text-muted
+                %small.d-block Call
+            .col-4.b-r
+              %a.py-2.pt-3.d-block.text-center{:href => "app.message.html"}
+                %i.fa.text-md.fa-comment.text-muted
+                %small.d-block Chat
+            .col-4
+              %a.py-2.pt-3.d-block.text-center{:href => "app.inbox.html"}
+                %i.fa.text-md.fa-envelope.text-muted
+                %small.d-block Email
+          %a.dropdown-item{:href => "profile.html"}
+            %span Profile
+          %a.dropdown-item{:href => "setting.html"}
+            %span Settings
+          %a.dropdown-item{:href => "app.inbox.html"}
+            %span.float-right
+              %span.badge.info 6
+            %span Inbox
+          %a.dropdown-item{:href => "app.message.html"}
+            %span Message
+          .dropdown-divider
+          %a.dropdown-item{:href => "docs.html"}
+            Need help?
+          %a.dropdown-item{:href => "signin.html"} Sign out
+    #navbarToggler.collapse.navbar-collapse.order-lg-1
+      %ul.navbar-nav.mt-2.mt-lg-0.mx-0.mx-lg-2
+        %li.d-flex.align-items-center
+          %a.btn.btn-sm.white.btn-theme.d-none.d-lg-block{:href => "#"}
+            Dashboard
+        %li.nav-item.dropdown
+          %a.nav-link.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            + Add
+          .dropdown-menu.mt-2.text-color{:role => "menu"}
+            %a.dropdown-item
+              %i.fa.fa-tag
+              New Deal
+            %a.dropdown-item
+              %i.fa.fa-pencil
+              New Investor
+            %a.dropdown-item
+              %i.fa.fa-reply
+              Something else here
+            .dropdown-divider
+            %a.dropdown-item
+              %i.fa.fa-ellipsis-h
+              Separated link
+      / Navarbar toggle btn
+      %li.d-lg-none.d-flex.align-items-center
+        %a.mx-2{"data-target" => "#navbarToggler", "data-toggle" => "collapse", :href => "#"}
+          %svg{:height => "18", :viewbox => "0 0 512 512", :width => "18", :xmlns => "http://www.w3.org/2000/svg"}
+            %path{:d => "M64 144h384v32H64zM64 240h384v32H64zM64 336h384v32H64z"}

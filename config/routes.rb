@@ -24,23 +24,30 @@ Rails.application.routes.draw do
     root to: 'dashboards#index'
     get '/file-manager', to: 'assets#file_manager', as: :file_manager
 
-    resources :assets do
-      get '/folders/:folder_id/new', to: 'folders#new', as: :new_sub_folder
-      get '/documents/get/:id', to: 'documents#get', as: :download
-      resources :folders do
-        resources :documents
+    scope :pipeline do
+      # root to: 'dashboards#index'
+      resources :assets do
+        get '/folders/:folder_id/new', to: 'folders#new', as: :new_sub_folder
+        get '/documents/get/:id', to: 'documents#get', as: :download
+        resources :folders do
+          resources :documents
+        end
       end
+
+      get '/users/admins', to: 'users#admins'
+      post '/users/new' => 'users#create', as: :create_user_post
+      get '/users/new', to: 'users#new', as: :create_user
+      get '/users', to: 'users#index'
+      get '/users/:id', to: 'users#show', as: :user
     end
 
     resources :clients
     resources :timelines
     resources :approvals
 
-    get '/users/admins', to: 'users#admins'
-    post '/users/new' => 'users#create', as: :create_user_post
-    get '/users/new', to: 'users#new', as: :create_user
-    get '/users', to: 'users#index'
-    get '/users/:id', to: 'users#show', as: :user
+
+
+
 
     resources :users, only: [:destroy, :edit]
 

@@ -1,0 +1,14 @@
+!!!
+%html
+  = render 'layouts/admin/head'
+  %body.admin
+    = render 'shared/flash'
+    #app.app
+      = render 'layouts/admin/aside_for_investors'
+      #content.app-content.box-shadow-4.box-radius-4{role: 'main'}
+        = render 'layouts/admin/header'
+        #content-main.content-main
+        .padding
+          = yield
+
+

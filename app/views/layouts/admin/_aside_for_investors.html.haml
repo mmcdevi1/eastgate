@@ -1,0 +1,87 @@
+#aside.app-aside.fade.nav-expand.light.b-r{"aria-hidden" => "true"}
+  .sidenav.modal-dialog.dk
+    / sidenav top
+    .navbar.lt.b-b
+      / brand
+      %a.navbar-brand{:href => "../index.html"}
+        %svg{:height => "28", :viewbox => "0 0 24 24", :width => "28", :xmlns => "http://www.w3.org/2000/svg"}
+          %path{:d => "M0 0h24v24H0z", :fill => "none"}
+          %path.fill-theme{:d => "M19.51 3.08L3.08 19.51c.09.34.27.65.51.9.25.24.56.42.9.51L20.93 4.49c-.19-.69-.73-1.23-1.42-1.41zM11.88 3L3 11.88v2.83L14.71 3h-2.83zM5 3c-1.1 0-2 .9-2 2v2l4-4H5zm14 18c.55 0 1.05-.22 1.41-.59.37-.36.59-.86.59-1.41v-2l-4 4h2zm-9.71 0h2.83L21 12.12V9.29L9.29 21z", :fill => "#fff"}
+        %img.hide{:alt => ".", :src => "../assets/images/logo.png"}/
+        %span.hidden-folded.d-inline Thelius
+      / / brand
+    / Flex nav content
+    .flex.hide-scroll
+      .scroll
+        .nav-border{"data-nav" => ""}
+          %ul.nav.bg
+            %li.nav-header
+              .py-3
+                %a.btn.btn-sm.success.theme-accent.btn-block{:href => "#"}
+                  %i.fa.fa-fw.fa-plus
+                  %span.hidden-folded.d-inline Add Deal
+              %span.text-xs.hidden-folded Main
+            %li
+              %a{:href => "dashboard.3.html"}
+                %span.nav-icon
+                  %i.fa.fa-dashboard
+                %span.nav-text Dashboard
+            %li
+              %a{:href => "app.inbox.html"}
+                %span.nav-badge
+                  %b.badge.badge-sm.badge-pill.success 6
+                %span.nav-icon
+                  %i.fa.fa-envelope
+                %span.nav-text Deals
+            %li
+              %a{:href => "app.message.html"}
+                %span.nav-icon
+                  %i.fa.fa-comment
+                %span.nav-text Investors
+            %li
+              %a{:href => "app.user.html"}
+                %span.nav-icon
+                  %i.fa.fa-phone-square
+                %span.nav-text Users
+            %li.pb-2.hidden-folded
+    / sidenav bottom
+    .no-shrink.lt
+      .nav-fold
+        %a.d-flex.p-2-3{"data-toggle" => "dropdown"}
+          %span.avatar.w-28.grey.hide J
+          %img.w-28.circle{:alt => "...", :src => "../assets/images/a0.jpg"}/
+        .dropdown-menu.w.pt-0.mt-2.animate.fadeIn
+          .row.no-gutters.b-b.mb-2
+            .col-4.b-r
+              %a.py-2.pt-3.d-block.text-center{:href => "app.user.html"}
+                %i.fa.text-md.fa-phone-square.text-muted
+                %small.d-block Call
+            .col-4.b-r
+              %a.py-2.pt-3.d-block.text-center{:href => "app.message.html"}
+                %i.fa.text-md.fa-comment.text-muted
+                %small.d-block Chat
+            .col-4
+              %a.py-2.pt-3.d-block.text-center{:href => "app.inbox.html"}
+                %i.fa.text-md.fa-envelope.text-muted
+                %small.d-block Email
+          %a.dropdown-item{:href => "profile.html"}
+            %span Profile
+          %a.dropdown-item{:href => "setting.html"}
+            %span Settings
+          %a.dropdown-item{:href => "app.inbox.html"}
+            %span.float-right
+              %span.badge.info 6
+            %span Inbox
+          %a.dropdown-item{:href => "app.message.html"}
+            %span Message
+          .dropdown-divider
+          %a.dropdown-item{:href => "docs.html"}
+            Need help?
+          %a.dropdown-item{:href => "signin.html"} Sign out
+        .hidden-folded.flex.p-2-3.bg
+          .d-flex.p-1
+            %a.flex.text-nowrap{:href => "app.inbox.html"}
+              %i.fa.fa-bell.text-muted.mr-1
+              %span.badge.badge-pill.theme 20
+            %a.px-2{"data-toggle" => "tooltip", :href => "lockme.html", :title => "Logout"}
+              %i.fa.fa-power-off.text-muted
