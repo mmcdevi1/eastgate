@@ -21,6 +21,7 @@
 //= require smooth-scroll
 //= require summernote
 //= require turbolinks
+//= require select2.min
 //= require lazyload.config
 //= require lazyload
 //= require plugin

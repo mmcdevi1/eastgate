@@ -1,33 +1,95 @@
-.text-center
-  %h5
-    New Deal
-  %p
-  Lorem ipsum dolor sit amet
-.row
-  .col-sm-12
-    = form_for [:admin, @asset], html: {class: 'form-horizontal'} do |f|
-      .form-group
-        .row
-          = f.label :name, class: 'col-lg-2 control-label'
-        .row
-          .col-lg-12
-            = f.text_field :name, class: 'form-control'
-      .form-group
-        .row
-          = f.label :address, class: 'col-lg-2 control-label'
-        .row
-          .col-lg-12
-            = f.text_field :address, class: 'form-control'
-      .form-group
-        = f.label :state, "State"
-        .btn-group.m-r
-          %button.btn.btn-default.dropdown-toggle.no-text-shadow{"data-toggle" => "dropdown"}
-            %span.dropdown-label{"data-placeholder" => "Please select"}= state_select
-            %span.caret{:style => "margin-left:30px;"}
-          %ul.dropdown-menu.dropdown-select.max-height-400
-            - us_states.each do |state|
-              %li
-                %a{:href => "#"}
-                  = f.radio_button :state, state.first
-                  = state.first
-      = f.submit 'Save', class: 'btn btn-info btn-fixed btn-lg'
+.box
+  = form_for [:admin, @asset], html: {class: 'form-horizontal'} do |f|
+    .row
+      .col-md-8.m-md-auto
+        .row.padding
+          .col-md-12
+            .text-center
+              %h6._600.m-v-lg New Deal
+            %p.text-center
+              Please add in the basic information for your deal.
+        %h6._600.m-v-lg Basic Information
+        .mb-2-lg.row
+          .col-sm-12
+            .row.row-sm
+              .col-sm-6
+                .md-form-group
+                  = f.text_field :name, class: 'md-input'
+                  = f.label :name, 'Deal Name'
+              .col-sm-6
+                .md-form-group
+                  = f.text_field :address, class: 'md-input'
+                  = f.label :address
+              .col-sm-4
+                .md-form-group
+                  = f.text_field :city, class: 'md-input'
+                  = f.label :city
+              .col-sm-4
+                .md-form-group
+                  = f.text_field :state, class: 'md-input'
+                  = f.label :state
+              .col-sm-4
+                .md-form-group
+                  = f.text_field :zipcode, class: 'md-input'
+                  = f.label :zipcode, 'Zip Code'
+              .col-sm-12
+                .text-right
+                  = link_to url_for(:back), class: 'btn btn-fw white', style: 'margin-right: 5px;' do
+                    Cancel
+                  = f.submit 'Save', class: 'btn btn-fw primary'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
