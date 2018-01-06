@@ -2,13 +2,13 @@
   .row.text-center
     .col-lg-3
       .panel.padder-v.item
-        .h1.text-info.font-thin.h1= @asset.need_approvals_count
+        .h1.text-info.font-thin.h1 50
         %span.text-muted.text-xs.uppercase.bold Items for Approval
         .top.text-right.w-full
           %i.fa.fa-caret-down.text-warning.m-r-sm
     .col-lg-3
       .panel.padder-v.item
-        .h1.text-success.font-thin.h1= @asset.approved_count
+        .h1.text-success.font-thin.h1 50
         %span.text-muted.text-xs.uppercase.bold Items Approved
         .top.text-right.w-full
           %i.fa.fa-caret-down.text-warning.m-r-sm
@@ -19,33 +19,3 @@
             / - unless @asset.budget.blank?
             /   %span= @asset.budget_amount
           %span.text-muted.text-xs.uppercase.bold Expenses to date, 60% of the budget
-  - if @asset.any_approvals?
-    .row
-      .col-lg-12
-        .panel
-          .panel-body
-            .row
-              .col-lg-6
-                %span.bold Latest Item for Approval:
-                = @asset.last_approval_item
-              .col-lg-6
-                .pull-right
-                  = link_to 'View Approvals', asset_approvals_path(@asset)
-  - if @asset.any_approvals_approved?
-    .row
-      .col-lg-12
-        .table-wrap-lg
-          .table-wrap-header
-            Most Recent Approvals
-          %table.table.table-striped
-            %thead
-              %tr
-                %th Approved Item
-                %th Approved By
-                %th Approved On
-            %tbody
-              - @asset.approvals.approved.all.each do |approval|
-                %tr
-                  %td.title= approval.shorten_title
-                  %td.approved-by Michael Jenkins
-                  %td.date= approval.date_approved

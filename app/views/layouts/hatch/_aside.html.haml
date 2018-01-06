@@ -6,7 +6,8 @@
       %p
         = @asset.name
         %span
-          = @asset.client.name
+          - if @asset.client
+            = @asset.client.name
     .navi-wrap
       / nav
       %nav.navi.clearfix{:style => "padding:20px", "ui-nav" => ""}

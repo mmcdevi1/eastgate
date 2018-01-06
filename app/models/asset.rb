@@ -3,15 +3,12 @@ class Asset < ActiveRecord::Base
   include ActionView::Helpers::NumberHelper
   include ActionView::Helpers::TextHelper
 
-  has_many :approvals,      :dependent => :destroy
-  has_many :business_plans, :dependent => :destroy
   has_many :timelines,      :dependent => :destroy
   has_many :folders,        :dependent => :destroy
 
   has_many :users, through: :brokers
   has_many :brokers
 
-  has_one  :budget, :dependent => :destroy
 
   belongs_to :client
 
@@ -62,30 +59,6 @@ class Asset < ActiveRecord::Base
 
   def size_to_delimeter
     number_with_delimiter self.size, delimeter: ','
-  end
-
-  def need_approvals_count
-    self.approvals.not_approved.count
-  end
-
-  def approved_count
-    self.approvals.approved.count
-  end
-
-  def last_approval_item
-    self.approvals.not_approved.last.title
-  end
-
-  def first_approval_item
-    self.approvals.approved.first.title
-  end
-
-  def any_approvals?
-    self.approvals.not_approved.any?
-  end
-
-  def any_approvals_approved?
-    self.approvals.approved.any?
   end
 
   def budget_amount
