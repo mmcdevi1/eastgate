@@ -21,6 +21,16 @@
           = f.radio_button :broker, false
           = "No"
   .form-group
+    = f.label :is_investor, 'Investor', class: 'col-lg-2 control-label'
+    .col-lg-8
+      #category_group.btn-group{"data-toggle" => "buttons"}
+        %label{class: 'btn btn-lg btn-default'}
+          = f.radio_button :is_investor, true
+          = "Yes"
+        %label{class: 'btn btn-lg btn-default'}
+          = f.radio_button :is_investor, false
+          = "No"
+  .form-group
     = f.label :email, class: 'col-lg-2 control-label'
     .col-lg-8
       = f.email_field :email, class: 'form-control'

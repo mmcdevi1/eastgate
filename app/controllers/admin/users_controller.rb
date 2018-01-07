@@ -3,7 +3,7 @@ module Admin
     before_action :set_user, only: [:show, :edit, :destroy, :update]
 
     def index
-      @users = User.regular_users
+      @users = User.investor
     end
 
     def show
@@ -54,7 +54,7 @@ module Admin
 
     def user_params
       params.require(:user).permit(
-          :email, :password, :password_confirmation, :username, :first_name, :job_title, :last_name, :client_id, :admin, :broker
+          :email, :password, :password_confirmation, :username, :first_name, :job_title, :last_name, :client_id, :admin, :broker, :is_investor
         )
     end
 

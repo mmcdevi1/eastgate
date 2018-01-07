@@ -16,7 +16,7 @@ var MODULE_CONFIG = {
                       '../libs/list.js/dist/list.js',
                       '../libs/notie/dist/notie.min.js',
                       'scripts/plugins/notie.js',
-                      'scripts/app/user.js'
+                      'user.js'
                     ],
     screenfull:     [
                       '../libs/screenfull/dist/screenfull.js',

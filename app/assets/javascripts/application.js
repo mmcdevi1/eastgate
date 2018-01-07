@@ -30,4 +30,9 @@
 //= require toggleclass
 //= require ajax
 //= require app
+//= require list
+//= require notie.min
+//= require notie
+//= require user
+//= require screenful
 //= require_tree .

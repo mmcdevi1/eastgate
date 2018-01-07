@@ -1,48 +1,91 @@
-%section
-  %h4= users_index_title
-.table-wrap
-  .table-wrap-header
-    .clearfix
-      .pull-right
-        = link_to 'Add New User', admin_create_user_path, class: 'btn btn-info'
-  %table.table
-    %thead
-      %tr
-        %th Name
-        %th Main Contact
-        %th Email
-        %th Sign in Count
-        %th Last Signed in
-        %th Actions
-    %tbody
-      - @users.each do |user|
-        %tr
-          %td
-            = user.full_name
-          %td
-            - if user.client
-              = user.client.name
-            - else
-              East Gate
-          %td
-            = user.email
-          %td
-            = user.sign_in_count
-          %td
-            = user.last_sign_in_at
-          %td
-            = link_to "View", admin_user_path(user)
-            / = link_to "Edit", edit_admin_user_path(user)
-            %a{"data-target" => "#user_#{user.id}", "data-toggle" => "modal", :href => ""}
-              Delete
-            .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "user_#{user.id}", :role => "dialog", :tabindex => "-1"}
-              .modal-dialog
-                .modal-content
-                  .modal-header
-                    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-                    %h4#myModalLabel.modal-title Are you sure?
-                  .modal-body
-                    Once this user is deleted, they are gone forever!
-                  .modal-footer
-                    %button.btn.btn-link{"data-dismiss" => "modal", :type => "button"} Close
-                    = link_to "Delete", [:admin, user], method: :delete, class: "btn btn-danger"
+#content-main.content-main.d-flex.flex
+  / ############ Main START
+  .d-flex.flex{"data-plugin" => "user"}
+    #content-body.d-flex.flex
+      #user-list.d-flex.flex-column.flex
+        .navbar.white.no-radius.box-shadow.pos-rlt
+          %form.flex
+            .input-group
+              %input.form-control.form-control-sm.search{:placeholder => "Search", :required => "", :type => "text"}/
+              %span.input-group-btn
+                %button.btn.btn-default.btn-sm.no-shadow{:type => "button"}
+                  %i.fa.fa-search
+          %button.btn.btn-sm.white.ml-1.sort{"data-sort" => "item-title", "data-toggle" => "tooltip", :title => "Sort"}
+            %i.fa.fa-sort
+          %a.ml-1.d-md-none{"data-modal" => "", "data-target" => "#content-aside", "data-toggle" => "modal"}
+            %span.btn.btn-sm.btn-icon.primary
+              %i.fa.fa-th
+        .d-flex.flex.scroll-y
+          .d-flex.flex-column.flex.white.lt
+            .scroll-y
+              .list
+                - @users.each do |investor|
+                  .list-item{"data-id" => "item-6"}
+                    %span.w-40.avatar.circle.brown
+                      %i.on.b-white.avatar-right
+                      = investor.initials
+                    .list-body
+                      %a.item-title._500{:href => "app.user.detail.html#item-6"}= investor.full_name
+                      .item-except.text-sm.text-muted.h-1x
+                        = investor.email
+                      .item-tag.tag.hide
+                        Clients
+                    %div
+                      .item-action.dropdown
+                        %a.text-muted{"data-toggle" => "dropdown", :href => "#"}
+                          %i.fa.fa-fw.fa-ellipsis-v
+                        .dropdown-menu.dropdown-menu-right.text-color{:role => "menu"}
+                          %a.dropdown-item
+                            %i.fa.fa-tag
+                            Action
+                          %a.dropdown-item
+                            %i.fa.fa-pencil
+                            Another action
+                          %a.dropdown-item
+                            %i.fa.fa-reply
+                            Something else here
+                          .dropdown-divider
+                          %a.dropdown-item
+                            %i.fa.fa-ellipsis-h
+                            Separated link
+              .no-result.hide
+                .p-4.text-center
+                  No Results
+            .p-3.b-t.mt-auto
+              .d-flex.align-items-center
+                .flex
+                  .pagination.pagination-xs
+                %div
+                  %span.text-muted Total:
+                  %span#count
+          .d-flex.flex-column.b-l{:style => "width: 50px"}
+            .scrollable.hover
+              #filter.text-center.text-sm.py-3.d-flex.flex-column
+                %a{:href => "#"} A
+                %a{:href => "#"} B
+                %a{:href => "#"} C
+                %a{:href => "#"} D
+                %a{:href => "#"} E
+                %a{:href => "#"} F
+                %a{:href => "#"} G
+                %a{:href => "#"} H
+                %a{:href => "#"} I
+                %a{:href => "#"} J
+                %a{:href => "#"} K
+                %a{:href => "#"} L
+                %a{:href => "#"} M
+                %a{:href => "#"} N
+                %a{:href => "#"} O
+                %a{:href => "#"} P
+                %a{:href => "#"} Q
+                %a{:href => "#"} R
+                %a{:href => "#"} S
+                %a{:href => "#"} T
+                %a{:href => "#"} U
+                %a{:href => "#"} V
+                %a{:href => "#"} W
+                %a{:href => "#"} X
+                %a{:href => "#"} Y
+                %a{:href => "#"} Z
+  / ############ Main END
+

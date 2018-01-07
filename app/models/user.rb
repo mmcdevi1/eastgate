@@ -19,9 +19,14 @@ class User < ActiveRecord::Base
 
   scope :is_admin, ->      { where( admin: true ) }
   scope :regular_users, -> { where( admin: false ) }
+  scope :investor, ->      { where(is_investor: true) }
 
   def full_name
     "#{self.first_name} #{self.last_name}"
+  end
+
+  def initials
+    "#{self.first_name[0]}#{self.last_name[0]}"
   end
 
   def broker?
