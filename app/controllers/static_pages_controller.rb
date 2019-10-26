@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_action :authenticate, except: :index
+  # before_action :authenticate, except: :index
 	layout :layout
 
   def index
